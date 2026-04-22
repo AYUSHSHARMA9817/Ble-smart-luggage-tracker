@@ -213,6 +213,7 @@ async function handleApi(req, res) {
       user: serializeUser(auth.user),
       devices: db.devices.filter((entry) => entry.ownerUserId === auth.user.id),
       alerts: db.alerts.filter((entry) => entry.ownerUserId === auth.user.id).slice(0, 200),
+      notifications: db.notifications.filter((entry) => entry.userId === auth.user.id).slice(0, 200),
       geofences: db.geofences.filter((entry) => entry.userId === auth.user.id),
       serverTime: new Date().toISOString(),
     });

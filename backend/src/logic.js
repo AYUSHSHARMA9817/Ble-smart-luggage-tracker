@@ -321,18 +321,21 @@ export function evaluateRealtimeAlerts(db, device, previousState = null) {
     return;
   }
 
+  const previousGeofenceState = device.geofenceState ?? "unknown";
   const insideAny = ownerGeofences.some((geofence) => pointInGeofence(device.lastLocation, geofence));
   if (insideAny) {
     device.geofenceState = "inside";
     closeAlert(db, "GEOFENCE_EXIT", device.deviceId);
   } else {
     device.geofenceState = "outside";
-    createAlert(
-      db,
-      "GEOFENCE_EXIT",
-      device,
-      `${device.displayName} is outside the configured geofence.`
-    );
+    if (previousGeofenceState === "inside") {
+      createAlert(
+        db,
+        "GEOFENCE_EXIT",
+        device,
+        `${device.displayName} left the configured geofence location.`
+      );
+    }
   }
 }
 
