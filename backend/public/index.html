@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BLE Tracker Dashboard</title>
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --card: #fffdf7;
+        --ink: #1b2a2f;
+        --muted: #6d7b80;
+        --accent: #0c7c59;
+        --warn: #d94841;
+        --line: #d7d0c4;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top left, #fef6dd 0, transparent 28%),
+          linear-gradient(180deg, #efe8da 0%, var(--bg) 100%);
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      h1 { margin: 0 0 8px; }
+      p { color: var(--muted); }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 18px;
+        box-shadow: 0 14px 40px rgba(33, 33, 33, 0.05);
+      }
+      .metric {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-top: 10px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+      th, td {
+        padding: 10px 8px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.95rem;
+      }
+      .badge {
+        display: inline-block;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: #e7f7ef;
+        color: var(--accent);
+      }
+      .alert {
+        border-left: 4px solid var(--warn);
+        padding-left: 10px;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>BLE Tracker Backend Dashboard</h1>
+      <p>Devices, sightings, alerts, and geofences as seen by the relay backend.</p>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Health</h2>
+          <div id="health" class="metric">...</div>
+        </section>
+        <section class="card">
+          <h2>Open Alerts</h2>
+          <div id="alerts"></div>
+        </section>
+      </div>
+
+      <section class="card" style="margin-top:16px;">
+        <h2>Devices</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Device ID</th>
+              <th>Last Packet</th>
+              <th>Last Seen</th>
+              <th>Geofence</th>
+            </tr>
+          </thead>
+          <tbody id="devices"></tbody>
+        </table>
+      </section>
+    </div>
+    <script>
+      async function load() {
+        const [health, alerts, devices] = await Promise.all([
+          fetch("/api/health").then((r) => r.json()),
+          fetch("/api/alerts").then((r) => r.json()),
+          fetch("/api/devices").then((r) => r.json())
+        ]);
+
+        document.getElementById("health").textContent =
+          `${health.devices} devices / ${health.alerts} open alerts`;
+
+        document.getElementById("alerts").innerHTML =
+          alerts.filter((a) => a.status === "open").slice(0, 8).map((alert) =>
+            `<div class="alert"><strong>${alert.type}</strong><div>${alert.message}</div></div>`
+          ).join("") || "<span class='badge'>No open alerts</span>";
+
+        document.getElementById("devices").innerHTML = devices.map((device) => `
+          <tr>
+            <td>${device.displayName}</td>
+            <td>${device.deviceId}</td>
+            <td>${device.lastPacket ? device.lastPacket.packetTypeName + " / " + device.lastPacket.bagStateName : "-"}</td>
+            <td>${device.lastSeenAt ?? "-"}</td>
+            <td>${device.geofenceState ?? "-"}</td>
+          </tr>
+        `).join("");
+      }
+      load();
+      setInterval(load, 4000);
+    </script>
+  </body>
+  </html>

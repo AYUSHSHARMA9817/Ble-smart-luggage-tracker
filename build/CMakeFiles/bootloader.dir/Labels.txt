@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/ayush/ble_tracker/build/CMakeFiles/bootloader
+/home/ayush/ble_tracker/build/CMakeFiles/bootloader.rule
+/home/ayush/ble_tracker/build/CMakeFiles/bootloader-complete.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/ayush/ble_tracker/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

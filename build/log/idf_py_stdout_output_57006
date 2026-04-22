@@ -1,0 +1,20 @@
+[1/5] cd /home/ayush/ble_tracker/build/esp-idf/esptool_py && /home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python /home/ayush/.espressif/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/ayush/ble_tracker/build/partition_table/partition-table.bin /home/ayush/ble_tracker/build/ble_tracker.bin
+ble_tracker.bin binary size 0x841a0 bytes. Smallest app partition is 0x100000 bytes. 0x7be60 bytes (48%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/ayush/ble_tracker/build/bootloader/esp-idf/esptool_py && /home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python /home/ayush/.espressif/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/ayush/ble_tracker/build/bootloader/bootloader.bin
+Bootloader binary size 0x5390 bytes. 0x2c70 bytes (35%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/ayush/.espressif/v5.2.6/esp-idf -D "SERIAL_TOOL=/home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python;;/home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32c3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/ayush/ble_tracker/build -P /home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32c3 -p /dev/ttyACM0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 80m --flash_size 2MB 0x0 bootloader/bootloader.bin 0x10000 ble_tracker.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.11.0
+Serial port /dev/ttyACM0
+
+A fatal error occurred: Could not open /dev/ttyACM0, the port is busy or doesn't exist.
+([Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0')
+
+Hint: Check if the port is correct and ESP connected
+
+FAILED: CMakeFiles/flash /home/ayush/ble_tracker/build/CMakeFiles/flash 
+cd /home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/ayush/.espressif/v5.2.6/esp-idf -D "SERIAL_TOOL=/home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python;;/home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32c3" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/ayush/ble_tracker/build -P /home/ayush/.espressif/v5.2.6/esp-idf/components/esptool_py/run_serial_tool.cmake
+ninja: build stopped: subcommand failed.

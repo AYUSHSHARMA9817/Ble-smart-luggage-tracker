@@ -1,0 +1,20 @@
+[1/12] Linking C static library esp-idf/spiffs/libspiffs.a
+[2/12] Performing build step for 'bootloader'
+[1/1] cd /home/ayush/ble_tracker/build/bootloader/esp-idf/esptool_py && /home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python /home/ayush/.espressif/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /home/ayush/ble_tracker/build/bootloader/bootloader.bin
+Bootloader binary size 0x5390 bytes. 0x2c70 bytes (35%) free.
+[3/12] Linking C static library esp-idf/wifi_provisioning/libwifi_provisioning.a
+[4/12] No install step for 'bootloader'
+[5/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ble_tracker.c.obj
+[6/12] Completed 'bootloader'
+[7/12] Linking C static library esp-idf/main/libmain.a
+[8/12] Generating ld/sections.ld
+[9/12] Building C object CMakeFiles/ble_tracker.elf.dir/project_elf_src_esp32c3.c.obj
+[10/12] Linking CXX executable ble_tracker.elf
+[11/12] Generating binary image from built executable
+esptool.py v4.11.0
+Creating esp32c3 image...
+Merged 1 ELF section
+Successfully created esp32c3 image.
+Generated /home/ayush/ble_tracker/build/ble_tracker.bin
+[12/12] cd /home/ayush/ble_tracker/build/esp-idf/esptool_py && /home/ayush/.espressif/tools/python/v5.2.6/venv/bin/python /home/ayush/.espressif/v5.2.6/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/ayush/ble_tracker/build/partition_table/partition-table.bin /home/ayush/ble_tracker/build/ble_tracker.bin
+ble_tracker.bin binary size 0x815b0 bytes. Smallest app partition is 0x100000 bytes. 0x7ea50 bytes (49%) free.

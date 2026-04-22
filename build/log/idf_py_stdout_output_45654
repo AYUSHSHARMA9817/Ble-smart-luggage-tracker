@@ -1,0 +1,462 @@
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xf (SPI_FAST_FLASH_BOOT)
+Saved PC:0x4004c62a
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x1820
+load:0x403cc710,len:0xbd0
+load:0x403ce710,len:0x2f4c
+entry 0x403cc71a
+[0;32mI (24) boot: ESP-IDF v5.2.6 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Apr 18 2026 14:50:41[0m
+[0;32mI (25) boot: chip revision: v0.4[0m
+[0;32mI (27) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32c3: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c3: SPI Flash Size : 2MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=3c060020 size=13b24h ( 80676) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00023b4c vaddr=3fc95200 size=026c8h (  9928) load[0m
+[0;32mI (112) esp_image: segment 2: paddr=0002621c vaddr=40380000 size=09dfch ( 40444) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=00030020 vaddr=42000020 size=5be7ch (376444) map[0m
+[0;32mI (183) esp_image: segment 4: paddr=0008bea4 vaddr=40389dfc size=0b264h ( 45668) load[0m
+[0;32mI (192) esp_image: segment 5: paddr=00097110 vaddr=50000010 size=00004h (     4) load[0m
+[0;32mI (199) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (199) boot: Disabling RNG early entropy source...[0m
+[0;32mI (212) cpu_start: Unicore app[0m
+[0;32mI (221) cpu_start: Pro cpu start user code[0m
+[0;32mI (221) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (221) cpu_start: Application information:[0m
+[0;32mI (224) cpu_start: Project name:     ble_tracker[0m
+[0;32mI (229) cpu_start: App version:      1[0m
+[0;32mI (233) cpu_start: Compile time:     Apr 20 2026 18:53:41[0m
+[0;32mI (240) cpu_start: ELF file SHA256:  51d6f7063...[0m
+[0;32mI (245) cpu_start: ESP-IDF:          v5.2.6[0m
+[0;32mI (250) cpu_start: Min chip rev:     v0.3[0m
+[0;32mI (254) cpu_start: Max chip rev:     v1.99 [0m
+[0;32mI (259) cpu_start: Chip rev:         v0.4[0m
+[0;32mI (264) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (271) heap_init: At 3FC9A0D0 len 00025F30 (151 KiB): RAM[0m
+[0;32mI (277) heap_init: At 3FCC0000 len 0001C710 (113 KiB): Retention RAM[0m
+[0;32mI (284) heap_init: At 3FCDC710 len 00002950 (10 KiB): Retention RAM[0m
+[0;32mI (291) heap_init: At 50000014 len 00001FD4 (7 KiB): RTCRAM[0m
+[0;32mI (299) spi_flash: detected chip: generic[0m
+[0;32mI (302) spi_flash: flash io: dio[0m
+[0;33mW (306) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (320) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (326) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (345) coexist: coex firmware version: 2b8f68e[0m
+[0;32mI (345) coexist: coexist rom version 9387209[0m
+[0;32mI (346) main_task: Started on CPU0[0m
+[0;32mI (346) main_task: Calling app_main()[0m
+[0;32mI (346) gpio: GPIO[5]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (356) gpio: GPIO[4]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (366) BLE_INIT: BT controller compile version [2edb0b0][0m
+[0;32mI (376) BLE_INIT: Using main XTAL as clock source[0m
+[0;33mW (376) BLE_INIT: light sleep mode will not be able to apply when bluetooth is enabled.[0m
+[0;32mI (386) BLE_INIT: Feature Config, ADV:1, BLE_50:1, DTM:1, SCAN:1, CCA:2, SMP:1, CONNECT:1[0m
+[0;32mI (396) BLE_INIT: Bluetooth MAC: 88:56:a6:7c:3c:6a[0m
+[0;32mI (406) phy_init: phy_version 1201,bae5dd99,Mar  3 2025,15:36:21[0m
+[0;32mI (446) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (446) NimBLE: Failed to restore IRKs from store; status=8
+[0m
+[0;32mI (446) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 0, State: 1, Batt: 0][0m
+[0;32mI (456) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (466) NimBLE: disc_mode=2[0m
+[0;32mI (466) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (476) NimBLE: 
+[0m
+[0;32mI (476) main_task: Returned from app_main()[0m
+[0;32mI (2476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 1, State: 1, Batt: 0][0m
+[0;32mI (4476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 2, State: 1, Batt: 0][0m
+[0;32mI (6476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 3, State: 1, Batt: 0][0m
+[0;32mI (8476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 4, State: 1, Batt: 0][0m
+[0;32mI (10476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 5, State: 1, Batt: 0][0m
+[0;32mI (12476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 6, State: 1, Batt: 0][0m
+[0;32mI (14476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 7, State: 1, Batt: 0][0m
+[0;32mI (16476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 8, State: 1, Batt: 0][0m
+[0;32mI (18476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 9, State: 1, Batt: 0][0m
+[0;32mI (20476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 10, State: 1, Batt: 0][0m
+[0;32mI (22476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 11, State: 1, Batt: 0][0m
+[0;32mI (24476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 12, State: 1, Batt: 0][0m
+[0;32mI (26476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 13, State: 1, Batt: 0][0m
+[0;32mI (28476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 14, State: 1, Batt: 0][0m
+[0;32mI (30476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 15, State: 1, Batt: 0][0m
+[0;32mI (32476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 16, State: 1, Batt: 0][0m
+[0;32mI (34476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 17, State: 1, Batt: 0][0m
+[0;32mI (36476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 18, State: 1, Batt: 0][0m
+[0;32mI (38476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 19, State: 1, Batt: 0][0m
+[0;32mI (40476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 20, State: 1, Batt: 0][0m
+[0;32mI (42476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 21, State: 1, Batt: 0][0m
+[0;32mI (44476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 22, State: 1, Batt: 0][0m
+[0;32mI (46476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 23, State: 1, Batt: 0][0m
+[0;32mI (48476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 24, State: 1, Batt: 0][0m
+[0;32mI (50476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 25, State: 1, Batt: 0][0m
+[0;32mI (52476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 26, State: 1, Batt: 0][0m
+[0;32mI (54476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 27, State: 1, Batt: 0][0m
+[0;32mI (56476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 28, State: 1, Batt: 0][0m
+[0;32mI (58476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 29, State: 1, Batt: 0][0m
+[0;32mI (60476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 30, State: 1, Batt: 0][0m
+[0;32mI (62476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 31, State: 1, Batt: 0][0m
+[0;32mI (64476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 32, State: 1, Batt: 0][0m
+[0;32mI (66476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 33, State: 1, Batt: 0][0m
+[0;32mI (68476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 34, State: 1, Batt: 0][0m
+[0;32mI (70476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 35, State: 1, Batt: 0][0m
+[0;32mI (72476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 36, State: 1, Batt: 0][0m
+[0;32mI (74476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 37, State: 1, Batt: 0][0m
+[0;32mI (76476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 38, State: 1, Batt: 0][0m
+[0;32mI (78476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 39, State: 1, Batt: 0][0m
+[0;32mI (80476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 40, State: 1, Batt: 0][0m
+[0;32mI (82476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 41, State: 1, Batt: 0][0m
+[0;32mI (84476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 42, State: 1, Batt: 0][0m
+[0;32mI (86476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 43, State: 1, Batt: 0][0m
+[0;32mI (88476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 44, State: 1, Batt: 0][0m
+[0;32mI (90476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 45, State: 1, Batt: 0][0m
+[0;32mI (92476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 46, State: 1, Batt: 0][0m
+[0;32mI (94476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 47, State: 1, Batt: 0][0m
+[0;32mI (96476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 48, State: 1, Batt: 0][0m
+[0;32mI (98476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 49, State: 1, Batt: 0][0m
+[0;32mI (100476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 50, State: 1, Batt: 0][0m
+[0;32mI (102476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 51, State: 1, Batt: 0][0m
+[0;32mI (104476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 52, State: 1, Batt: 0][0m
+[0;32mI (106476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 53, State: 1, Batt: 0][0m
+[0;32mI (108476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 54, State: 1, Batt: 0][0m
+[0;32mI (110476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 55, State: 1, Batt: 0][0m
+[0;32mI (112476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 56, State: 1, Batt: 0][0m
+[0;32mI (114476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 57, State: 1, Batt: 0][0m
+[0;32mI (116476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 58, State: 1, Batt: 0][0m
+[0;32mI (118476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 59, State: 1, Batt: 0][0m
+[0;32mI (120476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 60, State: 1, Batt: 0][0m
+[0;32mI (122476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 61, State: 1, Batt: 0][0m
+[0;32mI (124476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 62, State: 1, Batt: 0][0m
+[0;32mI (126476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 63, State: 1, Batt: 0][0m
+[0;32mI (128476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 64, State: 1, Batt: 0][0m
+[0;32mI (130476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 65, State: 1, Batt: 0][0m
+[0;32mI (132476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 66, State: 1, Batt: 0][0m
+[0;32mI (134476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 67, State: 1, Batt: 0][0m
+[0;32mI (136476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 68, State: 1, Batt: 0][0m
+[0;32mI (138476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 69, State: 1, Batt: 0][0m
+[0;32mI (140476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 70, State: 1, Batt: 0][0m
+[0;32mI (142476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 71, State: 1, Batt: 0][0m
+[0;32mI (144476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 72, State: 1, Batt: 0][0m
+[0;32mI (146476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 73, State: 1, Batt: 0][0m
+[0;32mI (148476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 74, State: 1, Batt: 0][0m
+[0;32mI (150476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 75, State: 1, Batt: 0][0m
+[0;32mI (152476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 76, State: 1, Batt: 0][0m
+[0;32mI (154476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 77, State: 1, Batt: 0][0m
+[0;32mI (156476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 78, State: 1, Batt: 0][0m
+[0;32mI (158476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 79, State: 1, Batt: 0][0m
+[0;32mI (160476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 80, State: 1, Batt: 0][0m
+[0;32mI (162476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 81, State: 1, Batt: 0][0m
+[0;32mI (164476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 82, State: 1, Batt: 0][0m
+[0;32mI (166476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 83, State: 1, Batt: 0][0m
+[0;32mI (168476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 84, State: 1, Batt: 0][0m
+[0;32mI (170476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 85, State: 1, Batt: 0][0m
+[0;32mI (172476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 86, State: 1, Batt: 0][0m
+[0;32mI (174476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 87, State: 1, Batt: 0][0m
+[0;32mI (176476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 88, State: 1, Batt: 0][0m
+[0;32mI (178476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 89, State: 1, Batt: 0][0m
+[0;32mI (180476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 90, State: 1, Batt: 0][0m
+[0;32mI (182476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 91, State: 1, Batt: 0][0m
+[0;32mI (184476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 92, State: 1, Batt: 0][0m
+[0;32mI (186476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 93, State: 1, Batt: 0][0m
+[0;32mI (188476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 94, State: 1, Batt: 0][0m
+[0;32mI (190476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 95, State: 1, Batt: 0][0m
+[0;32mI (192476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 96, State: 1, Batt: 0][0m
+[0;32mI (194476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 97, State: 1, Batt: 0][0m
+[0;32mI (196476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 98, State: 1, Batt: 0][0m
+[0;32mI (198476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 99, State: 1, Batt: 0][0m
+[0;32mI (200476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 100, State: 1, Batt: 0][0m
+[0;32mI (202476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 101, State: 1, Batt: 0][0m
+[0;32mI (204476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 102, State: 1, Batt: 0][0m
+[0;32mI (206476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 103, State: 1, Batt: 0][0m
+[0;32mI (208476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 104, State: 1, Batt: 0][0m
+[0;32mI (210476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 105, State: 1, Batt: 0][0m
+[0;32mI (212476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 106, State: 1, Batt: 0][0m
+[0;32mI (214476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 107, State: 1, Batt: 0][0m
+[0;32mI (216476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 108, State: 1, Batt: 0][0m
+[0;32mI (218476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 109, State: 1, Batt: 0][0m
+[0;32mI (220476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 110, State: 1, Batt: 0][0m
+[0;32mI (222476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 111, State: 1, Batt: 0][0m
+[0;32mI (224476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 112, State: 1, Batt: 0][0m
+[0;32mI (226476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 113, State: 1, Batt: 0][0m
+[0;32mI (228476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 114, State: 1, Batt: 0][0m
+[0;32mI (230476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 115, State: 1, Batt: 0][0m
+[0;32mI (232476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 116, State: 1, Batt: 0][0m
+[0;32mI (234476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 117, State: 1, Batt: 0][0m
+[0;32mI (236476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 118, State: 1, Batt: 0][0m
+[0;32mI (238476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 119, State: 1, Batt: 0][0m
+[0;32mI (240476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 120, State: 1, Batt: 0][0m
+[0;32mI (242476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 121, State: 1, Batt: 0][0m
+[0;32mI (244476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 122, State: 1, Batt: 0][0m
+[0;32mI (246476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 123, State: 1, Batt: 0][0m
+[0;32mI (248476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 124, State: 1, Batt: 0][0m
+[0;32mI (250476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 125, State: 1, Batt: 0][0m
+[0;32mI (252476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 126, State: 1, Batt: 0][0m
+[0;32mI (254476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 127, State: 1, Batt: 0][0m
+[0;32mI (256476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 128, State: 1, Batt: 0][0m
+[0;32mI (258476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 129, State: 1, Batt: 0][0m
+[0;32mI (260476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 130, State: 1, Batt: 0][0m
+[0;32mI (262476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 131, State: 1, Batt: 0][0m
+[0;32mI (264476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 132, State: 1, Batt: 0][0m
+[0;32mI (266476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 133, State: 1, Batt: 0][0m
+[0;32mI (268476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 134, State: 1, Batt: 0][0m
+[0;32mI (270476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 135, State: 1, Batt: 0][0m
+[0;32mI (272476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 136, State: 1, Batt: 0][0m
+[0;32mI (274476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 137, State: 1, Batt: 0][0m
+[0;32mI (276476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 138, State: 1, Batt: 0][0m
+[0;32mI (278476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 139, State: 1, Batt: 0][0m
+[0;32mI (280476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 140, State: 1, Batt: 0][0m
+[0;32mI (282476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 141, State: 1, Batt: 0][0m
+[0;32mI (284476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 142, State: 1, Batt: 0][0m
+[0;32mI (286476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 143, State: 1, Batt: 0][0m
+[0;32mI (288476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 144, State: 1, Batt: 0][0m
+[0;32mI (290476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 145, State: 1, Batt: 0][0m
+[0;32mI (292476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 146, State: 1, Batt: 0][0m
+[0;32mI (294476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 147, State: 1, Batt: 0][0m
+[0;32mI (296476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 148, State: 1, Batt: 0][0m
+[0;32mI (298476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 149, State: 1, Batt: 0][0m
+[0;32mI (300476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 150, State: 1, Batt: 0][0m
+[0;32mI (302476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 151, State: 1, Batt: 0][0m
+[0;32mI (304476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 152, State: 1, Batt: 0][0m
+[0;32mI (306476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 153, State: 1, Batt: 0][0m
+[0;32mI (308476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 154, State: 1, Batt: 0][0m
+[0;32mI (310476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 155, State: 1, Batt: 0][0m
+[0;32mI (312476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 156, State: 1, Batt: 0][0m
+[0;32mI (314476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 157, State: 1, Batt: 0][0m
+[0;32mI (316476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 158, State: 1, Batt: 0][0m
+[0;32mI (318476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 159, State: 1, Batt: 0][0m
+[0;32mI (320476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 160, State: 1, Batt: 0][0m
+[0;32mI (322476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 161, State: 1, Batt: 0][0m
+[0;32mI (324476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 162, State: 1, Batt: 0][0m
+[0;32mI (326476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 163, State: 1, Batt: 0][0m
+[0;32mI (328476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 164, State: 1, Batt: 0][0m
+[0;32mI (330476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 165, State: 1, Batt: 0][0m
+[0;32mI (332476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 166, State: 1, Batt: 0][0m
+[0;32mI (334476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 167, State: 1, Batt: 0][0m
+[0;32mI (336476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 168, State: 1, Batt: 0][0m
+[0;32mI (338476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 169, State: 1, Batt: 0][0m
+[0;32mI (340476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 170, State: 1, Batt: 0][0m
+[0;32mI (342476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 171, State: 1, Batt: 0][0m
+[0;32mI (344476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 172, State: 1, Batt: 0][0m
+[0;32mI (346476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 173, State: 1, Batt: 0][0m
+[0;32mI (348476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 174, State: 1, Batt: 0][0m
+[0;32mI (350476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 175, State: 1, Batt: 0][0m
+[0;32mI (352476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 176, State: 1, Batt: 0][0m
+[0;32mI (354476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 177, State: 1, Batt: 0][0m
+[0;32mI (356476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 178, State: 1, Batt: 0][0m
+[0;32mI (358476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 179, State: 1, Batt: 0][0m
+[0;32mI (360476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 180, State: 1, Batt: 0][0m
+[0;32mI (362476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 181, State: 1, Batt: 0][0m
+[0;32mI (364476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 182, State: 1, Batt: 0][0m
+[0;32mI (366476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 183, State: 1, Batt: 0][0m
+[0;32mI (368476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 184, State: 1, Batt: 0][0m
+[0;32mI (370476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 185, State: 1, Batt: 0][0m
+[0;32mI (372476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 186, State: 1, Batt: 0][0m
+[0;32mI (374476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 187, State: 1, Batt: 0][0m
+[0;32mI (376476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 188, State: 1, Batt: 0][0m
+[0;32mI (378476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 189, State: 1, Batt: 0][0m
+[0;32mI (380476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 190, State: 1, Batt: 0][0m
+[0;32mI (382476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 191, State: 1, Batt: 0][0m
+[0;32mI (384476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 192, State: 1, Batt: 0][0m
+[0;32mI (386476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 193, State: 1, Batt: 0][0m
+[0;32mI (388476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 194, State: 1, Batt: 0][0m
+[0;32mI (390476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 195, State: 1, Batt: 0][0m
+[0;32mI (392476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 196, State: 1, Batt: 0][0m
+[0;32mI (394476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 197, State: 1, Batt: 0][0m
+[0;32mI (396476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 198, State: 1, Batt: 0][0m
+[0;32mI (398476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 199, State: 1, Batt: 0][0m
+[0;32mI (400476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 200, State: 1, Batt: 0][0m
+[0;32mI (402476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 201, State: 1, Batt: 0][0m
+[0;32mI (404476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 202, State: 1, Batt: 0][0m
+[0;32mI (406476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 203, State: 1, Batt: 0][0m
+[0;32mI (408476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 204, State: 1, Batt: 0][0m
+[0;32mI (410476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 205, State: 1, Batt: 0][0m
+[0;32mI (412476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 206, State: 1, Batt: 0][0m
+[0;32mI (414476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 207, State: 1, Batt: 0][0m
+[0;32mI (416476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 208, State: 1, Batt: 0][0m
+[0;32mI (418476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 209, State: 1, Batt: 0][0m
+[0;32mI (420476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 210, State: 1, Batt: 0][0m
+[0;32mI (422476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 211, State: 1, Batt: 0][0m
+[0;32mI (424476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 212, State: 1, Batt: 0][0m
+[0;32mI (426476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 213, State: 1, Batt: 0][0m
+[0;32mI (428476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 214, State: 1, Batt: 0][0m
+[0;32mI (430476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 215, State: 1, Batt: 0][0m
+[0;32mI (432476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 216, State: 1, Batt: 0][0m
+[0;32mI (434476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 217, State: 1, Batt: 0][0m
+[0;32mI (436476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 218, State: 1, Batt: 0][0m
+[0;32mI (438476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 219, State: 1, Batt: 0][0m
+[0;32mI (440476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 220, State: 1, Batt: 0][0m
+[0;32mI (442476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 221, State: 1, Batt: 0][0m
+[0;32mI (444476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 222, State: 1, Batt: 0][0m
+[0;32mI (446476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 223, State: 1, Batt: 0][0m
+[0;32mI (448476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 224, State: 1, Batt: 0][0m
+[0;32mI (450476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 225, State: 1, Batt: 0][0m
+[0;32mI (452476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 226, State: 1, Batt: 0][0m
+[0;32mI (454476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 227, State: 1, Batt: 0][0m
+[0;32mI (456476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 228, State: 1, Batt: 0][0m
+[0;32mI (458476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 229, State: 1, Batt: 0][0m
+[0;32mI (460476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 230, State: 1, Batt: 0][0m
+[0;32mI (462476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 231, State: 1, Batt: 0][0m
+[0;32mI (464476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 232, State: 1, Batt: 0][0m
+[0;32mI (466476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 233, State: 1, Batt: 0][0m
+[0;32mI (468476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 234, State: 1, Batt: 0][0m
+[0;32mI (470476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 235, State: 1, Batt: 0][0m
+[0;32mI (472476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 236, State: 1, Batt: 0][0m
+[0;32mI (474476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 237, State: 1, Batt: 0][0m
+[0;32mI (476476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 238, State: 1, Batt: 0][0m
+[0;32mI (478476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 239, State: 1, Batt: 0][0m
+[0;32mI (480476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 240, State: 1, Batt: 0][0m
+[0;32mI (482476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 241, State: 1, Batt: 0][0m
+[0;32mI (484476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 242, State: 1, Batt: 0][0m
+[0;32mI (486476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 243, State: 1, Batt: 0][0m
+[0;32mI (488476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 244, State: 1, Batt: 0][0m
+[0;32mI (490476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 245, State: 1, Batt: 0][0m
+[0;32mI (492476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 246, State: 1, Batt: 0][0m
+[0;32mI (494476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 247, State: 1, Batt: 0][0m
+[0;32mI (496476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 248, State: 1, Batt: 0][0m
+[0;32mI (498476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 249, State: 1, Batt: 0][0m
+[0;32mI (500476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 250, State: 1, Batt: 0][0m
+[0;32mI (502476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 251, State: 1, Batt: 0][0m
+[0;32mI (504476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 252, State: 1, Batt: 0][0m
+[0;32mI (506476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 253, State: 1, Batt: 0][0m
+[0;32mI (508476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 254, State: 1, Batt: 0][0m
+[0;32mI (510476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 255, State: 1, Batt: 0][0m
+[0;32mI (512476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 0, State: 1, Batt: 0][0m
+[0;32mI (514476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 1, State: 1, Batt: 0][0m
+[0;32mI (516476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 2, State: 1, Batt: 0][0m
+[0;32mI (518476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 3, State: 1, Batt: 0][0m
+[0;32mI (520476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 4, State: 1, Batt: 0][0m
+[0;32mI (522476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 5, State: 1, Batt: 0][0m
+[0;32mI (524476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 6, State: 1, Batt: 0][0m
+[0;32mI (526476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 7, State: 1, Batt: 0][0m
+[0;32mI (528476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 8, State: 1, Batt: 0][0m
+[0;32mI (530476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 9, State: 1, Batt: 0][0m
+[0;32mI (532476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 10, State: 1, Batt: 0][0m
+[0;32mI (534476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 11, State: 1, Batt: 0][0m
+[0;32mI (536476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 12, State: 1, Batt: 0][0m
+[0;32mI (538476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 13, State: 1, Batt: 0][0m
+[0;32mI (540476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 14, State: 1, Batt: 0][0m
+[0;32mI (542476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 15, State: 1, Batt: 0][0m
+[0;32mI (544476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 16, State: 1, Batt: 0][0m
+[0;32mI (546476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 17, State: 1, Batt: 0][0m
+[0;32mI (548476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 18, State: 1, Batt: 0][0m
+[0;32mI (550476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 19, State: 1, Batt: 0][0m
+[0;32mI (552476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 20, State: 1, Batt: 0][0m
+[0;32mI (554476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 21, State: 1, Batt: 0][0m
+[0;32mI (556476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 22, State: 1, Batt: 0][0m
+[0;32mI (558476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 23, State: 1, Batt: 0][0m
+[0;32mI (560476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 24, State: 1, Batt: 0][0m
+[0;32mI (562476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 25, State: 1, Batt: 0][0m
+[0;32mI (564476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 26, State: 1, Batt: 0][0m
+[0;32mI (566476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 27, State: 1, Batt: 0][0m
+[0;32mI (568476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 28, State: 1, Batt: 0][0m
+[0;32mI (570476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 29, State: 1, Batt: 0][0m
+[0;32mI (572476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 30, State: 1, Batt: 0][0m
+[0;32mI (574476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 31, State: 1, Batt: 0][0m
+[0;32mI (576476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 32, State: 1, Batt: 0][0m
+[0;32mI (578476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 33, State: 1, Batt: 0][0m
+[0;32mI (580476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 34, State: 1, Batt: 0][0m
+[0;32mI (582476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 35, State: 1, Batt: 0][0m
+[0;32mI (584476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 36, State: 1, Batt: 0][0m
+[0;32mI (586476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 37, State: 1, Batt: 0][0m
+[0;32mI (588476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 38, State: 1, Batt: 0][0m
+[0;32mI (590476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 39, State: 1, Batt: 0][0m
+[0;32mI (592476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 40, State: 1, Batt: 0][0m
+[0;32mI (594476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 41, State: 1, Batt: 0][0m
+[0;32mI (596476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 42, State: 1, Batt: 0][0m
+[0;32mI (598476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 43, State: 1, Batt: 0][0m
+[0;32mI (600476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 44, State: 1, Batt: 0][0m
+[0;32mI (602476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 45, State: 1, Batt: 0][0m
+[0;32mI (604476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 46, State: 1, Batt: 0][0m
+[0;32mI (606476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 47, State: 1, Batt: 0][0m
+[0;32mI (608476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 48, State: 1, Batt: 0][0m
+[0;32mI (610476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 49, State: 1, Batt: 0][0m
+[0;32mI (612476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 50, State: 1, Batt: 0][0m
+[0;32mI (614476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 51, State: 1, Batt: 0][0m
+[0;32mI (616476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 52, State: 1, Batt: 0][0m
+[0;32mI (618476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 53, State: 1, Batt: 0][0m
+[0;32mI (620476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 54, State: 1, Batt: 0][0m
+[0;32mI (622476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 55, State: 1, Batt: 0][0m
+[0;32mI (624476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 56, State: 1, Batt: 0][0m
+[0;32mI (626476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 57, State: 1, Batt: 0][0m
+[0;32mI (628476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 58, State: 1, Batt: 0][0m
+[0;32mI (630476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 59, State: 1, Batt: 0][0m
+[0;32mI (632476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 60, State: 1, Batt: 0][0m
+[0;32mI (634476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 61, State: 1, Batt: 0][0m
+[0;32mI (636476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 62, State: 1, Batt: 0][0m
+[0;32mI (638476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 63, State: 1, Batt: 0][0m
+[0;32mI (640476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 64, State: 1, Batt: 0][0m
+[0;32mI (642476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 65, State: 1, Batt: 0][0m
+[0;32mI (644476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 66, State: 1, Batt: 0][0m
+[0;32mI (646476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 67, State: 1, Batt: 0][0m
+[0;32mI (648476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 68, State: 1, Batt: 0][0m
+[0;32mI (650476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 69, State: 1, Batt: 0][0m
+[0;32mI (652476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 70, State: 1, Batt: 0][0m
+[0;32mI (654476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 71, State: 1, Batt: 0][0m
+[0;32mI (656476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 72, State: 1, Batt: 0][0m
+[0;32mI (658476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 73, State: 1, Batt: 0][0m
+[0;32mI (660476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 74, State: 1, Batt: 0][0m
+[0;32mI (662476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 75, State: 1, Batt: 0][0m
+[0;32mI (664476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 76, State: 1, Batt: 0][0m
+[0;32mI (666476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 77, State: 1, Batt: 0][0m
+[0;32mI (668476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 78, State: 1, Batt: 0][0m
+[0;32mI (670476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 79, State: 1, Batt: 0][0m
+[0;32mI (672476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 80, State: 1, Batt: 0][0m
+[0;32mI (674476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 81, State: 1, Batt: 0][0m
+[0;32mI (676476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 82, State: 1, Batt: 0][0m
+[0;32mI (678476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 83, State: 1, Batt: 0][0m
+[0;32mI (680476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 84, State: 1, Batt: 0][0m
+[0;32mI (682476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 85, State: 1, Batt: 0][0m
+[0;32mI (684476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 86, State: 1, Batt: 0][0m
+[0;32mI (686476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 87, State: 1, Batt: 0][0m
+[0;32mI (688476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 88, State: 1, Batt: 0][0m
+[0;32mI (690476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 89, State: 1, Batt: 0][0m
+[0;32mI (692476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 90, State: 1, Batt: 0][0m
+[0;32mI (694476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 91, State: 1, Batt: 0][0m
+[0;32mI (696476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 92, State: 1, Batt: 0][0m
+[0;32mI (698476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 93, State: 1, Batt: 0][0m
+[0;32mI (700476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 94, State: 1, Batt: 0][0m
+[0;32mI (702476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 95, State: 1, Batt: 0][0m
+[0;32mI (704476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 96, State: 1, Batt: 0][0m
+[0;32mI (706476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 97, State: 1, Batt: 0][0m
+[0;32mI (708476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 98, State: 1, Batt: 0][0m
+[0;32mI (710476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 99, State: 1, Batt: 0][0m
+[0;32mI (712476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 100, State: 1, Batt: 0][0m
+[0;32mI (714476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 101, State: 1, Batt: 0][0m
+[0;32mI (716476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 102, State: 1, Batt: 0][0m
+[0;32mI (718476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 103, State: 1, Batt: 0][0m
+[0;32mI (720476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 104, State: 1, Batt: 0][0m
+[0;32mI (722476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 105, State: 1, Batt: 0][0m
+[0;32mI (724476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 106, State: 1, Batt: 0][0m
+[0;32mI (726476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 107, State: 1, Batt: 0][0m
+[0;32mI (728476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 108, State: 1, Batt: 0][0m
+[0;32mI (730476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 109, State: 1, Batt: 0][0m
+[0;32mI (732476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 110, State: 1, Batt: 0][0m
+[0;32mI (734476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 111, State: 1, Batt: 0][0m
+[0;32mI (736476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 112, State: 1, Batt: 0][0m
+[0;32mI (738476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 113, State: 1, Batt: 0][0m
+[0;32mI (740476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 114, State: 1, Batt: 0][0m
+[0;32mI (742476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 115, State: 1, Batt: 0][0m
+[0;32mI (744476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 116, State: 1, Batt: 0][0m
+[0;32mI (746476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 117, State: 1, Batt: 0][0m
+[0;32mI (748476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 118, State: 1, Batt: 0][0m
+[0;32mI (750476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 119, State: 1, Batt: 0][0m
+[0;32mI (752476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 120, State: 1, Batt: 0][0m
+[0;32mI (754476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 121, State: 1, Batt: 0][0m
+[0;32mI (756476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 122, State: 1, Batt: 0][0m
+[0;32mI (758476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 123, State: 1, Batt: 0][0m
+[0;32mI (760476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 124, State: 1, Batt: 0][0m
+[0;32mI (762476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 125, State: 1, Batt: 0][0m
+[0;32mI (764476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 126, State: 1, Batt: 0][0m
+[0;32mI (766476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 127, State: 1, Batt: 0][0m
+[0;32mI (768476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 128, State: 1, Batt: 0][0m
+[0;32mI (770476) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 129, State: 1, Batt: 0][0m

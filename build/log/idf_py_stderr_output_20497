@@ -1,0 +1,498 @@
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x4004c97e: [0;33musb_uart_rx_one_char[0m[0m in [0;32mROM[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/port/soc/esp32c3/system_internal.c[0m[0m:[1;31m114[0m
+[0m--- 0x4200803c: [0;33mapp_main[0m[0m at [0;32m/home/ayush/ble_tracker/main/ble_tracker.c[0m[0m:[1;31m75[0m
+[0m--- 0x4038bd4d: [0;33m_esp_error_check_failed[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m50[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4038070e: [0;33mpanic_abort[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m482[0m
+[0m--- 0x4038bd58: [0;33m__ubsan_include[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp_system/ubsan.c[0m[0m:[1;31m313[0m
+[0m--- 0x40380001: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x403806fa: [0;33mesp_restart_noos[0m[0m at [0;32m/home/ayush/.espressif/v5.2.6/esp-idf/components/esp

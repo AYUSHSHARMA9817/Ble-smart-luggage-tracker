@@ -1,0 +1,98 @@
+[
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-ldpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-ldpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-ldpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-debug-58:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/ayush/.gradle/daemon/9.0-milestone-1/com.bletracker.app-main-60:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-ldpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-ldpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.bletracker.app-debug-58:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.bletracker.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.png"
+    }
+]

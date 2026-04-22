@@ -1,0 +1,2 @@
+source /home/ayush/ble_tracker/build/bootloader/gdbinit/symbols
+source /home/ayush/ble_tracker/build/bootloader/gdbinit/connect
