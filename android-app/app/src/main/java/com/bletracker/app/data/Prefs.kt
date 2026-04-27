@@ -1,6 +1,8 @@
 package com.bletracker.app.data
 
 import android.content.Context
+import org.json.JSONArray
+import org.json.JSONObject
 
 /**
  * Typed accessor for all persistent user preferences stored in
@@ -121,10 +123,129 @@ class Prefs(context: Context) {
                 }
             }.apply()
         }
+
+    /** Cached owner device list shown immediately on next app launch before backend refresh. */
+    var cachedDevices: List<DeviceDto>
+        get() {
+            val raw = prefs.getString("cachedDevices", "")?.trim().orEmpty()
+            if (raw.isBlank()) return emptyList()
+            return runCatching {
+                val array = JSONArray(raw)
+                (0 until array.length()).map { index ->
+                    parseDevice(array.getJSONObject(index))
+                }
+            }.getOrDefault(emptyList())
+        }
+        set(value) = prefs.edit().putString("cachedDevices", JSONArray().apply {
+            value.forEach { device -> put(deviceToJson(device)) }
+        }.toString()).apply()
+
+    /** Last admin-issued registration result, including the one-time code shown once by the backend. */
+    var latestAdminRegistration: AdminRegistrationDto?
+        get() {
+            val raw = prefs.getString("latestAdminRegistration", "")?.trim().orEmpty()
+            if (raw.isBlank()) return null
+            return runCatching {
+                val json = JSONObject(raw)
+                AdminRegistrationDto(
+                    id = json.getString("id"),
+                    deviceId = json.getString("deviceId"),
+                    manualCode = json.getString("manualCode"),
+                    note = json.optString("note"),
+                    createdAt = json.getString("createdAt"),
+                )
+            }.getOrNull()
+        }
+        set(value) = prefs.edit().apply {
+            if (value == null) {
+                remove("latestAdminRegistration")
+            } else {
+                putString(
+                    "latestAdminRegistration",
+                    JSONObject()
+                        .put("id", value.id)
+                        .put("deviceId", value.deviceId)
+                        .put("manualCode", value.manualCode)
+                        .put("note", value.note)
+                        .put("createdAt", value.createdAt)
+                        .toString()
+                )
+            }
+        }.apply()
+
     private companion object {
         /** Production backend URL. Update before release to point at the deployed server. */
-        const val DEFAULT_BACKEND_URL = "https://ble-tracker-backend.onrender.com"
+        const val DEFAULT_BACKEND_URL = "https://ble-smart-luggage-tracker.onrender.com"
         /** Android emulator loopback URL used in previous versions; redirected to the default. */
         const val LEGACY_EMULATOR_URL = "http://10.0.2.2:8787"
+    }
+
+    private fun deviceToJson(device: DeviceDto): JSONObject =
+        JSONObject()
+            .put("id", device.id)
+            .put("deviceId", device.deviceId)
+            .put("ownerUserId", device.ownerUserId)
+            .put("displayName", device.displayName)
+            .put("lastSeenAt", device.lastSeenAt)
+            .put("lastLocation", device.lastLocation?.let { location ->
+                JSONObject()
+                    .put("lat", location.lat)
+                    .put("lng", location.lng)
+                    .put("accuracyMeters", location.accuracyMeters)
+            })
+            .put("lastRssi", device.lastRssi)
+            .put("geofenceState", device.geofenceState)
+            .put("status", device.status)
+            .put("proximityMonitoringEnabled", device.proximityMonitoringEnabled)
+            .put("lastPacket", device.lastPacket?.let { packet ->
+                JSONObject()
+                    .put("bagState", packet.bagState)
+                    .put("batteryLevel", packet.batteryLevel)
+                    .put("seqNum", packet.seqNum)
+                    .put("packetType", packet.packetType)
+                    .put("healthStatus", packet.healthStatus)
+                    .put("daysSinceChange", packet.daysSinceChange)
+                    .put("packetTypeName", packet.packetTypeName)
+                    .put("bagStateName", packet.bagStateName)
+                    .put("batteryLevelName", packet.batteryLevelName)
+            })
+
+    private fun parseDevice(json: JSONObject): DeviceDto {
+        val lastPacketJson = json.optJSONObject("lastPacket")
+        return DeviceDto(
+            id = json.getString("id"),
+            deviceId = json.getString("deviceId"),
+            ownerUserId = json.optString("ownerUserId").ifBlank { null },
+            displayName = json.getString("displayName"),
+            lastSeenAt = json.optString("lastSeenAt").ifBlank { null },
+            lastLocation = json.optJSONObject("lastLocation")?.let {
+                LocationPayload(
+                    lat = it.getDouble("lat"),
+                    lng = it.getDouble("lng"),
+                    accuracyMeters = if (it.has("accuracyMeters") && !it.isNull("accuracyMeters")) {
+                        it.getDouble("accuracyMeters").toFloat()
+                    } else {
+                        null
+                    }
+                )
+            },
+            lastRssi = if (json.has("lastRssi") && !json.isNull("lastRssi")) json.getInt("lastRssi") else null,
+            geofenceState = json.optString("geofenceState").ifBlank { null },
+            status = json.getString("status"),
+            proximityMonitoringEnabled = json.optBoolean("proximityMonitoringEnabled", true),
+            lastPacket = lastPacketJson?.let {
+                DevicePacketDto(
+                    bagState = it.getInt("bagState"),
+                    batteryLevel = it.getInt("batteryLevel"),
+                    seqNum = it.getInt("seqNum"),
+                    packetType = it.getInt("packetType"),
+                    healthStatus = it.getInt("healthStatus"),
+                    daysSinceChange = it.getInt("daysSinceChange"),
+                    packetTypeName = it.getString("packetTypeName"),
+                    bagStateName = it.getString("bagStateName"),
+                    batteryLevelName = it.getString("batteryLevelName"),
+                )
+            }
+        )
     }
 }

@@ -58,8 +58,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             scannerUserId = prefs.scannerUserId,
             ownerUserId = prefs.ownerUserId,
             authTokenPresent = prefs.authToken.isNotBlank(),
-            adminMode = false,
+            adminMode = prefs.adminRegistrationSecret.isNotBlank(),
             scannerAutostartEnabled = prefs.scannerAutostartEnabled,
+            devices = prefs.cachedDevices,
+            latestAdminRegistration = prefs.latestAdminRegistration,
             latestRelaySnapshot = prefs.latestRelaySnapshot,
         )
     )
@@ -179,6 +181,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     note = note.trim(),
                 )
             }.onSuccess { registration ->
+                prefs.latestAdminRegistration = registration
                 _uiState.update {
                     it.copy(
                         latestAdminRegistration = registration,
@@ -186,6 +189,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     )
                 }
             }.onFailure { error ->
+                prefs.latestAdminRegistration = null
                 _uiState.update {
                     it.copy(
                         latestAdminRegistration = null,
@@ -361,6 +365,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         prefs.ownerUserId = ""
         prefs.notifiedAlertIds = emptySet()
         prefs.notifiedOpenAlertKeys = emptySet()
+        prefs.cachedDevices = emptyList()
+        prefs.latestAdminRegistration = null
         autoRefreshJob?.cancel()
         autoRefreshJob = null
         _uiState.update {
@@ -400,6 +406,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             }
             val bootstrap = api.fetchBootstrap()
             notifyNewOpenAlerts(bootstrap.alerts)
+            prefs.ownerUserId = bootstrap.user.id
+            prefs.cachedDevices = bootstrap.devices
             _uiState.update {
                 it.copy(
                     ownerUserId = bootstrap.user.id,
@@ -419,6 +427,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             if (error.isAuthFailure()) {
                 prefs.authToken = ""
                 prefs.ownerUserId = ""
+                prefs.cachedDevices = emptyList()
                 autoRefreshJob?.cancel()
                 autoRefreshJob = null
                 _uiState.update {

@@ -1,11 +1,11 @@
-#Wed Apr 22 09:50:04 IST 2026
-base.0=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
-base.1=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
-base.2=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
-base.3=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
-base.4=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/2/classes.dex
-base.5=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
-base.6=/home/ayush/ble_tracker/android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+#Mon Apr 27 21:48:15 IST 2026
+base.0=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.1=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.2=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.3=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/11/classes.dex
+base.4=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/2/classes.dex
+base.5=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeProjectDexDebug/4/classes.dex
+base.6=/home/ayush/Ble-smart-luggage-tracker/android-app/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=1/classes.dex
