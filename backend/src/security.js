@@ -196,10 +196,7 @@ export function checkRateLimit(key, limit, windowMs) {
   const history = rateLimits.get(key) ?? [];
   const recent = history.filter((timestamp) => now - timestamp <= windowMs);
   recent.push(now);
-  if (recent.length > 1) {
-    rateLimits.set(key, recent);
-  } else if (recent.length === 1) {
-    // First request in this window; store the entry.
+  if (recent.length > 0) {
     rateLimits.set(key, recent);
   } else {
     // No recent requests remain after pruning; remove the key to free memory.
