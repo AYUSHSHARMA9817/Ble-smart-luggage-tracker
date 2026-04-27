@@ -1,10 +1,13 @@
-# Demo Assets
+# Documentation Assets
 
-Put public-facing GitHub assets here, for example:
+Store screenshots, diagrams, and demo media referenced by the documentation here.
 
-- `owner-dashboard.png`
-- `login-screen.png`
-- `alerts-screen.png`
-- `scanner-flow.gif`
+Suggested asset types:
 
-Then reference them from the root `README.md`.
+- owner dashboard screenshots
+- alerts screen screenshots
+- admin provisioning screenshots
+- scanner flow diagrams or GIFs
+- architecture images used by reports or the root README
+
+Keep filenames stable once they are referenced from Markdown documents.

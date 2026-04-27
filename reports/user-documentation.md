@@ -1,259 +1,159 @@
 # User Documentation — BLE Smart Luggage Tracker
 
----
+This system uses a BLE tracker on the bag, Android phones that can scan for the tracker, and a backend that stores sightings and alerts.
 
-## Table of Contents
+## What You Can See
 
-1. [What This System Does](#1-what-this-system-does)
-2. [What You Need](#2-what-you-need)
-3. [Setting Up the Tracker Hardware](#3-setting-up-the-tracker-hardware)
-4. [Installing the Android App](#4-installing-the-android-app)
-5. [Creating an Owner Account](#5-creating-an-owner-account)
-6. [Claiming Your Tracker](#6-claiming-your-tracker)
-7. [Using the Owner Dashboard](#7-using-the-owner-dashboard)
-8. [Understanding Alerts](#8-understanding-alerts)
-9. [Setting Up Geofences](#9-setting-up-geofences)
-10. [Using a Phone as a Scanner (Relay)](#10-using-a-phone-as-a-scanner-relay)
-11. [Frequently Asked Questions](#11-frequently-asked-questions)
-12. [Troubleshooting](#12-troubleshooting)
+After a tracker is claimed to your account, the app can show:
 
----
+- whether the bag is open or closed
+- when it was last seen
+- the latest scanner location, if a scanner phone had location available
+- RSSI-based proximity estimate
+- geofence state
+- alert history
 
-## 1. What This System Does
+## What You Need
 
-The BLE Smart Luggage Tracker is a small device that attaches to or is placed inside your bag. It broadcasts a wireless signal (Bluetooth Low Energy) that nearby phones can detect. Those phones relay information to a cloud server so you can:
+- a flashed tracker device
+- at least one Android phone with the app installed
+- a backend URL
+- a one-time manual claim code from an admin
 
-- **Know if your bag was opened** — the tracker has a magnetic sensor (reed switch) that detects when the bag is unzipped or opened.
-- **See where your bag was last spotted** — any phone running the app that passes near your bag reports its GPS location.
-- **Get notified when your bag goes out of range** — if no phone has seen your tracker for more than a minute, you receive a proximity lost alert.
-- **Define a safe zone (geofence)** — if your bag leaves a designated area you receive an alert, and when it returns you receive a return notification.
-- **Check power status** — the tracker reports external power health in every packet.
+## Tracker Setup
 
----
+1. Power the tracker.
+2. Place or mount it so the reed switch and magnet line up when the bag closes.
+3. Keep a scanner phone nearby to confirm packets are being seen.
 
-## 2. What You Need
+The firmware currently emits:
 
-| Item | Purpose |
-|------|---------|
-| BLE Tracker device (ESP32-based) | Attaches to your bag |
-| Android phone (Android 8 or higher) | Owner app and/or scanner |
-| Internet connection | Upload sightings to the backend |
-| Claim code | Provided by the system administrator when the device is registered |
+- heartbeat packets every 6 seconds
+- a burst of state-change packets when the reed switch changes
+- a self-test packet every 24 hours
 
----
+## Owner Setup
 
-## 3. Setting Up the Tracker Hardware
+### Create an account
 
-The tracker device is pre-flashed and ready to use. To set it up:
+Use either:
 
-1. **Connect the tracker to its power bank**. The device starts automatically — there is no power button.
-2. **Attach the tracker to your bag.** The magnetic reed switch must be positioned so that the magnet (glued to the opposite side of the zipper or flap) closes the switch when the bag is shut.
-3. **Verify the tracker is broadcasting** — if you have the app installed and scanning is enabled, you should see your device appear within a few seconds of being in range.
+- email and password
+- Google sign-in, if configured in the app and backend
 
-> **Note:** The tracker broadcasts a heartbeat signal every 6 seconds. You do not need to do anything to keep it active.
-
----
-
-## 4. Installing the Android App
-
-The app is distributed as an APK file. To install it:
-
-1. On your Android phone, go to **Settings → Security** (or **Apps → Special app access**) and enable **Install unknown apps** for your file manager or browser.
-2. Download or transfer the APK to your phone.
-3. Tap the APK file to install it.
-4. Open the app — it is called **BLE Tracker**.
-
-> **Tip:** If your organisation distributes the app through Google Play, search for "BLE Tracker" in the Play Store instead.
-
----
-
-## 5. Creating an Owner Account
-
-1. Open the **BLE Tracker** app.
-2. Tap **Create Account**.
-3. Enter your name, email address, and a password (at least 6 characters).
-4. Tap **Register**. You are automatically signed in.
-
-Alternatively, tap **Sign in with Google** to use your Google account.
-
-> **Forgot your password?** Contact your system administrator to reset your account.
-
----
-
-## 6. Claiming Your Tracker
-
-Before you can monitor a tracker, you must claim it using a one-time code provided by the administrator.
-
-1. Open the app and sign in.
-2. Tap **Add Tracker** (or the **+** button on the devices screen).
-3. Enter the **Device ID** (e.g. `0x0000AB01`) — this is printed on your tracker device or provided by the administrator.
-4. Enter the **Manual Code** (e.g. `ABCD1234`) — this is the one-time claim code from the administrator.
-5. Enter a friendly name for your bag (e.g. "Blue Travel Bag").
-6. Tap **Claim**. The tracker now appears in your device list.
-
----
-
-## 7. Using the Owner Dashboard
-
-After signing in and claiming a tracker, the main screen shows:
-
-### Device Card
-
-Each claimed tracker shows:
-
-| Information | Description |
-|------------|-------------|
-| **Name** | The friendly name you gave the device |
-| **Bag state** | Open or Closed |
-| **Last seen** | How long ago a phone detected the tracker |
-| **Power** | Critical / Low / Stable / External Power |
-| **Location** | Approximate GPS coordinates where the tracker was last spotted |
-| **Geofence state** | Inside / Outside / Unknown |
-| **Proximity monitoring** | Toggle on/off from device settings |
-
-### Refreshing
-
-The app automatically refreshes device information every few seconds when the screen is active. Pull down on the device list to refresh manually.
-
-### Device Settings
-
-Tap a device card and then the settings icon to:
-
-- **Rename** the device.
-- **Toggle proximity monitoring** on or off.
-- **Remove** (unclaim) the device.
-
----
-
-## 8. Understanding Alerts
-
-Alerts appear on the **Alerts** screen (bell icon). Each alert has a type, a message, and a timestamp.
-
-### Alert Types
-
-| Alert | What It Means | What To Do |
-|-------|--------------|-----------|
-| **BAG_OPENED** | The bag was detected open | Check if you opened it; if not, investigate |
-| **BAG_CLOSED** | The bag was detected closed | Informational |
-| **PROXIMITY_LOST** | No phone has seen the tracker for > 1 minute | Move closer to the bag or check nearby scanners |
-| **PROXIMITY_RESTORED** | A phone can see the tracker again after an outage | Informational confirmation |
-| **GEOFENCE_EXIT** | The bag left a defined safe zone | The bag may have been moved |
-| **GEOFENCE_ENTRY** | The bag returned to a defined safe zone | Informational confirmation |
-| **SELF_TEST_HEALTH** | The tracker detected a hardware fault | Check power wiring or reed switch; contact support if fault persists |
-
-### Acknowledging Alerts
-
-Tap an alert and then **Acknowledge** to mark it as seen. Acknowledged alerts are moved out of the active list but remain in history.
-
----
-
-## 9. Setting Up Geofences
-
-A geofence is a circular safe zone on the map. If your bag leaves the zone, you get an alert.
-
-### Creating a Geofence
-
-1. Go to the **Geofences** screen.
-2. Tap **Add Geofence**.
-3. Enter a name (e.g. "Home").
-4. Enter the latitude and longitude of the centre point, or tap the map to set it.
-5. Enter the radius in metres (e.g. `100` for a 100 m radius).
-6. Tap **Save**.
-
-### Enabling / Disabling
-
-Each geofence has a toggle. Disable it temporarily if you are travelling and do not want alerts while you move.
-
-### Deleting a Geofence
-
-Swipe the geofence left or tap the delete icon to remove it permanently.
-
----
-
-## 10. Using a Phone as a Scanner (Relay)
-
-Any Android phone running the app can act as a scanner — it does not need an owner account. Scanner phones detect nearby trackers and upload sightings to the backend, expanding the network coverage.
-
-### Enabling Scanner Mode
+### Claim a tracker
 
 1. Open the app.
-2. Go to **Settings** (gear icon).
-3. Toggle **Enable BLE Scanning** to on.
-4. Grant the requested permissions:
-   - **Nearby devices** (Bluetooth scanning)
-   - **Location** (required for BLE scanning and GPS tagging)
-   - **Notifications** (for the persistent scanning notification)
+2. Sign in as an owner.
+3. Go to the device registration section.
+4. Enter the tracker device ID, for example `0x0000AB01`.
+5. Enter the one-time manual claim code from the admin.
+6. Choose a display name.
+7. Submit the registration.
 
-The scanning service runs in the foreground — a persistent notification appears in the notification shade while scanning is active. This is required by Android to keep the scan alive in the background.
+## Scanner Setup
 
-### Auto-Start After Reboot
+The same app can run as a scanner relay.
 
-In **Settings**, enable **Start scanning automatically after reboot** so the scanner service resumes without manual action after the phone restarts.
+1. Open the app settings.
+2. Enable background monitoring.
+3. Grant Bluetooth permissions.
+4. Grant location permission if you want location attached to sightings.
+5. Optionally enable auto-start after reboot.
 
-### Changing the Backend URL
+While scanning:
 
-If your organisation uses a private backend, go to **Settings → Backend URL** and enter the full HTTPS address (e.g. `https://tracker.yourcompany.com`).
+- the app runs a foreground service
+- a persistent notification is shown
+- sightings are queued locally if upload fails
+- queued items retry every 10 seconds
 
----
+## Admin Setup
 
-## 11. Frequently Asked Questions
+Admins can create claim codes in three ways:
 
-**Q: How far away can the tracker be detected?**  
-A: Typical Bluetooth Low Energy range is 10–50 metres in open space. Walls, metal, and body mass reduce range. A RSSI value of -70 dBm or better indicates a strong nearby signal; -90 dBm or worse indicates the device is at the edge of range.
+- the backend web page at `/admin.html`
+- the backend API
+- the app's admin mode
 
-**Q: Does the tracker need Wi-Fi or mobile data?**  
-A: No. The tracker only uses Bluetooth and has no internet connection of its own. A nearby phone with mobile data relays the information.
+When a tracker is registered:
 
-**Q: How long does the tracker battery last?**  
-A: In this build the tracker is intended to run from a USB power bank rather than a CR2032 coin cell. Runtime depends on the power-bank capacity and its low-current auto-shutoff behavior.
+- the backend stores only a hashed claim code
+- the plain code is returned once and should be given to the owner
 
-**Q: Can multiple phones scan simultaneously?**  
-A: Yes. Any number of phones can scan and upload sightings. The backend deduplicates by sequence number.
+## Alerts
 
-**Q: What happens if the phone running the scanner has no internet?**  
-A: Sightings are queued locally on the phone and retried automatically every 10 seconds.
+Current backend alert types include:
 
-**Q: Can I have multiple trackers?**  
-A: Yes. Claim each tracker separately with its own device ID and manual code. All claimed trackers appear on the devices screen.
+- `BAG_OPENED`
+- `BAG_CLOSED`
+- `STATE_CHANGE_SIGNAL`
+- `SELF_TEST_HEALTH`
+- `GEOFENCE_EXIT`
+- `GEOFENCE_ENTRY`
+- `PROXIMITY_LOST`
+- `PROXIMITY_RESTORED`
 
-**Q: Is my location data private?**  
-A: Scanner phones upload GPS coordinates along with sightings. This data is stored on the backend server and is visible only to the owner of the device associated with the sighting. Use a self-hosted backend for maximum privacy.
+The app can acknowledge alerts. Open alerts are also polled by the scanner service every 5 seconds when the owner is signed in.
 
----
+## Geofences
 
-## 12. Troubleshooting
+Owners can create geofences by entering:
 
-### App says "Cannot connect to backend"
+- a name
+- latitude
+- longitude
+- radius in meters
 
-- Confirm your phone has internet access.
-- Go to **Settings → Backend URL** and verify the URL is correct and starts with `https://`.
-- Check that the backend server is running by visiting `https://your-backend-url/api/health` in a browser. You should see `{"ok":true,…}`.
+The app currently supports:
 
-### Tracker not appearing in the device list
+- creating geofences
+- listing geofences
+- deleting geofences
 
-- Make sure you have claimed the tracker (see Section 6).
-- Ensure a phone with scanning enabled is physically near the tracker (within ~10 m).
-- Check that the scanner phone has Bluetooth on and location permission granted.
-- Check the backend health endpoint to confirm the backend is reachable.
+The backend also stores an `enabled` flag on geofences, but the current app UI does not expose a toggle for changing that flag after creation.
 
-### Proximity lost alert keeps appearing
+## Settings
 
-- The alert fires when no phone has seen the tracker for more than 60 seconds.
-- Walk closer to the bag with your phone's scanner active.
-- If you do not need proximity monitoring, disable it in device settings.
+The app lets you change:
 
-### Bag state shows "open" when the bag is closed
+- backend URL
+- scanner reboot auto-start
 
-- The reed switch may need repositioning. The magnet must come close enough to the switch to close it when the bag is shut.
-- Check the firmware's `REED_SWITCH_IS_NC` setting — if your switch is normally-closed, set it to `1`.
+The current default backend URL in code is:
 
-### Geofence alerts not firing
+```text
+https://ble-smart-luggage-tracker.onrender.com
+```
 
-- Verify the geofence is enabled (toggle is on).
-- Confirm that sightings are being uploaded with valid GPS coordinates. The geofence check requires a location in the sighting.
-- The scanner phone must have location permission and a GPS fix.
+## Troubleshooting
 
-### Power shows "POWER CRITICAL"
+### The app cannot reach the backend
 
-- Recharge the power bank immediately and verify the cable or regulator connection.
-- If the tracker is externally powered and this value still appears, inspect the ADC / supply wiring.
+- Confirm the backend URL in Settings.
+- Open `/api/health` in a browser and confirm the server responds.
+- If you use Google sign-in, confirm the backend can reach Google's token verification service.
+
+### The tracker does not appear
+
+- Make sure the tracker has been claimed by the owner.
+- Make sure a scanner phone is nearby.
+- Confirm Bluetooth permissions are granted.
+- Confirm the tracker advertises manufacturer ID `0xFF01`.
+
+### Location is missing
+
+- The scanner can upload sightings without location.
+- Grant fine location permission if you want coordinates attached.
+- Make sure the phone has a recent location fix.
+
+### Proximity alerts keep firing
+
+- `PROXIMITY_LOST` is based on time since the last sighting.
+- By default, the threshold is 60 seconds.
+- If needed, pause device monitoring for that tracker from the app.
+
+### The generated claim code is lost
+
+- Create a new admin registration for the same device.
+- That replaces the previous stored hashed code.
