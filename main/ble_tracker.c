@@ -1,3 +1,20 @@
+/**
+ * @file ble_tracker.c
+ * @brief BLE smart luggage tracker firmware for ESP32.
+ *
+ * Broadcasts a compact 10-byte manufacturer-specific BLE advertisement
+ * containing the bag's reed-switch state, battery level, sequence number,
+ * packet type, health status, and inactivity day counter.
+ *
+ * Three packet types are supported:
+ *   - HEARTBEAT    : periodic keepalive (every HEARTBEAT_INTERVAL_SEC seconds)
+ *   - STATE_CHANGE : burst of 5 packets on reed-switch transition
+ *   - SELF_TEST    : daily health report with fault bits and inactivity counter
+ *
+ * NVS (non-volatile storage) persists the last-known bag state and inactivity
+ * day counter across resets so boot-time contradiction faults can be detected.
+ */
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -74,13 +91,30 @@ static uint8_t g_days_since_change = 0;
 static struct ble_gap_adv_params g_adv_params;
 static bool g_adv_started = false;
 
+/**
+ * @brief Read the raw GPIO level of the reed switch pin.
+ * @return 0 (LOW) or 1 (HIGH).
+ */
 static int read_reed_raw_level() { return gpio_get_level(PIN_REED_SWITCH); }
 
+/**
+ * @brief Translate the raw GPIO level to a logical bag state.
+ *
+ * Accounts for the REED_SWITCH_IS_NC compile-time option so that both
+ * normally-open and normally-closed switches report the same STATE_CLOSED /
+ * STATE_OPEN values to the rest of the firmware.
+ *
+ * @return STATE_CLOSED (0x00) or STATE_OPEN (0x01).
+ */
 static uint8_t read_bag_state() {
   int val = read_reed_raw_level();
   return val == REED_SWITCH_CLOSED_LEVEL ? STATE_CLOSED : STATE_OPEN;
 }
 
+/**
+ * @brief Log the current reed-switch raw level and derived bag state.
+ * @param context  Caller-supplied label included in the log message.
+ */
 static void log_reed_state(const char *context) {
   int raw_level = read_reed_raw_level();
   uint8_t bag_state = read_bag_state();
@@ -115,8 +149,28 @@ static uint8_t read_battery_level() {
 }
 */
 
+/**
+ * @brief NimBLE GAP event callback (required by the API).
+ *
+ * The device operates as a non-connectable advertiser, so no GAP events
+ * require handling. The callback is registered to satisfy the NimBLE API
+ * contract and always returns 0.
+ */
 static int ble_gap_event(struct ble_gap_event *event, void *arg) { return 0; }
 
+/**
+ * @brief Build and broadcast a BLE advertisement with the current tracker state.
+ *
+ * Fills a 10-byte manufacturer-specific payload, stops any running
+ * advertisement, updates the advertisement fields, and restarts advertising.
+ * The static mfg_data buffer is intentional: the NimBLE stack may reference
+ * the buffer asynchronously, so it must not be on the stack.
+ *
+ * health_status and days_since_change are only populated in SELF_TEST packets;
+ * they are zeroed in HEARTBEAT and STATE_CHANGE packets to keep those small.
+ *
+ * @param packet_type  One of PKT_HEARTBEAT, PKT_STATE_CHANGE, PKT_SELF_TEST.
+ */
 static void update_advertising_payload(uint8_t packet_type) {
   struct ble_hs_adv_fields adv_fields;
   memset(&adv_fields, 0, sizeof(adv_fields));
@@ -133,10 +187,11 @@ static void update_advertising_payload(uint8_t packet_type) {
   p.days_since_change =
       (packet_type == PKT_SELF_TEST) ? g_days_since_change : 0;
 
+  // Static buffer: must outlive the ble_gap_adv_set_fields call.
   static uint8_t mfg_data[32];
   uint16_t mfr_id = MANUFACTURER_ID;
-  mfg_data[0] = mfr_id & 0xFF;
-  mfg_data[1] = (mfr_id >> 8) & 0xFF;
+  mfg_data[0] = mfr_id & 0xFF;         // Manufacturer ID low byte (little-endian)
+  mfg_data[1] = (mfr_id >> 8) & 0xFF;  // Manufacturer ID high byte
 
   memcpy(&mfg_data[2], &p, sizeof(p));
 
@@ -171,6 +226,13 @@ static void update_advertising_payload(uint8_t packet_type) {
            p.battery_level);
 }
 
+/**
+ * @brief Broadcast @p count advertisements of the given packet type with
+ *        a 2-second gap between each, to improve reliable reception.
+ *
+ * @param packet_type  Packet type for all advertisements in the burst.
+ * @param count        Number of advertisements to send.
+ */
 static void send_burst(uint8_t packet_type, int count) {
   for (int i = 0; i < count; i++) {
     update_advertising_payload(packet_type);
@@ -178,7 +240,19 @@ static void send_burst(uint8_t packet_type, int count) {
   }
 }
 
-// Ensure NVS memory tracks faults appropriately
+/**
+ * @brief On boot, load persisted health state from NVS and flag any faults.
+ *
+ * Two fault conditions are checked:
+ *   1. Boot contradiction: the bag state at boot differs from the last
+ *      persisted state, implying a state change occurred while unpowered.
+ *      Sets HEALTH_BIT_BOOT_CONTRADICT and updates NVS.
+ *   2. Reed inactivity: the bag has not changed state in >= 30 days.
+ *      Sets HEALTH_BIT_REED_FAULT.
+ *
+ * Missing NVS keys (first boot) default to STATE_CLOSED and 0 days, which
+ * is the normal no-fault state and requires no special handling.
+ */
 static void init_nvs_health_checks() {
   nvs_handle_t nvs_handle;
   esp_err_t err = nvs_open("tracker", NVS_READWRITE, &nvs_handle);
@@ -208,7 +282,13 @@ static void init_nvs_health_checks() {
   nvs_close(nvs_handle);
 }
 
-// Reset the inactivity fault counter safely
+/**
+ * @brief Persist the new bag state to NVS and clear the inactivity fault.
+ *
+ * Called whenever a confirmed state change is detected. Resets the
+ * days-since-change counter to 0 and clears HEALTH_BIT_REED_FAULT so the
+ * next SELF_TEST reports a healthy switch.
+ */
 static void track_state_change() {
   nvs_handle_t nvs_handle;
   if (nvs_open("tracker", NVS_READWRITE, &nvs_handle) == ESP_OK) {
@@ -221,6 +301,19 @@ static void track_state_change() {
   g_health_status &= ~(HEALTH_BIT_REED_FAULT);
 }
 
+/**
+ * @brief Main FreeRTOS task: monitors the reed switch and drives the
+ *        heartbeat, state-change, and self-test advertisement cadences.
+ *
+ * Loop behaviour:
+ *   1. Every 100 ms: sample the reed switch with a 50 ms debounce. On a
+ *      confirmed state change, send a burst of 5 STATE_CHANGE packets.
+ *   2. Every 24 hours: increment the inactivity counter, check for the reed
+ *      fault threshold, and send a burst of 5 SELF_TEST packets.
+ *   3. Every HEARTBEAT_INTERVAL_SEC seconds: send one HEARTBEAT packet.
+ *
+ * @param pvParameter  Unused FreeRTOS task parameter.
+ */
 void tracker_task(void *pvParameter) {
   TickType_t last_heartbeat = xTaskGetTickCount();
   TickType_t last_self_test = xTaskGetTickCount();
@@ -229,8 +322,8 @@ void tracker_task(void *pvParameter) {
   memset(&g_adv_params, 0, sizeof(g_adv_params));
   g_adv_params.conn_mode = BLE_GAP_CONN_MODE_NON;
   g_adv_params.disc_mode = BLE_GAP_DISC_MODE_GEN;
-  g_adv_params.itvl_min = 160; // 100ms
-  g_adv_params.itvl_max = 160;
+  g_adv_params.itvl_min = 160; // 100ms (units of 0.625ms)
+  g_adv_params.itvl_max = 160; // 100ms (units of 0.625ms)
 
   update_advertising_payload(PKT_HEARTBEAT);
 
@@ -257,6 +350,7 @@ void tracker_task(void *pvParameter) {
     if ((now - last_self_test) / configTICK_RATE_HZ >= SELF_TEST_INTERVAL_SEC) {
       ESP_LOGI(TAG, "Triggering 24h SELF_TEST loop");
 
+      // Increment inactivity counter, capped at 255 to avoid uint8 overflow.
       if (g_days_since_change < 255) {
         g_days_since_change++;
         nvs_handle_t nvs_handle;
@@ -285,6 +379,16 @@ void tracker_task(void *pvParameter) {
   }
 }
 
+/**
+ * @brief Initialise hardware peripherals.
+ *
+ * Configures the reed-switch GPIO as a pull-up input with interrupts
+ * disabled (polling is used instead). Also calls init_nvs_health_checks()
+ * to restore persisted health state before the BLE stack starts.
+ *
+ * The ADC1 initialisation for battery measurement is disabled pending
+ * hardware-specific voltage divider configuration (see commented block).
+ */
 void hw_init() {
   // Init Reed Switch on GPIO5
   gpio_reset_pin(PIN_REED_SWITCH);
@@ -318,12 +422,33 @@ void hw_init() {
   init_nvs_health_checks();
 }
 
+/**
+ * @brief NimBLE host sync callback – spawns the tracker task once the BLE
+ *        stack is ready.
+ *
+ * Registered as ble_hs_cfg.sync_cb before nimble_port_freertos_init().
+ */
 void ble_app_on_sync(void) {
   xTaskCreate(tracker_task, "tracker_task", 4096, NULL, 5, NULL);
 }
 
+/**
+ * @brief FreeRTOS task that runs the NimBLE host event loop.
+ *
+ * Must be created via nimble_port_freertos_init() which sets the correct
+ * stack size and priority for the NimBLE host.
+ *
+ * @param param  Unused.
+ */
 void host_task(void *param) { nimble_port_run(); }
 
+/**
+ * @brief Application entry point.
+ *
+ * Initialises NVS (erasing if pages are full or the version changed),
+ * calls hw_init() to configure peripherals, then starts the NimBLE host
+ * and registers the sync callback that launches tracker_task.
+ */
 void app_main(void) {
   esp_err_t ret = nvs_flash_init();
   if (ret == ESP_ERR_NVS_NO_FREE_PAGES ||

@@ -7,9 +7,25 @@ import com.bletracker.app.data.TrackerPacket
 import org.json.JSONArray
 import org.json.JSONObject
 
+/**
+ * Thread-safe persistent FIFO queue of [QueuedSighting] items backed by
+ * [android.content.SharedPreferences].
+ *
+ * All public methods are `@Synchronized` to prevent concurrent reads and
+ * writes from the BLE scan callback thread and the uploader coroutine.
+ *
+ * Queue capacity is capped at [MAX_QUEUE_SIZE] (500 items). When the cap is
+ * reached the oldest items are dropped to make room for new ones.
+ *
+ * @param context Android context used to open the SharedPreferences file.
+ */
 class SightingQueueStore(context: Context) {
     private val prefs = context.getSharedPreferences("ble_tracker_queue", Context.MODE_PRIVATE)
 
+    /**
+     * Append [sighting] to the end of the queue. If the queue has reached
+     * [MAX_QUEUE_SIZE], the oldest items are evicted first.
+     */
     @Synchronized
     fun enqueue(sighting: QueuedSighting) {
         val items = loadMutable()
@@ -22,11 +38,24 @@ class SightingQueueStore(context: Context) {
         prefs.edit().putString(KEY, JSONArray(items).toString()).apply()
     }
 
+    /**
+     * Return up to [limit] items from the front of the queue without
+     * removing them. The caller is responsible for calling [removeFirst]
+     * after successfully processing the returned items.
+     *
+     * @param limit Maximum number of items to return (default 100).
+     */
     @Synchronized
     fun snapshot(limit: Int = 100): List<QueuedSighting> {
         return loadMutable().take(limit).map(::fromJson)
     }
 
+    /**
+     * Remove the first [count] items from the queue. Used by the uploader
+     * after a successful batch upload.
+     *
+     * @param count Number of items to remove. Clamped to the current queue size.
+     */
     @Synchronized
     fun removeFirst(count: Int) {
         val items = loadMutable()
@@ -36,12 +65,14 @@ class SightingQueueStore(context: Context) {
         prefs.edit().putString(KEY, JSONArray(items).toString()).apply()
     }
 
+    /** Load the raw JSON array from SharedPreferences as a mutable list. */
     private fun loadMutable(): MutableList<JSONObject> {
         val raw = prefs.getString(KEY, "[]") ?: "[]"
         val array = JSONArray(raw)
         return MutableList(array.length()) { index -> array.getJSONObject(index) }
     }
 
+    /** Serialise a [QueuedSighting] to a [JSONObject] for persistent storage. */
     private fun toJson(sighting: QueuedSighting): JSONObject {
         val json = JSONObject()
             .put("scannerUserId", sighting.scannerUserId)
@@ -73,6 +104,7 @@ class SightingQueueStore(context: Context) {
         return json
     }
 
+    /** Deserialise a [JSONObject] (previously produced by [toJson]) into a [QueuedSighting]. */
     private fun fromJson(json: JSONObject): QueuedSighting {
         val packet = json.getJSONObject("packet")
         val locationJson = json.optJSONObject("location")
@@ -105,7 +137,9 @@ class SightingQueueStore(context: Context) {
     }
 
     private companion object {
+        /** SharedPreferences key under which the JSON array is stored. */
         const val KEY = "queued_sightings"
+        /** Maximum number of sightings retained; oldest are evicted when exceeded. */
         const val MAX_QUEUE_SIZE = 500
     }
 }
