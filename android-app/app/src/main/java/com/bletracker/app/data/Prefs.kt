@@ -118,7 +118,7 @@ class Prefs(context: Context) {
         }
     private companion object {
         /** Production backend URL. Update before release to point at the deployed server. */
-        const val DEFAULT_BACKEND_URL = "http://10.150.47.183:8787"
+        const val DEFAULT_BACKEND_URL = "https://ble-tracker-backend.onrender.com"
         /** Android emulator loopback URL used in previous versions; redirected to the default. */
         const val LEGACY_EMULATOR_URL = "http://10.0.2.2:8787"
     }
