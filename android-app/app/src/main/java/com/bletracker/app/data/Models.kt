@@ -4,7 +4,7 @@ package com.bletracker.app.data
 data class TrackerPacket(
     /** 0 = closed, 1 = open. */
     val bagState: Int,
-    /** 0 = CRITICAL, 1 = LOW, 2 = MEDIUM, 3 = GOOD. */
+    /** 0 = critical power, 1 = low power, 2 = stable supply, 3 = external power present. */
     val batteryLevel: Int,
     /** 8-bit rolling sequence number; wraps 255 → 0. */
     val seqNum: Int,
@@ -97,6 +97,7 @@ data class DevicePacketDto(
     val daysSinceChange: Int,
     val packetTypeName: String,
     val bagStateName: String,
+    /** Human-readable power status label from the backend. */
     val batteryLevelName: String,
 )
 

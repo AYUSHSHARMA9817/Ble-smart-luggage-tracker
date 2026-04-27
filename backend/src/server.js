@@ -21,14 +21,13 @@ import {
   verifyManualCode,
   verifyPassword,
 } from "./security.js";
-import { loadDb, nextId, saveDb } from "./store.js";
+import { loadDb, nextId, withDb } from "./store.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const PUBLIC_DIR = path.resolve(__dirname, "../public");
 const PORT = Number(process.env.PORT ?? 8787);
 
-/** HTTP server – all API routes are handled by {@link handleApi}. */
 const server = http.createServer(async (req, res) => {
   try {
     if (req.url?.startsWith("/api/")) {
@@ -41,35 +40,20 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-/**
- * Background job: re-evaluate proximity alerts for all owned devices every
- * 5 seconds. This catches devices that have gone silent without sending a
- * state-change packet (e.g. battery died or moved out of range).
- */
 setInterval(() => {
-  const db = loadDb();
-  evaluateBackgroundAlerts(db);
-  saveDb(db);
+  withDb((db) => {
+    evaluateBackgroundAlerts(db);
+  }, { write: true }).catch((error) => {
+    console.error("Background alert evaluation failed", error);
+  });
 }, 5_000);
 
 server.listen(PORT, () => {
   console.log(`BLE tracker backend running on http://localhost:${PORT}`);
 });
 
-// ---------------------------------------------------------------------------
-// API router
-// ---------------------------------------------------------------------------
-
-/**
- * Route all /api/* requests to the appropriate handler.
- * Applies rate limiting (120 req/min per IP+path) before routing.
- *
- * @param {http.IncomingMessage} req
- * @param {http.ServerResponse}  res
- */
 async function handleApi(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
-  const db = loadDb();
   const clientIp = req.headers["x-forwarded-for"] ?? req.socket.remoteAddress ?? "unknown";
 
   if (req.method === "OPTIONS") {
@@ -78,17 +62,19 @@ async function handleApi(req, res) {
   }
 
   if (!checkRateLimit(`${clientIp}:${url.pathname}`, 120, 60_000)) {
-    logSecurityEvent(db, "RATE_LIMIT_HIT", { clientIp, path: url.pathname });
-    saveDb(db);
+    await withDb((db) => {
+      logSecurityEvent(db, "RATE_LIMIT_HIT", { clientIp, path: url.pathname });
+    }, { write: true });
     respondJson(res, 429, { error: "rate limit exceeded" });
     return;
   }
 
-  // --- GET /api/health ---
   if (req.method === "GET" && url.pathname === "/api/health") {
+    const db = await loadDb();
     respondJson(res, 200, {
       ok: true,
       manufacturerId: MANUFACTURER_ID,
+      storage: "turso",
       users: db.users.length,
       devices: db.devices.length,
       geofences: db.geofences.length,
@@ -98,40 +84,37 @@ async function handleApi(req, res) {
     return;
   }
 
-  // --- POST /api/auth/google ---
-  // Exchanges a Google ID token for a session token.
-  // serverClientId is optional; when provided the token audience is verified.
   if (req.method === "POST" && url.pathname === "/api/auth/google") {
     const body = await readJson(req);
     const googleProfile = await verifyGoogleIdentity(body.idToken, body.serverClientId);
-    let user = db.users.find((entry) => entry.googleSub === googleProfile.sub);
-    if (!user) {
-      user = {
-        id: nextId("user"),
-        name: googleProfile.name ?? googleProfile.email,
-        email: googleProfile.email,
-        googleSub: googleProfile.sub,
-        createdAt: new Date().toISOString(),
-      };
-      db.users.push(user);
-    } else {
-      user.name = googleProfile.name ?? user.name;
-      user.email = googleProfile.email ?? user.email;
-    }
+    const result = await withDb((db) => {
+      let user = db.users.find((entry) => entry.googleSub === googleProfile.sub);
+      if (!user) {
+        user = {
+          id: nextId("user"),
+          name: googleProfile.name ?? googleProfile.email,
+          email: googleProfile.email,
+          googleSub: googleProfile.sub,
+          createdAt: new Date().toISOString(),
+        };
+        db.users.push(user);
+      } else {
+        user.name = googleProfile.name ?? user.name;
+        user.email = googleProfile.email ?? user.email;
+      }
 
-    const auth = createSession(db, user.id, req.headers["user-agent"]);
-    logSecurityEvent(db, "GOOGLE_LOGIN_SUCCESS", { userId: user.id, email: user.email });
-    saveDb(db);
-    respondJson(res, 200, {
-      user: serializeUser(user),
-      authToken: auth.token,
-      expiresAt: auth.session.expiresAt,
-    });
+      const auth = createSession(db, user.id, req.headers["user-agent"]);
+      logSecurityEvent(db, "GOOGLE_LOGIN_SUCCESS", { userId: user.id, email: user.email });
+      return {
+        user: serializeUser(user),
+        authToken: auth.token,
+        expiresAt: auth.session.expiresAt,
+      };
+    }, { write: true });
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- POST /api/users ---
-  // Create a new account or set a password on an existing Google-linked account.
   if (req.method === "POST" && url.pathname === "/api/users") {
     const body = await readJson(req);
     const name = String(body.name ?? "").trim();
@@ -147,56 +130,64 @@ async function handleApi(req, res) {
       return;
     }
 
-    const existing = db.users.find((entry) => String(entry.email ?? "").toLowerCase() === email);
-    if (existing?.googleSub) {
-      respondJson(res, 409, { error: "email is already linked to another sign-in method" });
-      return;
-    }
+    const result = await withDb((db) => {
+      const existing = db.users.find((entry) => String(entry.email ?? "").toLowerCase() === email);
+      if (existing?.googleSub) {
+        const error = new Error("email is already linked to another sign-in method");
+        error.statusCode = 409;
+        throw error;
+      }
 
-    if (existing?.passwordHash && existing?.passwordSalt) {
-      respondJson(res, 409, { error: "account already exists" });
-      return;
-    }
+      if (existing?.passwordHash && existing?.passwordSalt) {
+        const error = new Error("account already exists");
+        error.statusCode = 409;
+        throw error;
+      }
 
-    if (existing) {
+      if (existing) {
+        const passwordRecord = hashPassword(password);
+        existing.name = name;
+        existing.passwordSalt = passwordRecord.salt;
+        existing.passwordHash = passwordRecord.hash;
+        const auth = createSession(db, existing.id, req.headers["user-agent"]);
+        logSecurityEvent(db, "LOCAL_PASSWORD_SET", { userId: existing.id, email: existing.email });
+        return {
+          statusCode: 200,
+          body: {
+            user: serializeUser(existing),
+            authToken: auth.token,
+            expiresAt: auth.session.expiresAt,
+          },
+        };
+      }
+
       const passwordRecord = hashPassword(password);
-      existing.name = name;
-      existing.passwordSalt = passwordRecord.salt;
-      existing.passwordHash = passwordRecord.hash;
-      const auth = createSession(db, existing.id, req.headers["user-agent"]);
-      logSecurityEvent(db, "LOCAL_PASSWORD_SET", { userId: existing.id, email: existing.email });
-      saveDb(db);
-      respondJson(res, 200, {
-        user: serializeUser(existing),
-        authToken: auth.token,
-        expiresAt: auth.session.expiresAt,
-      });
-      return;
-    }
+      const user = {
+        id: nextId("user"),
+        name,
+        email,
+        googleSub: null,
+        passwordSalt: passwordRecord.salt,
+        passwordHash: passwordRecord.hash,
+        createdAt: new Date().toISOString(),
+      };
+      db.users.push(user);
+      const auth = createSession(db, user.id, req.headers["user-agent"]);
+      logSecurityEvent(db, "MANUAL_USER_CREATED", { userId: user.id, email: user.email });
+      return {
+        statusCode: 201,
+        body: {
+          user: serializeUser(user),
+          authToken: auth.token,
+          expiresAt: auth.session.expiresAt,
+        },
+      };
+    }, { write: true });
 
-    const passwordRecord = hashPassword(password);
-    const user = {
-      id: nextId("user"),
-      name,
-      email,
-      googleSub: null,
-      passwordSalt: passwordRecord.salt,
-      passwordHash: passwordRecord.hash,
-      createdAt: new Date().toISOString(),
-    };
-    db.users.push(user);
-    const auth = createSession(db, user.id, req.headers["user-agent"]);
-    logSecurityEvent(db, "MANUAL_USER_CREATED", { userId: user.id, email: user.email });
-    saveDb(db);
-    respondJson(res, 201, {
-      user: serializeUser(user),
-      authToken: auth.token,
-      expiresAt: auth.session.expiresAt,
-    });
+    respondJson(res, result.statusCode, result.body);
     return;
   }
 
-  // --- POST /api/auth/login ---
   if (req.method === "POST" && url.pathname === "/api/auth/login") {
     const body = await readJson(req);
     const email = String(body.email ?? "").trim().toLowerCase();
@@ -206,35 +197,37 @@ async function handleApi(req, res) {
       return;
     }
 
-    const user = db.users.find((entry) => String(entry.email ?? "").toLowerCase() === email);
-    if (!user || user.googleSub || !verifyPassword(password, user)) {
-      logSecurityEvent(db, "LOCAL_LOGIN_FAILED", { email, clientIp });
-      saveDb(db);
-      respondJson(res, 401, { error: "invalid email or password" });
-      return;
-    }
+    const result = await withDb((db) => {
+      const user = db.users.find((entry) => String(entry.email ?? "").toLowerCase() === email);
+      if (!user || user.googleSub || !verifyPassword(password, user)) {
+        logSecurityEvent(db, "LOCAL_LOGIN_FAILED", { email, clientIp });
+        const error = new Error("invalid email or password");
+        error.statusCode = 401;
+        throw error;
+      }
 
-    const auth = createSession(db, user.id, req.headers["user-agent"]);
-    logSecurityEvent(db, "LOCAL_LOGIN_SUCCESS", { userId: user.id, email: user.email });
-    saveDb(db);
-    respondJson(res, 200, {
-      user: serializeUser(user),
-      authToken: auth.token,
-      expiresAt: auth.session.expiresAt,
-    });
+      const auth = createSession(db, user.id, req.headers["user-agent"]);
+      logSecurityEvent(db, "LOCAL_LOGIN_SUCCESS", { userId: user.id, email: user.email });
+      return {
+        user: serializeUser(user),
+        authToken: auth.token,
+        expiresAt: auth.session.expiresAt,
+      };
+    }, { write: true });
+
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- GET /api/me ---
   if (req.method === "GET" && url.pathname === "/api/me") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     respondJson(res, 200, serializeUser(auth.user));
     return;
   }
 
-  // --- GET /api/bootstrap ---
-  // Returns the full initial payload for the authenticated user in a single request.
   if (req.method === "GET" && url.pathname === "/api/bootstrap") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     respondJson(res, 200, {
       user: serializeUser(auth.user),
@@ -247,203 +240,210 @@ async function handleApi(req, res) {
     return;
   }
 
-  // --- POST /api/admin/device-registrations ---
-  // Admin-only endpoint to pre-register a device and issue a one-time manual code.
   if (req.method === "POST" && url.pathname === "/api/admin/device-registrations") {
     const body = await readJson(req);
-    if (!process.env.ADMIN_REGISTRATION_SECRET || body.adminSecret !== process.env.ADMIN_REGISTRATION_SECRET) {
-      logSecurityEvent(db, "ADMIN_REGISTRATION_DENIED", { clientIp });
-      saveDb(db);
-      respondJson(res, 403, { error: "invalid admin secret" });
-      return;
-    }
+    const result = await withDb((db) => {
+      if (!process.env.ADMIN_REGISTRATION_SECRET || body.adminSecret !== process.env.ADMIN_REGISTRATION_SECRET) {
+        logSecurityEvent(db, "ADMIN_REGISTRATION_DENIED", { clientIp });
+        const error = new Error("invalid admin secret");
+        error.statusCode = 403;
+        throw error;
+      }
 
-    const deviceId = normalizeDeviceId(body.deviceId);
-    const manualCode = normalizeManualCode(body.manualCode);
-    if (!deviceId || !manualCode) {
-      respondJson(res, 400, { error: "deviceId and manualCode are required" });
-      return;
-    }
+      const deviceId = normalizeDeviceId(body.deviceId);
+      const manualCode = normalizeManualCode(body.manualCode);
+      if (!deviceId || !manualCode) {
+        const error = new Error("deviceId and manualCode are required");
+        error.statusCode = 400;
+        throw error;
+      }
 
-    const registration = issueRegistration(db, deviceId, manualCode, body.note ?? "");
-    logSecurityEvent(db, "REGISTRATION_CODE_CREATED", { deviceId });
-    saveDb(db);
-    respondJson(res, 201, {
-      id: registration.id,
-      deviceId: registration.deviceId,
-      note: registration.note,
-      createdAt: registration.createdAt,
-    });
+      const registration = issueRegistration(db, deviceId, manualCode, body.note ?? "");
+      logSecurityEvent(db, "REGISTRATION_CODE_CREATED", { deviceId });
+      return {
+        id: registration.id,
+        deviceId: registration.deviceId,
+        note: registration.note,
+        createdAt: registration.createdAt,
+      };
+    }, { write: true });
+
+    respondJson(res, 201, result);
     return;
   }
 
-  // --- POST /api/devices/register ---
-  // Claim a pre-registered device by supplying the one-time manual code.
   if (req.method === "POST" && url.pathname === "/api/devices/register") {
     const body = await readJson(req);
-    const auth = requireAuth(db, req);
-    const deviceId = normalizeDeviceId(body.deviceId);
-    const manualCode = normalizeManualCode(body.manualCode);
-    const registration = db.deviceRegistrations.find((entry) => entry.deviceId === deviceId);
+    const result = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const deviceId = normalizeDeviceId(body.deviceId);
+      const manualCode = normalizeManualCode(body.manualCode);
+      const registration = db.deviceRegistrations.find((entry) => entry.deviceId === deviceId);
 
-    if (!registration) {
-      logSecurityEvent(db, "DEVICE_REGISTRATION_UNKNOWN_DEVICE", { deviceId, userId: auth.user.id });
-      saveDb(db);
-      respondJson(res, 404, { error: "device registration not found" });
-      return;
-    }
+      if (!registration) {
+        logSecurityEvent(db, "DEVICE_REGISTRATION_UNKNOWN_DEVICE", { deviceId, userId: auth.user.id });
+        const error = new Error("device registration not found");
+        error.statusCode = 404;
+        throw error;
+      }
 
-    if (registration.claimedByUserId && registration.claimedByUserId !== auth.user.id) {
-      logSecurityEvent(db, "DEVICE_REGISTRATION_ALREADY_CLAIMED", { deviceId, userId: auth.user.id });
-      saveDb(db);
-      respondJson(res, 409, { error: "device already claimed" });
-      return;
-    }
+      if (registration.claimedByUserId && registration.claimedByUserId !== auth.user.id) {
+        logSecurityEvent(db, "DEVICE_REGISTRATION_ALREADY_CLAIMED", { deviceId, userId: auth.user.id });
+        const error = new Error("device already claimed");
+        error.statusCode = 409;
+        throw error;
+      }
 
-    if (!manualCode || !verifyManualCode(manualCode, registration)) {
-      logSecurityEvent(db, "DEVICE_REGISTRATION_CODE_INVALID", { deviceId, userId: auth.user.id });
-      saveDb(db);
-      respondJson(res, 403, { error: "invalid manual code" });
-      return;
-    }
+      if (!manualCode || !verifyManualCode(manualCode, registration)) {
+        logSecurityEvent(db, "DEVICE_REGISTRATION_CODE_INVALID", { deviceId, userId: auth.user.id });
+        const error = new Error("invalid manual code");
+        error.statusCode = 403;
+        throw error;
+      }
 
-    let device = db.devices.find((entry) => entry.deviceId === deviceId);
-    if (!device) {
-      device = {
-        id: nextId("device"),
+      let device = db.devices.find((entry) => entry.deviceId === deviceId);
+      if (!device) {
+        device = {
+          id: nextId("device"),
+          deviceId,
+          ownerUserId: auth.user.id,
+          displayName: body.displayName ?? deviceId,
+          createdAt: new Date().toISOString(),
+          lastSeenAt: null,
+          lastLocation: null,
+          lastRssi: null,
+          lastPacket: null,
+          geofenceState: "unknown",
+          status: "claimed",
+          proximityMonitoringEnabled: true,
+          proximityAlertSentForSeenAt: null,
+        };
+        db.devices.push(device);
+      } else {
+        device.ownerUserId = auth.user.id;
+        device.displayName = body.displayName ?? device.displayName;
+        device.status = "claimed";
+        device.proximityMonitoringEnabled ??= true;
+        device.proximityAlertSentForSeenAt ??= null;
+      }
+
+      registration.claimedByUserId = auth.user.id;
+      registration.claimedAt = new Date().toISOString();
+
+      db.events.unshift({
+        id: nextId("event"),
         deviceId,
         ownerUserId: auth.user.id,
-        displayName: body.displayName ?? deviceId,
+        type: "DEVICE_REGISTERED",
         createdAt: new Date().toISOString(),
-        lastSeenAt: null,
-        lastLocation: null,
-        lastRssi: null,
-        lastPacket: null,
-        geofenceState: "unknown",
-        status: "claimed",
-        proximityMonitoringEnabled: true,
-      };
-      db.devices.push(device);
-    } else {
-      device.ownerUserId = auth.user.id;
-      device.displayName = body.displayName ?? device.displayName;
-      device.status = "claimed";
-      device.proximityMonitoringEnabled ??= true;
-    }
+      });
+      logSecurityEvent(db, "DEVICE_REGISTERED", { deviceId, userId: auth.user.id });
+      return device;
+    }, { write: true });
 
-    registration.claimedByUserId = auth.user.id;
-    registration.claimedAt = new Date().toISOString();
-
-    db.events.unshift({
-      id: nextId("event"),
-      deviceId,
-      ownerUserId: auth.user.id,
-      type: "DEVICE_REGISTERED",
-      createdAt: new Date().toISOString(),
-    });
-    logSecurityEvent(db, "DEVICE_REGISTERED", { deviceId, userId: auth.user.id });
-    saveDb(db);
-    respondJson(res, 200, device);
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- GET /api/devices ---
   if (req.method === "GET" && url.pathname === "/api/devices") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     respondJson(res, 200, db.devices.filter((entry) => entry.ownerUserId === auth.user.id));
     return;
   }
 
-  // --- DELETE /api/devices/:deviceId ---
-  // Unclaims a device, removing all related alerts and notifications.
   if (req.method === "DELETE" && url.pathname.startsWith("/api/devices/")) {
-    const auth = requireAuth(db, req);
     const rawDeviceId = decodeURIComponent(url.pathname.split("/").pop() ?? "");
     const deviceId = normalizeDeviceId(rawDeviceId);
-    const device = db.devices.find(
-      (entry) => entry.deviceId === deviceId && entry.ownerUserId === auth.user.id
-    );
+    const result = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const device = db.devices.find(
+        (entry) => entry.deviceId === deviceId && entry.ownerUserId === auth.user.id
+      );
 
-    if (!device) {
-      respondJson(res, 404, { error: "device not found" });
-      return;
-    }
+      if (!device) {
+        const error = new Error("device not found");
+        error.statusCode = 404;
+        throw error;
+      }
 
-    device.ownerUserId = null;
-    device.displayName = device.deviceId;
-    device.status = "unclaimed";
-    device.geofenceState = "unknown";
-    device.proximityMonitoringEnabled = true;
+      device.ownerUserId = null;
+      device.displayName = device.deviceId;
+      device.status = "unclaimed";
+      device.geofenceState = "unknown";
+      device.proximityMonitoringEnabled = true;
+      device.proximityAlertSentForSeenAt = null;
 
-    const registration = db.deviceRegistrations.find((entry) => entry.deviceId === deviceId);
-    if (registration?.claimedByUserId === auth.user.id) {
-      registration.claimedByUserId = null;
-      registration.claimedAt = null;
-    }
+      const registration = db.deviceRegistrations.find((entry) => entry.deviceId === deviceId);
+      if (registration?.claimedByUserId === auth.user.id) {
+        registration.claimedByUserId = null;
+        registration.claimedAt = null;
+      }
 
-    db.alerts = db.alerts.filter((entry) => !(entry.deviceId === deviceId && entry.ownerUserId === auth.user.id));
-    db.notifications = db.notifications.filter(
-      (entry) => !(entry.userId === auth.user.id && db.alerts.every((alert) => alert.id !== entry.alertId))
-    );
-    db.events.unshift({
-      id: nextId("event"),
-      deviceId,
-      ownerUserId: auth.user.id,
-      type: "DEVICE_REMOVED",
-      createdAt: new Date().toISOString(),
-    });
+      db.alerts = db.alerts.filter((entry) => !(entry.deviceId === deviceId && entry.ownerUserId === auth.user.id));
+      db.notifications = db.notifications.filter(
+        (entry) => !(entry.userId === auth.user.id && db.alerts.every((alert) => alert.id !== entry.alertId))
+      );
+      db.events.unshift({
+        id: nextId("event"),
+        deviceId,
+        ownerUserId: auth.user.id,
+        type: "DEVICE_REMOVED",
+        createdAt: new Date().toISOString(),
+      });
 
-    saveDb(db);
-    respondJson(res, 200, { ok: true, deviceId });
+      return { ok: true, deviceId };
+    }, { write: true });
+
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- POST /api/devices/:deviceId/monitoring ---
-  // Enable or disable proximity monitoring for a device.
   if (req.method === "POST" && url.pathname.startsWith("/api/devices/") && url.pathname.endsWith("/monitoring")) {
-    const auth = requireAuth(db, req);
     const parts = url.pathname.split("/");
     const rawDeviceId = decodeURIComponent(parts[3] ?? "");
     const deviceId = normalizeDeviceId(rawDeviceId);
     const body = await readJson(req);
-    const device = db.devices.find(
-      (entry) => entry.deviceId === deviceId && entry.ownerUserId === auth.user.id
-    );
-
-    if (!device) {
-      respondJson(res, 404, { error: "device not found" });
-      return;
-    }
-
-    device.proximityMonitoringEnabled = body.enabled !== false;
-    if (!device.proximityMonitoringEnabled) {
-      const openAlert = db.alerts.find(
-        (entry) => entry.type === "PROXIMITY_LOST" && entry.deviceId === deviceId && entry.status === "open"
+    const result = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const device = db.devices.find(
+        (entry) => entry.deviceId === deviceId && entry.ownerUserId === auth.user.id
       );
-      if (openAlert) {
-        openAlert.status = "closed";
-        openAlert.closedAt = new Date().toISOString();
-      }
-    }
 
-    saveDb(db);
-    respondJson(res, 200, device);
+      if (!device) {
+        const error = new Error("device not found");
+        error.statusCode = 404;
+        throw error;
+      }
+
+      device.proximityMonitoringEnabled = body.enabled !== false;
+      if (!device.proximityMonitoringEnabled) {
+        const openAlert = db.alerts.find(
+          (entry) => entry.type === "PROXIMITY_LOST" && entry.deviceId === deviceId && entry.status === "open"
+        );
+        if (openAlert) {
+          openAlert.status = "closed";
+          openAlert.closedAt = new Date().toISOString();
+        }
+      }
+
+      return device;
+    }, { write: true });
+
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- POST /api/sightings ---
-  // Receive a BLE sighting from a scanner (Android app) and update device state.
   if (req.method === "POST" && url.pathname === "/api/sightings") {
     const body = await readJson(req);
     body.manufacturerId = normalizeManufacturerId(body.manufacturerId);
-    const device = recordSighting(db, body);
-    saveDb(db);
-    respondJson(res, 201, device);
+    const result = await withDb((db) => recordSighting(db, body), { write: true });
+    respondJson(res, 201, result);
     return;
   }
 
-  // --- GET /api/events ---
   if (req.method === "GET" && url.pathname === "/api/events") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     const deviceId = url.searchParams.get("deviceId");
     const events = deviceId
@@ -457,8 +457,8 @@ async function handleApi(req, res) {
     return;
   }
 
-  // --- GET /api/alerts ---
   if (req.method === "GET" && url.pathname === "/api/alerts") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     const since = url.searchParams.get("since");
     const openOnly = url.searchParams.get("openOnly") === "true";
@@ -472,44 +472,41 @@ async function handleApi(req, res) {
     if (openOnly) {
       alerts = alerts.filter((entry) => entry.status === "open");
     }
-    respondJson(
-      res,
-      200,
-      alerts.slice(0, 200)
-    );
+    respondJson(res, 200, alerts.slice(0, 200));
     return;
   }
 
-  // --- POST /api/alerts/ack ---
-  // Acknowledge an open alert; also tracks the device's lastSeenAt so a new
-  // proximity alert is not immediately re-raised for the same sighting.
   if (req.method === "POST" && url.pathname === "/api/alerts/ack") {
-    const auth = requireAuth(db, req);
     const body = await readJson(req);
-    const alert = db.alerts.find(
-      (entry) => entry.id === body.alertId && entry.ownerUserId === auth.user.id
-    );
-    if (!alert) {
-      respondJson(res, 404, { error: "alert not found" });
-      return;
-    }
-    alert.status = "acknowledged";
-    alert.acknowledgedAt = new Date().toISOString();
-    if (alert.type === "PROXIMITY_LOST") {
-      const device = db.devices.find(
-        (entry) => entry.deviceId === alert.deviceId && entry.ownerUserId === auth.user.id
+    const result = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const alert = db.alerts.find(
+        (entry) => entry.id === body.alertId && entry.ownerUserId === auth.user.id
       );
-      if (device?.lastSeenAt) {
-        device.proximityAlertSentForSeenAt = device.lastSeenAt;
+      if (!alert) {
+        const error = new Error("alert not found");
+        error.statusCode = 404;
+        throw error;
       }
-    }
-    saveDb(db);
-    respondJson(res, 200, alert);
+      alert.status = "acknowledged";
+      alert.acknowledgedAt = new Date().toISOString();
+      if (alert.type === "PROXIMITY_LOST") {
+        const device = db.devices.find(
+          (entry) => entry.deviceId === alert.deviceId && entry.ownerUserId === auth.user.id
+        );
+        if (device?.lastSeenAt) {
+          device.proximityAlertSentForSeenAt = device.lastSeenAt;
+        }
+      }
+      return alert;
+    }, { write: true });
+
+    respondJson(res, 200, result);
     return;
   }
 
-  // --- GET /api/notifications ---
   if (req.method === "GET" && url.pathname === "/api/notifications") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     respondJson(
       res,
@@ -519,18 +516,15 @@ async function handleApi(req, res) {
     return;
   }
 
-  // --- GET /api/geofences ---
   if (req.method === "GET" && url.pathname === "/api/geofences") {
+    const db = await loadDb();
     const auth = requireAuth(db, req);
     respondJson(res, 200, db.geofences.filter((entry) => entry.userId === auth.user.id));
     return;
   }
 
-  // --- POST /api/geofences ---
   if (req.method === "POST" && url.pathname === "/api/geofences") {
-    const auth = requireAuth(db, req);
     const body = await readJson(req);
-
     const lat = Number(body.center?.lat);
     const lng = Number(body.center?.lng);
     const radiusMeters = Number(body.radiusMeters);
@@ -552,34 +546,41 @@ async function handleApi(req, res) {
       return;
     }
 
-    const geofence = {
-      id: nextId("geofence"),
-      userId: auth.user.id,
-      name: String(body.name).trim(),
-      center: { lat, lng },
-      radiusMeters,
-      enabled: body.enabled ?? true,
-      createdAt: new Date().toISOString(),
-    };
-    db.geofences.push(geofence);
-    saveDb(db);
+    const geofence = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const nextGeofence = {
+        id: nextId("geofence"),
+        userId: auth.user.id,
+        name: String(body.name).trim(),
+        center: { lat, lng },
+        radiusMeters,
+        enabled: body.enabled ?? true,
+        createdAt: new Date().toISOString(),
+      };
+      db.geofences.push(nextGeofence);
+      return nextGeofence;
+    }, { write: true });
+
     respondJson(res, 201, geofence);
     return;
   }
 
-  // --- DELETE /api/geofences/:geofenceId ---
   if (req.method === "DELETE" && url.pathname.startsWith("/api/geofences/")) {
-    const auth = requireAuth(db, req);
     const geofenceId = url.pathname.split("/").pop();
-    const index = db.geofences.findIndex(
-      (entry) => entry.id === geofenceId && entry.userId === auth.user.id
-    );
-    if (index === -1) {
-      respondJson(res, 404, { error: "geofence not found" });
-      return;
-    }
-    const [removed] = db.geofences.splice(index, 1);
-    saveDb(db);
+    const removed = await withDb((db) => {
+      const auth = requireAuth(db, req);
+      const index = db.geofences.findIndex(
+        (entry) => entry.id === geofenceId && entry.userId === auth.user.id
+      );
+      if (index === -1) {
+        const error = new Error("geofence not found");
+        error.statusCode = 404;
+        throw error;
+      }
+      const [deleted] = db.geofences.splice(index, 1);
+      return deleted;
+    }, { write: true });
+
     respondJson(res, 200, removed);
     return;
   }
@@ -587,22 +588,6 @@ async function handleApi(req, res) {
   respondJson(res, 404, { error: "not found" });
 }
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/**
- * Verify a Google ID token by calling the Google token-info endpoint.
- *
- * When @p serverClientId is provided the token's `aud` claim is checked
- * against it. If omitted the audience check is skipped (useful in
- * development or when the client ID is managed elsewhere).
- *
- * @param {string}      idToken        - Raw Google ID token from the client.
- * @param {string|null} serverClientId - Expected OAuth client ID, or falsy to skip.
- * @returns {Promise<{ sub: string, email: string, name: string }>}
- * @throws {Error} If the token is invalid, expired, or has the wrong audience.
- */
 async function verifyGoogleIdentity(idToken, serverClientId) {
   if (!idToken) {
     throw new Error("idToken is required");
@@ -630,12 +615,6 @@ async function verifyGoogleIdentity(idToken, serverClientId) {
   };
 }
 
-/**
- * Return a safe public representation of a user record (no password fields).
- *
- * @param {object} user - Full user record from the database.
- * @returns {{ id: string, name: string, email: string }}
- */
 function serializeUser(user) {
   return {
     id: user.id,
@@ -644,13 +623,6 @@ function serializeUser(user) {
   };
 }
 
-/**
- * Read and parse the JSON body of an incoming request.
- * Returns an empty object for requests with no body.
- *
- * @param {http.IncomingMessage} req
- * @returns {Promise<object>}
- */
 async function readJson(req) {
   const chunks = [];
   for await (const chunk of req) {
@@ -660,13 +632,6 @@ async function readJson(req) {
   return raw ? JSON.parse(raw) : {};
 }
 
-/**
- * Send a JSON response with CORS headers.
- *
- * @param {http.ServerResponse} res
- * @param {number}              statusCode - HTTP status code.
- * @param {object}              body       - Value to serialise as JSON.
- */
 function respondJson(res, statusCode, body) {
   res.writeHead(statusCode, {
     "Content-Type": "application/json",
@@ -677,13 +642,6 @@ function respondJson(res, statusCode, body) {
   res.end(JSON.stringify(body, null, 2));
 }
 
-/**
- * Serve a static file from the PUBLIC_DIR directory.
- * Responds 404 for missing files or paths that escape the public root.
- *
- * @param {http.IncomingMessage} req
- * @param {http.ServerResponse}  res
- */
 function serveStatic(req, res) {
   if (req.method === "OPTIONS") {
     respondJson(res, 204, {});

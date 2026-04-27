@@ -1,6 +1,6 @@
 # BLE Tracker Backend
 
-This service accepts BLE tracker sightings from Android scanner phones, maps trackers to owners, stores device state, and generates alerts for bag state changes, geofence exits, and proximity loss.
+This service accepts BLE tracker sightings from Android scanner phones, maps trackers to owners, stores device state in Turso, and generates notifications for bag state changes, geofence exit and re-entry, proximity loss, and proximity restoration.
 
 ## What To Deploy
 
@@ -11,10 +11,10 @@ Only the backend is deployed online. The Android app connects to this backend ov
 Copy `.env.example` and set these values in your platform:
 
 - `PORT`: HTTP port. Defaults to `8787`.
-- `DATA_PATH`: path to the JSON database file. Defaults to `data/app.json`.
 - `ADMIN_REGISTRATION_SECRET`: required for admin tracker registration creation.
-
-For cloud deploys, `DATA_PATH` should point to a persistent disk mount, for example `/data/app.json`.
+- `TURSO_DATABASE_URL`: libsql/Turso database URL.
+- `TURSO_AUTH_TOKEN`: Turso auth token.
+- `ALERT_PROXIMITY_STALE_MS`: optional threshold for `PROXIMITY_LOST`. Defaults to `60000`.
 
 ## Local Run
 
@@ -99,7 +99,8 @@ Recommended setup:
 1. Create a new Render service from the repo.
 2. Use the included `render.yaml`.
 3. Set `ADMIN_REGISTRATION_SECRET`.
-4. Keep the persistent disk mounted at `/data`.
+4. Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`.
+5. Import any existing `backend/data/app.json` data with `npm run db:import-json`.
 
 ### Generic Docker Host
 
@@ -108,8 +109,8 @@ cd backend
 docker build -t ble-tracker-backend .
 docker run -p 8787:8787 \
   -e PORT=8787 \
-  -e DATA_PATH=/data/app.json \
+  -e TURSO_DATABASE_URL=libsql://your-database-name-your-org.turso.io \
+  -e TURSO_AUTH_TOKEN=your-token \
   -e ADMIN_REGISTRATION_SECRET=change-me \
-  -v $(pwd)/data:/data \
   ble-tracker-backend
 ```

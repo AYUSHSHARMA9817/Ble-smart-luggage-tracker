@@ -3,7 +3,7 @@
  * @brief BLE smart luggage tracker firmware for ESP32.
  *
  * Broadcasts a compact 10-byte manufacturer-specific BLE advertisement
- * containing the bag's reed-switch state, battery level, sequence number,
+ * containing the bag's reed-switch state, external power-health level, sequence number,
  * packet type, health status, and inactivity day counter.
  *
  * Three packet types are supported:
@@ -122,7 +122,7 @@ static void log_reed_state(const char *context) {
            PIN_REED_SWITCH, raw_level, bag_state, REED_SWITCH_TYPE_STR);
 }
 
-// Read Battery Level via ADC
+// Read external power level via ADC
 /*
 static uint8_t read_battery_level() {
   int raw_val;
@@ -180,6 +180,9 @@ static void update_advertising_payload(uint8_t packet_type) {
   tracker_payload_t p;
   p.device_id = DEVICE_ID;
   p.bag_state = read_bag_state();
+  // Current production hardware is powered by a USB power bank. Until
+  // voltage sensing is wired and calibrated, advertise a stable external
+  // power state rather than a coin-cell charge bucket.
   p.battery_level = BATT_GOOD; // read_battery_level();
   p.seq_num = g_sequence_number++;
   p.packet_type = packet_type;
@@ -386,7 +389,7 @@ void tracker_task(void *pvParameter) {
  * disabled (polling is used instead). Also calls init_nvs_health_checks()
  * to restore persisted health state before the BLE stack starts.
  *
- * The ADC1 initialisation for battery measurement is disabled pending
+ * The ADC1 initialisation for power measurement is disabled pending
  * hardware-specific voltage divider configuration (see commented block).
  */
 void hw_init() {

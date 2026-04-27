@@ -2,6 +2,7 @@ package com.bletracker.app.scanner
 
 import android.content.Context
 import android.util.Log
+import com.bletracker.app.data.alertTitle
 import com.bletracker.app.data.BackendApi
 import com.bletracker.app.data.Prefs
 import kotlinx.coroutines.CoroutineScope
@@ -83,7 +84,7 @@ class OwnerAlertPoller(
                 NotificationFactory.notifyAlert(
                     context = context,
                     alertId = alert.id,
-                    title = alert.type.replace('_', ' '),
+                    title = alertTitle(alert.type),
                     message = alert.message,
                 )
                 notifiedIds.add(alert.id)

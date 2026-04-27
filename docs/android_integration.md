@@ -18,7 +18,7 @@ Use a foreground scanning service when the user explicitly enables tracker monit
 3. Decode:
    - `device_id`
    - `bag_state`
-   - `battery_level`
+   - `battery_level` (used as external power-health status for the current power-bank hardware profile)
    - `seq_num`
    - `packet_type`
    - `health_status`
@@ -38,7 +38,9 @@ The app should stay relatively thin. The backend should own:
 - tamper alert generation
 - self-test health interpretation
 - proximity loss evaluation
+- proximity restoration evaluation
 - geofence evaluation
+- geofence exit and re-entry notifications
 - event history
 - notification fan-out
 

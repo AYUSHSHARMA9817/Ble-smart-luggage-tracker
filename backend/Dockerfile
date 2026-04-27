@@ -8,7 +8,6 @@ RUN npm install --omit=dev
 COPY . .
 
 ENV PORT=8787
-ENV DATA_PATH=/data/app.json
 
 EXPOSE 8787
 

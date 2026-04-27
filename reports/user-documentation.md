@@ -26,8 +26,8 @@ The BLE Smart Luggage Tracker is a small device that attaches to or is placed in
 - **Know if your bag was opened** — the tracker has a magnetic sensor (reed switch) that detects when the bag is unzipped or opened.
 - **See where your bag was last spotted** — any phone running the app that passes near your bag reports its GPS location.
 - **Get notified when your bag goes out of range** — if no phone has seen your tracker for more than a minute, you receive a proximity lost alert.
-- **Define a safe zone (geofence)** — if your bag leaves a designated area (e.g. your home, hotel room), you receive an alert.
-- **Check battery status** — the tracker reports its battery level in every packet.
+- **Define a safe zone (geofence)** — if your bag leaves a designated area you receive an alert, and when it returns you receive a return notification.
+- **Check power status** — the tracker reports external power health in every packet.
 
 ---
 
@@ -46,7 +46,7 @@ The BLE Smart Luggage Tracker is a small device that attaches to or is placed in
 
 The tracker device is pre-flashed and ready to use. To set it up:
 
-1. **Insert a battery** into the tracker. The device starts automatically — there is no power button.
+1. **Connect the tracker to its power bank**. The device starts automatically — there is no power button.
 2. **Attach the tracker to your bag.** The magnetic reed switch must be positioned so that the magnet (glued to the opposite side of the zipper or flap) closes the switch when the bag is shut.
 3. **Verify the tracker is broadcasting** — if you have the app installed and scanning is enabled, you should see your device appear within a few seconds of being in range.
 
@@ -106,7 +106,7 @@ Each claimed tracker shows:
 | **Name** | The friendly name you gave the device |
 | **Bag state** | Open or Closed |
 | **Last seen** | How long ago a phone detected the tracker |
-| **Battery** | Critical / Low / Medium / Good |
+| **Power** | Critical / Low / Stable / External Power |
 | **Location** | Approximate GPS coordinates where the tracker was last spotted |
 | **Geofence state** | Inside / Outside / Unknown |
 | **Proximity monitoring** | Toggle on/off from device settings |
@@ -136,8 +136,10 @@ Alerts appear on the **Alerts** screen (bell icon). Each alert has a type, a mes
 | **BAG_OPENED** | The bag was detected open | Check if you opened it; if not, investigate |
 | **BAG_CLOSED** | The bag was detected closed | Informational |
 | **PROXIMITY_LOST** | No phone has seen the tracker for > 1 minute | Move closer to the bag or check nearby scanners |
+| **PROXIMITY_RESTORED** | A phone can see the tracker again after an outage | Informational confirmation |
 | **GEOFENCE_EXIT** | The bag left a defined safe zone | The bag may have been moved |
-| **HEALTH_FAULT** | The tracker detected a hardware fault | Check battery; contact support if fault persists |
+| **GEOFENCE_ENTRY** | The bag returned to a defined safe zone | Informational confirmation |
+| **SELF_TEST_HEALTH** | The tracker detected a hardware fault | Check power wiring or reed switch; contact support if fault persists |
 
 ### Acknowledging Alerts
 
@@ -203,7 +205,7 @@ A: Typical Bluetooth Low Energy range is 10–50 metres in open space. Walls, me
 A: No. The tracker only uses Bluetooth and has no internet connection of its own. A nearby phone with mobile data relays the information.
 
 **Q: How long does the tracker battery last?**  
-A: This depends on the specific hardware and battery size. With the default 6-second heartbeat interval, an ESP32 in active mode draws several milliamps continuously. Enabling deep sleep between advertisements would significantly extend battery life but requires firmware modification.
+A: In this build the tracker is intended to run from a USB power bank rather than a CR2032 coin cell. Runtime depends on the power-bank capacity and its low-current auto-shutoff behavior.
 
 **Q: Can multiple phones scan simultaneously?**  
 A: Yes. Any number of phones can scan and upload sightings. The backend deduplicates by sequence number.
@@ -251,7 +253,7 @@ A: Scanner phones upload GPS coordinates along with sightings. This data is stor
 - Confirm that sightings are being uploaded with valid GPS coordinates. The geofence check requires a location in the sighting.
 - The scanner phone must have location permission and a GPS fix.
 
-### Battery shows "CRITICAL"
+### Power shows "POWER CRITICAL"
 
-- Replace or recharge the tracker battery immediately.
-- The tracker continues to broadcast at reduced capacity but may stop if the voltage drops too low.
+- Recharge the power bank immediately and verify the cable or regulator connection.
+- If the tracker is externally powered and this value still appears, inspect the ADC / supply wiring.

@@ -11,7 +11,7 @@ export const PACKET_TYPES = {
 };
 
 /** Sightings older than this threshold trigger a PROXIMITY_LOST alert. */
-const STALE_SIGHTING_MS = 60_000;
+const STALE_SIGHTING_MS = Number(process.env.ALERT_PROXIMITY_STALE_MS ?? 60_000);
 
 /**
  * Normalise a device ID to the canonical `"0xXXXXXXXX"` string format
@@ -111,19 +111,22 @@ export function bagStateName(bagState) {
 /**
  * Convert a numeric battery level to its human-readable name.
  *
- * @param {number|string} batteryLevel - 0–3 corresponding to CRITICAL/LOW/MEDIUM/GOOD.
+ * For the current hardware profile the field represents external power health
+ * rather than a CR2032 cell charge bucket.
+ *
+ * @param {number|string} batteryLevel - 0–3 corresponding to CRITICAL/LOW/STABLE/EXTERNAL.
  * @returns {string} Battery level name or "UNKNOWN".
  */
 export function batteryLevelName(batteryLevel) {
   switch (Number(batteryLevel)) {
     case 0:
-      return "CRITICAL";
+      return "POWER_CRITICAL";
     case 1:
-      return "LOW";
+      return "POWER_LOW";
     case 2:
-      return "MEDIUM";
+      return "POWER_STABLE";
     case 3:
-      return "GOOD";
+      return "EXTERNAL_POWER";
     default:
       return "UNKNOWN";
   }
@@ -229,10 +232,10 @@ function createAlert(db, type, device, message, extra = {}) {
     id: nextId("notification"),
     userId: device.ownerUserId,
     alertId: alert.id,
-    title: type.replaceAll("_", " "),
+    title: alertTitle(type),
     message,
     createdAt: new Date().toISOString(),
-    channel: "mock",
+    channel: "owner_alerts",
   });
 
   return alert;
@@ -252,6 +255,29 @@ function closeAlert(db, type, deviceId) {
   if (alert) {
     alert.status = "closed";
     alert.closedAt = new Date().toISOString();
+  }
+}
+
+function alertTitle(type) {
+  switch (type) {
+    case "BAG_OPENED":
+      return "Bag Opened";
+    case "BAG_CLOSED":
+      return "Bag Closed";
+    case "GEOFENCE_EXIT":
+      return "Bag Left Safe Zone";
+    case "GEOFENCE_ENTRY":
+      return "Bag Returned To Safe Zone";
+    case "PROXIMITY_LOST":
+      return "Tracker Out Of Contact";
+    case "PROXIMITY_RESTORED":
+      return "Tracker Contact Restored";
+    case "STATE_CHANGE_SIGNAL":
+      return "Tracker State Change";
+    case "SELF_TEST_HEALTH":
+      return "Tracker Health Warning";
+    default:
+      return type.replaceAll("_", " ");
   }
 }
 
@@ -364,6 +390,18 @@ export function recordSighting(db, payload) {
     location: payload.location ?? null,
   });
 
+  if (db.alerts.some((entry) => entry.type === "PROXIMITY_LOST" && entry.deviceId === normalizedDeviceId && entry.status === "open")) {
+    closeAlert(db, "PROXIMITY_LOST", normalizedDeviceId);
+    if (device.ownerUserId) {
+      createAlert(
+        db,
+        "PROXIMITY_RESTORED",
+        device,
+        `${device.displayName} is reporting again after a connectivity gap.`
+      );
+    }
+  }
+
   evaluateRealtimeAlerts(db, device, previousState);
   return device;
 }
@@ -377,6 +415,7 @@ export function recordSighting(db, payload) {
  *   a detectable state transition (e.g. missed earlier packet).
  * - SELF_TEST_HEALTH alerts are raised/closed based on the health-status bits.
  * - GEOFENCE_EXIT alerts fire when the device moves outside all owner geofences.
+ * - GEOFENCE_ENTRY alerts fire when the device comes back inside a safe zone.
  *
  * @param {object}      db            - In-memory database object (mutated in place).
  * @param {object}      device        - Device record (already updated with latest packet).
@@ -441,8 +480,17 @@ export function evaluateRealtimeAlerts(db, device, previousState = null) {
   if (insideAny) {
     device.geofenceState = "inside";
     closeAlert(db, "GEOFENCE_EXIT", device.deviceId);
+    if (previousGeofenceState === "outside") {
+      createAlert(
+        db,
+        "GEOFENCE_ENTRY",
+        device,
+        `${device.displayName} is back inside a configured safe zone.`
+      );
+    }
   } else {
     device.geofenceState = "outside";
+    closeAlert(db, "GEOFENCE_ENTRY", device.deviceId);
     if (previousGeofenceState === "inside") {
       createAlert(
         db,
@@ -484,11 +532,12 @@ export function evaluateBackgroundAlerts(db) {
     const ageMs = now - new Date(device.lastSeenAt).getTime();
     if (ageMs > STALE_SIGHTING_MS) {
       if (device.proximityAlertSentForSeenAt !== device.lastSeenAt) {
+        closeAlert(db, "PROXIMITY_RESTORED", device.deviceId);
         createAlert(
           db,
           "PROXIMITY_LOST",
           device,
-          `${device.displayName} has not been seen for more than 60 seconds.`,
+          `${device.displayName} has not been seen for more than ${Math.round(STALE_SIGHTING_MS / 1000)} seconds.`,
           { ageMs }
         );
         device.proximityAlertSentForSeenAt = device.lastSeenAt;

@@ -15,14 +15,14 @@ BLE Tracker is a smart bag monitoring system built around BLE advertisements, An
 - Shows live bag state such as open or closed
 - Records when and where the tracker was last seen
 - Estimates proximity using RSSI signal strength
-- Raises alerts for bag opening, geofence exit, and proximity loss
+- Raises alerts for bag opening, bag closing, geofence exit, geofence return, and proximity loss/restoration
 - Allows nearby phones to relay sightings back to the owner backend
 
 ## Project Structure
 
 - [`main/`](./main): ESP32 tracker firmware
 - [`android-app/`](./android-app): Android scanner and owner app
-- [`backend/`](./backend): Node.js backend for auth, sightings, geofences, and alerts
+- [`backend/`](./backend): Node.js backend for auth, sightings, geofences, Turso persistence, and alerts
 - [`docs/`](./docs): integration notes and public assets
 
 ## Demo
@@ -54,14 +54,14 @@ Included deployment support:
 - backend [Procfile](./backend/Procfile)
 - backend env template: [backend/.env.example](./backend/.env.example)
 - Render blueprint: [render.yaml](./render.yaml)
+- Turso JSON import helper: [backend/scripts/import-json-to-turso.mjs](./backend/scripts/import-json-to-turso.mjs)
 
 ## Data Strategy
 
-Runtime backend state should not be committed.
+Production backend state lives in Turso. The checked-in JSON files are only sample or migration data.
 
-- live database path: `backend/data/app.json`
-- sample database: [backend/data/app.sample.json](./backend/data/app.sample.json)
-- keep directory in Git: [backend/data/.gitkeep](./backend/data/.gitkeep)
+- sample database export: [backend/data/app.sample.json](./backend/data/app.sample.json)
+- import helper: `cd backend && npm run db:import-json`
 
 ## More Details
 

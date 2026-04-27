@@ -15,6 +15,7 @@ import com.bletracker.app.data.GeofenceDto
 import com.bletracker.app.data.Prefs
 import com.bletracker.app.data.RelaySnapshotDto
 import com.bletracker.app.data.UserDto
+import com.bletracker.app.data.alertTitle
 import com.bletracker.app.scanner.BleScanService
 import com.bletracker.app.scanner.NotificationFactory
 import kotlinx.coroutines.Job
@@ -327,9 +328,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 _uiState.update { it.copy(statusMessage = "Signed out") }
                 return
             }
-            val previousDevices = _uiState.value.devices
             val bootstrap = api.fetchBootstrap()
-            notifyDeviceStateChanges(previousDevices, bootstrap.devices)
             notifyNewOpenAlerts(bootstrap.alerts)
             _uiState.update {
                 it.copy(
@@ -399,34 +398,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         refresh()
     }
 
-    private fun notifyDeviceStateChanges(previousDevices: List<DeviceDto>, currentDevices: List<DeviceDto>) {
-        val previousById = previousDevices.associateBy { it.deviceId }
-        val context = getApplication<Application>()
-
-        for (device in currentDevices) {
-            val previous = previousById[device.deviceId] ?: continue
-            val previousState = previous.lastPacket?.bagState ?: continue
-            val currentState = device.lastPacket?.bagState ?: continue
-            val currentSeq = device.lastPacket.seqNum
-            val previousSeq = previous.lastPacket?.seqNum
-
-            if (currentSeq == previousSeq || previousState == currentState) {
-                continue
-            }
-
-            val title = if (currentState == 1) "Bag Opened" else "Bag Closed"
-            val previousLabel = previous.lastPacket?.bagStateName ?: if (previousState == 1) "OPEN" else "CLOSED"
-            val currentLabel = device.lastPacket?.bagStateName ?: if (currentState == 1) "OPEN" else "CLOSED"
-            val message = "${device.displayName} changed from $previousLabel to $currentLabel."
-            NotificationFactory.notifyAlert(
-                context = context,
-                alertId = "device-state-${device.deviceId}-$currentSeq",
-                title = title,
-                message = message,
-            )
-        }
-    }
-
     private fun notifyNewOpenAlerts(alerts: List<AlertDto>) {
         val notified = prefs.notifiedAlertIds.toMutableSet()
         var changed = false
@@ -439,7 +410,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             NotificationFactory.notifyAlert(
                 context = context,
                 alertId = alert.id,
-                title = alert.type.replace('_', ' '),
+                title = alertTitle(alert.type),
                 message = alert.message,
             )
             notified.add(alert.id)

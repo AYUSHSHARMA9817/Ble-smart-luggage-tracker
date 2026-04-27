@@ -890,7 +890,7 @@ private fun DeviceSummary(device: DeviceDto, relaySnapshot: RelaySnapshotDto?) {
             "Bag State",
             effectiveBagState?.toBagStateLabel() ?: packet.bagStateName.prettyLabel()
         )
-        KeyValueRow("Battery", packet.batteryLevelName.prettyLabel())
+        KeyValueRow("Power", packet.batteryLevelName.prettyLabel())
         KeyValueRow("Sequence", (effectiveRelay?.seqNum ?: packet.seqNum).toString())
         KeyValueRow("Health Flags", packet.healthStatus.toString())
         KeyValueRow("Days Since Change", packet.daysSinceChange.toString())
