@@ -1783,4 +1783,1952 @@ entry 0x403cc71a
 [0;32mI (1122584) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 211, State: 1, Raw: 1, Batt: 3][0m
 [0;32mI (1128594) NimBLE: GAP procedure initiated: stop advertising.
 [0m
-[0;32mI (1128594) NimBLE: GAP procedure initiated: advertise; 
+[0;32mI (1128594) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1128594) NimBLE: disc_mode=2[0m
+[0;32mI (1128594) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1128604) NimBLE: 
+[0m
+[0;32mI (1128604) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 212, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1134614) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1134614) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1134614) NimBLE: disc_mode=2[0m
+[0;32mI (1134614) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1134624) NimBLE: 
+[0m
+[0;32mI (1134624) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 213, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1140634) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1140634) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1140634) NimBLE: disc_mode=2[0m
+[0;32mI (1140634) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1140644) NimBLE: 
+[0m
+[0;32mI (1140644) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 214, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1146654) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1146654) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1146654) NimBLE: disc_mode=2[0m
+[0;32mI (1146654) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1146664) NimBLE: 
+[0m
+[0;32mI (1146664) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 215, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1152674) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1152674) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1152674) NimBLE: disc_mode=2[0m
+[0;32mI (1152674) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1152684) NimBLE: 
+[0m
+[0;32mI (1152684) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 216, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1158694) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1158694) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1158694) NimBLE: disc_mode=2[0m
+[0;32mI (1158694) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1158704) NimBLE: 
+[0m
+[0;32mI (1158704) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 217, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1164714) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1164714) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1164714) NimBLE: disc_mode=2[0m
+[0;32mI (1164714) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1164724) NimBLE: 
+[0m
+[0;32mI (1164724) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 218, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1170734) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1170734) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1170734) NimBLE: disc_mode=2[0m
+[0;32mI (1170734) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1170744) NimBLE: 
+[0m
+[0;32mI (1170744) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 219, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1176754) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1176754) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1176754) NimBLE: disc_mode=2[0m
+[0;32mI (1176754) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1176764) NimBLE: 
+[0m
+[0;32mI (1176764) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 220, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1182774) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1182774) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1182774) NimBLE: disc_mode=2[0m
+[0;32mI (1182774) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1182784) NimBLE: 
+[0m
+[0;32mI (1182784) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 221, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1188794) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1188794) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1188794) NimBLE: disc_mode=2[0m
+[0;32mI (1188794) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1188804) NimBLE: 
+[0m
+[0;32mI (1188804) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 222, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1194814) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1194814) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1194814) NimBLE: disc_mode=2[0m
+[0;32mI (1194814) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1194824) NimBLE: 
+[0m
+[0;32mI (1194824) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 223, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1200834) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1200834) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1200834) NimBLE: disc_mode=2[0m
+[0;32mI (1200834) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1200844) NimBLE: 
+[0m
+[0;32mI (1200844) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 224, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1206854) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1206854) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1206854) NimBLE: disc_mode=2[0m
+[0;32mI (1206854) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1206864) NimBLE: 
+[0m
+[0;32mI (1206864) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 225, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1212874) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1212874) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1212874) NimBLE: disc_mode=2[0m
+[0;32mI (1212874) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1212884) NimBLE: 
+[0m
+[0;32mI (1212884) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 226, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1218894) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1218894) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1218894) NimBLE: disc_mode=2[0m
+[0;32mI (1218894) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1218904) NimBLE: 
+[0m
+[0;32mI (1218904) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 227, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1224914) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1224914) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1224914) NimBLE: disc_mode=2[0m
+[0;32mI (1224914) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1224924) NimBLE: 
+[0m
+[0;32mI (1224924) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 228, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1230934) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1230934) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1230934) NimBLE: disc_mode=2[0m
+[0;32mI (1230934) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1230944) NimBLE: 
+[0m
+[0;32mI (1230944) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 229, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1236954) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1236954) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1236954) NimBLE: disc_mode=2[0m
+[0;32mI (1236954) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1236964) NimBLE: 
+[0m
+[0;32mI (1236964) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 230, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1242974) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1242974) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1242974) NimBLE: disc_mode=2[0m
+[0;32mI (1242974) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1242984) NimBLE: 
+[0m
+[0;32mI (1242984) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 231, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1248994) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1248994) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1248994) NimBLE: disc_mode=2[0m
+[0;32mI (1248994) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1249004) NimBLE: 
+[0m
+[0;32mI (1249004) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 232, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1255014) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1255014) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1255014) NimBLE: disc_mode=2[0m
+[0;32mI (1255014) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1255024) NimBLE: 
+[0m
+[0;32mI (1255024) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 233, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1261034) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1261034) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1261034) NimBLE: disc_mode=2[0m
+[0;32mI (1261034) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1261044) NimBLE: 
+[0m
+[0;32mI (1261044) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 234, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1267054) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1267054) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1267054) NimBLE: disc_mode=2[0m
+[0;32mI (1267054) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1267064) NimBLE: 
+[0m
+[0;32mI (1267064) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 235, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1273074) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1273074) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1273074) NimBLE: disc_mode=2[0m
+[0;32mI (1273074) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1273084) NimBLE: 
+[0m
+[0;32mI (1273084) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 236, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1279094) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1279094) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1279094) NimBLE: disc_mode=2[0m
+[0;32mI (1279094) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1279104) NimBLE: 
+[0m
+[0;32mI (1279104) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 237, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1285114) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1285114) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1285114) NimBLE: disc_mode=2[0m
+[0;32mI (1285114) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1285124) NimBLE: 
+[0m
+[0;32mI (1285124) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 238, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1291134) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1291134) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1291134) NimBLE: disc_mode=2[0m
+[0;32mI (1291134) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1291144) NimBLE: 
+[0m
+[0;32mI (1291144) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 239, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (6497) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (6497) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (6497) NimBLE: disc_mode=2[0m
+[0;32mI (6497) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (6507) NimBLE: 
+[0m
+[0;32mI (6507) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 1, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (12517) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (12517) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (12517) NimBLE: disc_mode=2[0m
+[0;32mI (12517) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (12527) NimBLE: 
+[0m
+[0;32mI (12527) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 2, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (18537) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (18537) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (18537) NimBLE: disc_mode=2[0m
+[0;32mI (18537) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (18547) NimBLE: 
+[0m
+[0;32mI (18547) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 3, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (24557) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (24557) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (24557) NimBLE: disc_mode=2[0m
+[0;32mI (24557) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (24567) NimBLE: 
+[0m
+[0;32mI (24567) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 4, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (30577) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (30577) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (30577) NimBLE: disc_mode=2[0m
+[0;32mI (30577) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (30587) NimBLE: 
+[0m
+[0;32mI (30587) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 5, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (36597) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (36597) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (36597) NimBLE: disc_mode=2[0m
+[0;32mI (36597) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (36607) NimBLE: 
+[0m
+[0;32mI (36607) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 6, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (42617) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (42617) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (42617) NimBLE: disc_mode=2[0m
+[0;32mI (42617) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (42627) NimBLE: 
+[0m
+[0;32mI (42627) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 7, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (48637) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (48637) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (48637) NimBLE: disc_mode=2[0m
+[0;32mI (48637) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (48647) NimBLE: 
+[0m
+[0;32mI (48647) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 8, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (54657) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (54657) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (54657) NimBLE: disc_mode=2[0m
+[0;32mI (54657) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (54667) NimBLE: 
+[0m
+[0;32mI (54667) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 9, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (60677) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (60677) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (60677) NimBLE: disc_mode=2[0m
+[0;32mI (60677) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (60687) NimBLE: 
+[0m
+[0;32mI (60687) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 10, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (66697) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (66697) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (66697) NimBLE: disc_mode=2[0m
+[0;32mI (66697) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (66707) NimBLE: 
+[0m
+[0;32mI (66707) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 11, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (72717) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (72717) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (72717) NimBLE: disc_mode=2[0m
+[0;32mI (72717) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (72727) NimBLE: 
+[0m
+[0;32mI (72727) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 12, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (78737) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (78737) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (78737) NimBLE: disc_mode=2[0m
+[0;32mI (78737) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (78747) NimBLE: 
+[0m
+[0;32mI (78747) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 13, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (84757) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (84757) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (84757) NimBLE: disc_mode=2[0m
+[0;32mI (84757) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (84767) NimBLE: 
+[0m
+[0;32mI (84767) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 14, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (90777) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (90777) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (90777) NimBLE: disc_mode=2[0m
+[0;32mI (90777) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (90787) NimBLE: 
+[0m
+[0;32mI (90787) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 15, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (96797) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (96797) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (96797) NimBLE: disc_mode=2[0m
+[0;32mI (96797) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (96807) NimBLE: 
+[0m
+[0;32mI (96807) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 16, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (102817) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (102817) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (102817) NimBLE: disc_mode=2[0m
+[0;32mI (102817) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (102827) NimBLE: 
+[0m
+[0;32mI (102827) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 17, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (108837) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (108837) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (108837) NimBLE: disc_mode=2[0m
+[0;32mI (108837) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (108847) NimBLE: 
+[0m
+[0;32mI (108847) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 18, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (114857) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (114857) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (114857) NimBLE: disc_mode=2[0m
+[0;32mI (114857) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (114867) NimBLE: 
+[0m
+[0;32mI (114867) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 19, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (120877) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (120877) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (120877) NimBLE: disc_mode=2[0m
+[0;32mI (120877) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (120887) NimBLE: 
+[0m
+[0;32mI (120887) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 20, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (126897) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (126897) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (126897) NimBLE: disc_mode=2[0m
+[0;32mI (126897) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (126907) NimBLE: 
+[0m
+[0;32mI (126907) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 21, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (132917) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (132917) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (132917) NimBLE: disc_mode=2[0m
+[0;32mI (132917) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (132927) NimBLE: 
+[0m
+[0;32mI (132927) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 22, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (138937) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (138937) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (138937) NimBLE: disc_mode=2[0m
+[0;32mI (138937) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (138947) NimBLE: 
+[0m
+[0;32mI (138947) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 23, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (144957) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (144957) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (144957) NimBLE: disc_mode=2[0m
+[0;32mI (144957) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (144967) NimBLE: 
+[0m
+[0;32mI (144967) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 24, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (150977) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (150977) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (150977) NimBLE: disc_mode=2[0m
+[0;32mI (150977) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (150987) NimBLE: 
+[0m
+[0;32mI (150987) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 25, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (156997) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (156997) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (156997) NimBLE: disc_mode=2[0m
+[0;32mI (156997) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (157007) NimBLE: 
+[0m
+[0;32mI (157007) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 26, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (163017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (163017) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (163017) NimBLE: disc_mode=2[0m
+[0;32mI (163017) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (163027) NimBLE: 
+[0m
+[0;32mI (163027) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 27, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (169037) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (169037) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (169037) NimBLE: disc_mode=2[0m
+[0;32mI (169037) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (169047) NimBLE: 
+[0m
+[0;32mI (169047) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 28, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (175057) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (175057) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (175057) NimBLE: disc_mode=2[0m
+[0;32mI (175057) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (175067) NimBLE: 
+[0m
+[0;32mI (175067) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 29, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (181077) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (181077) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (181077) NimBLE: disc_mode=2[0m
+[0;32mI (181077) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (181087) NimBLE: 
+[0m
+[0;32mI (181087) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 30, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (187097) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (187097) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (187097) NimBLE: disc_mode=2[0m
+[0;32mI (187097) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (187107) NimBLE: 
+[0m
+[0;32mI (187107) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 31, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (193117) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (193117) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (193117) NimBLE: disc_mode=2[0m
+[0;32mI (193117) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (193127) NimBLE: 
+[0m
+[0;32mI (193127) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 32, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (199137) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (199137) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (199137) NimBLE: disc_mode=2[0m
+[0;32mI (199137) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (199147) NimBLE: 
+[0m
+[0;32mI (199147) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 33, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (205157) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (205157) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (205157) NimBLE: disc_mode=2[0m
+[0;32mI (205157) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (205167) NimBLE: 
+[0m
+[0;32mI (205167) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 34, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (211177) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (211177) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (211177) NimBLE: disc_mode=2[0m
+[0;32mI (211177) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (211187) NimBLE: 
+[0m
+[0;32mI (211187) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 35, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (217197) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (217197) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (217197) NimBLE: disc_mode=2[0m
+[0;32mI (217197) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (217207) NimBLE: 
+[0m
+[0;32mI (217207) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 36, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (223217) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (223217) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (223217) NimBLE: disc_mode=2[0m
+[0;32mI (223217) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (223227) NimBLE: 
+[0m
+[0;32mI (223227) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 37, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (229237) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (229237) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (229237) NimBLE: disc_mode=2[0m
+[0;32mI (229237) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (229247) NimBLE: 
+[0m
+[0;32mI (229247) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 38, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (235257) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (235257) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (235257) NimBLE: disc_mode=2[0m
+[0;32mI (235257) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (235267) NimBLE: 
+[0m
+[0;32mI (235267) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 39, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (241277) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (241277) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (241277) NimBLE: disc_mode=2[0m
+[0;32mI (241277) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (241287) NimBLE: 
+[0m
+[0;32mI (241287) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 40, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (247297) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (247297) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (247297) NimBLE: disc_mode=2[0m
+[0;32mI (247297) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (247307) NimBLE: 
+[0m
+[0;32mI (247307) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 41, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (253317) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (253317) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (253317) NimBLE: disc_mode=2[0m
+[0;32mI (253317) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (253327) NimBLE: 
+[0m
+[0;32mI (253327) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 42, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (259337) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (259337) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (259337) NimBLE: disc_mode=2[0m
+[0;32mI (259337) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (259347) NimBLE: 
+[0m
+[0;32mI (259347) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 43, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (265357) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (265357) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (265357) NimBLE: disc_mode=2[0m
+[0;32mI (265357) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (265367) NimBLE: 
+[0m
+[0;32mI (265367) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 44, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (271377) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (271377) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (271377) NimBLE: disc_mode=2[0m
+[0;32mI (271377) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (271387) NimBLE: 
+[0m
+[0;32mI (271387) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 45, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (277397) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (277397) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (277397) NimBLE: disc_mode=2[0m
+[0;32mI (277397) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (277407) NimBLE: 
+[0m
+[0;32mI (277407) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 46, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (283417) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (283417) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (283417) NimBLE: disc_mode=2[0m
+[0;32mI (283417) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (283427) NimBLE: 
+[0m
+[0;32mI (283427) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 47, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (289437) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (289437) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (289437) NimBLE: disc_mode=2[0m
+[0;32mI (289437) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (289447) NimBLE: 
+[0m
+[0;32mI (289447) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 48, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (295457) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (295457) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (295457) NimBLE: disc_mode=2[0m
+[0;32mI (295457) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (295467) NimBLE: 
+[0m
+[0;32mI (295467) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 49, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (301477) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (301477) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (301477) NimBLE: disc_mode=2[0m
+[0;32mI (301477) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (301487) NimBLE: 
+[0m
+[0;32mI (301487) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 50, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (307497) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (307497) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (307497) NimBLE: disc_mode=2[0m
+[0;32mI (307497) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (307507) NimBLE: 
+[0m
+[0;32mI (307507) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 51, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (313517) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (313517) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (313517) NimBLE: disc_mode=2[0m
+[0;32mI (313517) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (313527) NimBLE: 
+[0m
+[0;32mI (313527) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 52, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (319537) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (319537) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (319537) NimBLE: disc_mode=2[0m
+[0;32mI (319537) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (319547) NimBLE: 
+[0m
+[0;32mI (319547) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 53, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (325557) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (325557) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (325557) NimBLE: disc_mode=2[0m
+[0;32mI (325557) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (325567) NimBLE: 
+[0m
+[0;32mI (325567) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 54, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (331577) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (331577) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (331577) NimBLE: disc_mode=2[0m
+[0;32mI (331577) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (331587) NimBLE: 
+[0m
+[0;32mI (331587) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 55, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (337597) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (337597) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (337597) NimBLE: disc_mode=2[0m
+[0;32mI (337597) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (337607) NimBLE: 
+[0m
+[0;32mI (337607) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 56, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (343617) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (343617) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (343617) NimBLE: disc_mode=2[0m
+[0;32mI (343617) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (343627) NimBLE: 
+[0m
+[0;32mI (343627) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 57, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (349637) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (349637) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (349637) NimBLE: disc_mode=2[0m
+[0;32mI (349637) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (349647) NimBLE: 
+[0m
+[0;32mI (349647) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 58, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (355657) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (355657) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (355657) NimBLE: disc_mode=2[0m
+[0;32mI (355657) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (355667) NimBLE: 
+[0m
+[0;32mI (355667) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 59, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (361677) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (361677) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (361677) NimBLE: disc_mode=2[0m
+[0;32mI (361677) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (361687) NimBLE: 
+[0m
+[0;32mI (361687) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 60, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (367697) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (367697) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (367697) NimBLE: disc_mode=2[0m
+[0;32mI (367697) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (367707) NimBLE: 
+[0m
+[0;32mI (367707) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 61, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (373717) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (373717) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (373717) NimBLE: disc_mode=2[0m
+[0;32mI (373717) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (373727) NimBLE: 
+[0m
+[0;32mI (373727) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 62, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (379737) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (379737) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (379737) NimBLE: disc_mode=2[0m
+[0;32mI (379737) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (379747) NimBLE: 
+[0m
+[0;32mI (379747) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 63, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (385757) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (385757) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (385757) NimBLE: disc_mode=2[0m
+[0;32mI (385757) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (385767) NimBLE: 
+[0m
+[0;32mI (385767) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 64, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (391777) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (391777) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (391777) NimBLE: disc_mode=2[0m
+[0;32mI (391777) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (391787) NimBLE: 
+[0m
+[0;32mI (391787) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 65, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (397797) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (397797) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (397797) NimBLE: disc_mode=2[0m
+[0;32mI (397797) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (397807) NimBLE: 
+[0m
+[0;32mI (397807) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 66, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (403817) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (403817) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (403817) NimBLE: disc_mode=2[0m
+[0;32mI (403817) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (403827) NimBLE: 
+[0m
+[0;32mI (403827) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 67, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (409837) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (409837) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (409837) NimBLE: disc_mode=2[0m
+[0;32mI (409837) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (409847) NimBLE: 
+[0m
+[0;32mI (409847) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 68, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (415857) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (415857) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (415857) NimBLE: disc_mode=2[0m
+[0;32mI (415857) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (415867) NimBLE: 
+[0m
+[0;32mI (415867) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 69, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (421877) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (421877) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (421877) NimBLE: disc_mode=2[0m
+[0;32mI (421877) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (421887) NimBLE: 
+[0m
+[0;32mI (421887) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 70, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (427897) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (427897) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (427897) NimBLE: disc_mode=2[0m
+[0;32mI (427897) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (427907) NimBLE: 
+[0m
+[0;32mI (427907) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 71, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (433917) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (433917) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (433917) NimBLE: disc_mode=2[0m
+[0;32mI (433917) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (433927) NimBLE: 
+[0m
+[0;32mI (433927) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 72, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (439937) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (439937) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (439937) NimBLE: disc_mode=2[0m
+[0;32mI (439937) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (439947) NimBLE: 
+[0m
+[0;32mI (439947) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 73, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (445957) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (445957) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (445957) NimBLE: disc_mode=2[0m
+[0;32mI (445957) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (445967) NimBLE: 
+[0m
+[0;32mI (445967) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 74, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (451977) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (451977) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (451977) NimBLE: disc_mode=2[0m
+[0;32mI (451977) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (451987) NimBLE: 
+[0m
+[0;32mI (451987) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 75, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (457997) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (457997) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (457997) NimBLE: disc_mode=2[0m
+[0;32mI (457997) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (458007) NimBLE: 
+[0m
+[0;32mI (458007) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 76, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (464017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (464017) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (464017) NimBLE: disc_mode=2[0m
+[0;32mI (464017) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (464027) NimBLE: 
+[0m
+[0;32mI (464027) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 77, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (470037) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (470037) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (470037) NimBLE: disc_mode=2[0m
+[0;32mI (470037) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (470047) NimBLE: 
+[0m
+[0;32mI (470047) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 78, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (476057) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (476057) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (476057) NimBLE: disc_mode=2[0m
+[0;32mI (476057) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (476067) NimBLE: 
+[0m
+[0;32mI (476067) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 79, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (482077) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (482077) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (482077) NimBLE: disc_mode=2[0m
+[0;32mI (482077) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (482087) NimBLE: 
+[0m
+[0;32mI (482087) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 80, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (488097) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (488097) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (488097) NimBLE: disc_mode=2[0m
+[0;32mI (488097) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (488107) NimBLE: 
+[0m
+[0;32mI (488107) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 81, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (494117) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (494117) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (494117) NimBLE: disc_mode=2[0m
+[0;32mI (494117) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (494127) NimBLE: 
+[0m
+[0;32mI (494127) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 82, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (500137) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (500137) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (500137) NimBLE: disc_mode=2[0m
+[0;32mI (500137) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (500147) NimBLE: 
+[0m
+[0;32mI (500147) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 83, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (506157) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (506157) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (506157) NimBLE: disc_mode=2[0m
+[0;32mI (506157) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (506167) NimBLE: 
+[0m
+[0;32mI (506167) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 84, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (512177) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (512177) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (512177) NimBLE: disc_mode=2[0m
+[0;32mI (512177) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (512187) NimBLE: 
+[0m
+[0;32mI (512187) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 85, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (518197) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (518197) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (518197) NimBLE: disc_mode=2[0m
+[0;32mI (518197) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (518207) NimBLE: 
+[0m
+[0;32mI (518207) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 86, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (524217) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (524217) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (524217) NimBLE: disc_mode=2[0m
+[0;32mI (524217) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (524227) NimBLE: 
+[0m
+[0;32mI (524227) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 87, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (530237) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (530237) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (530237) NimBLE: disc_mode=2[0m
+[0;32mI (530237) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (530247) NimBLE: 
+[0m
+[0;32mI (530247) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 88, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (536257) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (536257) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (536257) NimBLE: disc_mode=2[0m
+[0;32mI (536257) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (536267) NimBLE: 
+[0m
+[0;32mI (536267) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 89, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (542277) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (542277) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (542277) NimBLE: disc_mode=2[0m
+[0;32mI (542277) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (542287) NimBLE: 
+[0m
+[0;32mI (542287) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 90, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (548297) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (548297) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (548297) NimBLE: disc_mode=2[0m
+[0;32mI (548297) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (548307) NimBLE: 
+[0m
+[0;32mI (548307) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 91, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (554317) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (554317) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (554317) NimBLE: disc_mode=2[0m
+[0;32mI (554317) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (554327) NimBLE: 
+[0m
+[0;32mI (554327) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 92, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (560337) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (560337) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (560337) NimBLE: disc_mode=2[0m
+[0;32mI (560337) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (560347) NimBLE: 
+[0m
+[0;32mI (560347) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 93, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (566357) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (566357) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (566357) NimBLE: disc_mode=2[0m
+[0;32mI (566357) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (566367) NimBLE: 
+[0m
+[0;32mI (566367) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 94, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (572377) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (572377) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (572377) NimBLE: disc_mode=2[0m
+[0;32mI (572377) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (572387) NimBLE: 
+[0m
+[0;32mI (572387) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 95, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (578397) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (578397) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (578397) NimBLE: disc_mode=2[0m
+[0;32mI (578397) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (578407) NimBLE: 
+[0m
+[0;32mI (578407) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 96, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (584417) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (584417) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (584417) NimBLE: disc_mode=2[0m
+[0;32mI (584417) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (584427) NimBLE: 
+[0m
+[0;32mI (584427) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 97, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (590437) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (590437) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (590437) NimBLE: disc_mode=2[0m
+[0;32mI (590437) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (590447) NimBLE: 
+[0m
+[0;32mI (590447) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 98, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (596457) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (596457) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (596457) NimBLE: disc_mode=2[0m
+[0;32mI (596457) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (596467) NimBLE: 
+[0m
+[0;32mI (596467) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 99, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (602477) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (602477) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (602477) NimBLE: disc_mode=2[0m
+[0;32mI (602477) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (602487) NimBLE: 
+[0m
+[0;32mI (602487) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 100, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (608497) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (608497) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (608497) NimBLE: disc_mode=2[0m
+[0;32mI (608497) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (608507) NimBLE: 
+[0m
+[0;32mI (608507) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 101, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (614517) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (614517) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (614517) NimBLE: disc_mode=2[0m
+[0;32mI (614517) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (614527) NimBLE: 
+[0m
+[0;32mI (614527) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 102, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (620537) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (620537) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (620537) NimBLE: disc_mode=2[0m
+[0;32mI (620537) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (620547) NimBLE: 
+[0m
+[0;32mI (620547) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 103, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (626557) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (626557) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (626557) NimBLE: disc_mode=2[0m
+[0;32mI (626557) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (626567) NimBLE: 
+[0m
+[0;32mI (626567) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 104, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (632577) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (632577) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (632577) NimBLE: disc_mode=2[0m
+[0;32mI (632577) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (632587) NimBLE: 
+[0m
+[0;32mI (632587) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 105, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (638597) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (638597) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (638597) NimBLE: disc_mode=2[0m
+[0;32mI (638597) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (638607) NimBLE: 
+[0m
+[0;32mI (638607) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 106, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (644617) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (644617) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (644617) NimBLE: disc_mode=2[0m
+[0;32mI (644617) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (644627) NimBLE: 
+[0m
+[0;32mI (644627) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 107, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (650637) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (650637) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (650637) NimBLE: disc_mode=2[0m
+[0;32mI (650637) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (650647) NimBLE: 
+[0m
+[0;32mI (650647) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 108, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (656657) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (656657) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (656657) NimBLE: disc_mode=2[0m
+[0;32mI (656657) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (656667) NimBLE: 
+[0m
+[0;32mI (656667) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 109, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (662677) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (662677) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (662677) NimBLE: disc_mode=2[0m
+[0;32mI (662677) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (662687) NimBLE: 
+[0m
+[0;32mI (662687) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 110, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (668697) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (668697) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (668697) NimBLE: disc_mode=2[0m
+[0;32mI (668697) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (668707) NimBLE: 
+[0m
+[0;32mI (668707) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 111, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (674717) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (674717) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (674717) NimBLE: disc_mode=2[0m
+[0;32mI (674717) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (674727) NimBLE: 
+[0m
+[0;32mI (674727) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 112, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (680737) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (680737) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (680737) NimBLE: disc_mode=2[0m
+[0;32mI (680737) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (680747) NimBLE: 
+[0m
+[0;32mI (680747) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 113, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (686757) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (686757) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (686757) NimBLE: disc_mode=2[0m
+[0;32mI (686757) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (686767) NimBLE: 
+[0m
+[0;32mI (686767) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 114, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (692777) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (692777) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (692777) NimBLE: disc_mode=2[0m
+[0;32mI (692777) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (692787) NimBLE: 
+[0m
+[0;32mI (692787) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 115, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (698797) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (698797) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (698797) NimBLE: disc_mode=2[0m
+[0;32mI (698797) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (698807) NimBLE: 
+[0m
+[0;32mI (698807) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 116, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (704817) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (704817) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (704817) NimBLE: disc_mode=2[0m
+[0;32mI (704817) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (704827) NimBLE: 
+[0m
+[0;32mI (704827) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 117, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (710837) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (710837) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (710837) NimBLE: disc_mode=2[0m
+[0;32mI (710837) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (710847) NimBLE: 
+[0m
+[0;32mI (710847) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 118, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (716857) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (716857) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (716857) NimBLE: disc_mode=2[0m
+[0;32mI (716857) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (716867) NimBLE: 
+[0m
+[0;32mI (716867) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 119, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (722877) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (722877) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (722877) NimBLE: disc_mode=2[0m
+[0;32mI (722877) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (722887) NimBLE: 
+[0m
+[0;32mI (722887) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 120, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (728897) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (728897) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (728897) NimBLE: disc_mode=2[0m
+[0;32mI (728897) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (728907) NimBLE: 
+[0m
+[0;32mI (728907) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 121, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (734917) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (734917) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (734917) NimBLE: disc_mode=2[0m
+[0;32mI (734917) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (734927) NimBLE: 
+[0m
+[0;32mI (734927) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 122, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (740937) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (740937) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (740937) NimBLE: disc_mode=2[0m
+[0;32mI (740937) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (740947) NimBLE: 
+[0m
+[0;32mI (740947) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 123, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (746957) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (746957) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (746957) NimBLE: disc_mode=2[0m
+[0;32mI (746957) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (746967) NimBLE: 
+[0m
+[0;32mI (746967) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 124, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (752977) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (752977) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (752977) NimBLE: disc_mode=2[0m
+[0;32mI (752977) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (752987) NimBLE: 
+[0m
+[0;32mI (752987) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 125, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (758997) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (758997) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (758997) NimBLE: disc_mode=2[0m
+[0;32mI (758997) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (759007) NimBLE: 
+[0m
+[0;32mI (759007) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 126, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (765017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (765017) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (765017) NimBLE: disc_mode=2[0m
+[0;32mI (765017) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (765027) NimBLE: 
+[0m
+[0;32mI (765027) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 127, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (771037) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (771037) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (771037) NimBLE: disc_mode=2[0m
+[0;32mI (771037) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (771047) NimBLE: 
+[0m
+[0;32mI (771047) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 128, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (777057) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (777057) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (777057) NimBLE: disc_mode=2[0m
+[0;32mI (777057) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (777067) NimBLE: 
+[0m
+[0;32mI (777067) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 129, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (783077) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (783077) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (783077) NimBLE: disc_mode=2[0m
+[0;32mI (783077) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (783087) NimBLE: 
+[0m
+[0;32mI (783087) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 130, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (789097) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (789097) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (789097) NimBLE: disc_mode=2[0m
+[0;32mI (789097) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (789107) NimBLE: 
+[0m
+[0;32mI (789107) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 131, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (795117) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (795117) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (795117) NimBLE: disc_mode=2[0m
+[0;32mI (795117) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (795127) NimBLE: 
+[0m
+[0;32mI (795127) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 132, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (801137) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (801137) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (801137) NimBLE: disc_mode=2[0m
+[0;32mI (801137) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (801147) NimBLE: 
+[0m
+[0;32mI (801147) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 133, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (807157) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (807157) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (807157) NimBLE: disc_mode=2[0m
+[0;32mI (807157) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (807167) NimBLE: 
+[0m
+[0;32mI (807167) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 134, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (813177) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (813177) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (813177) NimBLE: disc_mode=2[0m
+[0;32mI (813177) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (813187) NimBLE: 
+[0m
+[0;32mI (813187) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 135, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (819197) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (819197) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (819197) NimBLE: disc_mode=2[0m
+[0;32mI (819197) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (819207) NimBLE: 
+[0m
+[0;32mI (819207) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 136, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (825217) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (825217) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (825217) NimBLE: disc_mode=2[0m
+[0;32mI (825217) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (825227) NimBLE: 
+[0m
+[0;32mI (825227) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 137, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (831237) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (831237) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (831237) NimBLE: disc_mode=2[0m
+[0;32mI (831237) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (831247) NimBLE: 
+[0m
+[0;32mI (831247) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 138, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (837257) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (837257) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (837257) NimBLE: disc_mode=2[0m
+[0;32mI (837257) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (837267) NimBLE: 
+[0m
+[0;32mI (837267) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 139, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (843277) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (843277) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (843277) NimBLE: disc_mode=2[0m
+[0;32mI (843277) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (843287) NimBLE: 
+[0m
+[0;32mI (843287) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 140, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (849297) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (849297) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (849297) NimBLE: disc_mode=2[0m
+[0;32mI (849297) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (849307) NimBLE: 
+[0m
+[0;32mI (849307) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 141, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (855317) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (855317) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (855317) NimBLE: disc_mode=2[0m
+[0;32mI (855317) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (855327) NimBLE: 
+[0m
+[0;32mI (855327) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 142, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (861337) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (861337) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (861337) NimBLE: disc_mode=2[0m
+[0;32mI (861337) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (861347) NimBLE: 
+[0m
+[0;32mI (861347) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 143, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (867357) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (867357) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (867357) NimBLE: disc_mode=2[0m
+[0;32mI (867357) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (867367) NimBLE: 
+[0m
+[0;32mI (867367) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 144, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (873377) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (873377) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (873377) NimBLE: disc_mode=2[0m
+[0;32mI (873377) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (873387) NimBLE: 
+[0m
+[0;32mI (873387) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 145, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (879397) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (879397) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (879397) NimBLE: disc_mode=2[0m
+[0;32mI (879397) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (879407) NimBLE: 
+[0m
+[0;32mI (879407) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 146, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (885417) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (885417) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (885417) NimBLE: disc_mode=2[0m
+[0;32mI (885417) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (885427) NimBLE: 
+[0m
+[0;32mI (885427) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 147, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (891437) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (891437) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (891437) NimBLE: disc_mode=2[0m
+[0;32mI (891437) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (891447) NimBLE: 
+[0m
+[0;32mI (891447) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 148, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (897457) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (897457) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (897457) NimBLE: disc_mode=2[0m
+[0;32mI (897457) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (897467) NimBLE: 
+[0m
+[0;32mI (897467) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 149, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (903477) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (903477) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (903477) NimBLE: disc_mode=2[0m
+[0;32mI (903477) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (903487) NimBLE: 
+[0m
+[0;32mI (903487) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 150, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (909497) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (909497) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (909497) NimBLE: disc_mode=2[0m
+[0;32mI (909497) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (909507) NimBLE: 
+[0m
+[0;32mI (909507) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 151, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (915517) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (915517) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (915517) NimBLE: disc_mode=2[0m
+[0;32mI (915517) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (915527) NimBLE: 
+[0m
+[0;32mI (915527) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 152, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (921537) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (921537) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (921537) NimBLE: disc_mode=2[0m
+[0;32mI (921537) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (921547) NimBLE: 
+[0m
+[0;32mI (921547) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 153, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (927557) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (927557) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (927557) NimBLE: disc_mode=2[0m
+[0;32mI (927557) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (927567) NimBLE: 
+[0m
+[0;32mI (927567) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 154, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (933577) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (933577) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (933577) NimBLE: disc_mode=2[0m
+[0;32mI (933577) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (933587) NimBLE: 
+[0m
+[0;32mI (933587) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 155, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (939597) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (939597) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (939597) NimBLE: disc_mode=2[0m
+[0;32mI (939597) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (939607) NimBLE: 
+[0m
+[0;32mI (939607) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 156, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (945617) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (945617) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (945617) NimBLE: disc_mode=2[0m
+[0;32mI (945617) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (945627) NimBLE: 
+[0m
+[0;32mI (945627) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 157, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (951637) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (951637) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (951637) NimBLE: disc_mode=2[0m
+[0;32mI (951637) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (951647) NimBLE: 
+[0m
+[0;32mI (951647) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 158, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (957657) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (957657) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (957657) NimBLE: disc_mode=2[0m
+[0;32mI (957657) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (957667) NimBLE: 
+[0m
+[0;32mI (957667) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 159, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (963677) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (963677) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (963677) NimBLE: disc_mode=2[0m
+[0;32mI (963677) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (963687) NimBLE: 
+[0m
+[0;32mI (963687) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 160, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (969697) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (969697) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (969697) NimBLE: disc_mode=2[0m
+[0;32mI (969697) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (969707) NimBLE: 
+[0m
+[0;32mI (969707) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 161, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (975717) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (975717) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (975717) NimBLE: disc_mode=2[0m
+[0;32mI (975717) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (975727) NimBLE: 
+[0m
+[0;32mI (975727) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 162, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (981737) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (981737) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (981737) NimBLE: disc_mode=2[0m
+[0;32mI (981737) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (981747) NimBLE: 
+[0m
+[0;32mI (981747) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 163, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (987757) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (987757) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (987757) NimBLE: disc_mode=2[0m
+[0;32mI (987757) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (987767) NimBLE: 
+[0m
+[0;32mI (987767) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 164, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (993777) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (993777) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (993777) NimBLE: disc_mode=2[0m
+[0;32mI (993777) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (993787) NimBLE: 
+[0m
+[0;32mI (993787) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 165, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (999797) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (999797) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (999797) NimBLE: disc_mode=2[0m
+[0;32mI (999797) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (999807) NimBLE: 
+[0m
+[0;32mI (999807) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 166, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1005817) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1005817) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1005817) NimBLE: disc_mode=2[0m
+[0;32mI (1005817) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1005827) NimBLE: 
+[0m
+[0;32mI (1005827) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 167, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1011837) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1011837) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1011837) NimBLE: disc_mode=2[0m
+[0;32mI (1011837) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1011847) NimBLE: 
+[0m
+[0;32mI (1011847) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 168, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1017857) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1017857) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1017857) NimBLE: disc_mode=2[0m
+[0;32mI (1017857) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1017867) NimBLE: 
+[0m
+[0;32mI (1017867) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 169, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1023877) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1023877) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1023877) NimBLE: disc_mode=2[0m
+[0;32mI (1023877) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1023887) NimBLE: 
+[0m
+[0;32mI (1023887) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 170, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1029897) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1029897) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1029897) NimBLE: disc_mode=2[0m
+[0;32mI (1029897) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1029907) NimBLE: 
+[0m
+[0;32mI (1029907) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 171, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1035917) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1035917) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1035917) NimBLE: disc_mode=2[0m
+[0;32mI (1035917) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1035927) NimBLE: 
+[0m
+[0;32mI (1035927) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 172, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1041937) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1041937) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1041937) NimBLE: disc_mode=2[0m
+[0;32mI (1041937) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1041947) NimBLE: 
+[0m
+[0;32mI (1041947) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 173, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1047957) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1047957) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1047957) NimBLE: disc_mode=2[0m
+[0;32mI (1047957) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1047967) NimBLE: 
+[0m
+[0;32mI (1047967) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 174, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1053977) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1053977) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1053977) NimBLE: disc_mode=2[0m
+[0;32mI (1053977) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1053987) NimBLE: 
+[0m
+[0;32mI (1053987) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 175, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1059997) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1059997) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1059997) NimBLE: disc_mode=2[0m
+[0;32mI (1059997) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1060007) NimBLE: 
+[0m
+[0;32mI (1060007) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 176, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1066017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1066017) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1066017) NimBLE: disc_mode=2[0m
+[0;32mI (1066017) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1066027) NimBLE: 
+[0m
+[0;32mI (1066027) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 177, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1072037) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1072037) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1072037) NimBLE: disc_mode=2[0m
+[0;32mI (1072037) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1072047) NimBLE: 
+[0m
+[0;32mI (1072047) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 178, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1078057) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1078057) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1078057) NimBLE: disc_mode=2[0m
+[0;32mI (1078057) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1078067) NimBLE: 
+[0m
+[0;32mI (1078067) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 179, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1084077) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1084077) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1084077) NimBLE: disc_mode=2[0m
+[0;32mI (1084077) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1084087) NimBLE: 
+[0m
+[0;32mI (1084087) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 180, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1090097) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1090097) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1090097) NimBLE: disc_mode=2[0m
+[0;32mI (1090097) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1090107) NimBLE: 
+[0m
+[0;32mI (1090107) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 181, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1096117) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1096117) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1096117) NimBLE: disc_mode=2[0m
+[0;32mI (1096117) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1096127) NimBLE: 
+[0m
+[0;32mI (1096127) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 182, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1102137) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1102137) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1102137) NimBLE: disc_mode=2[0m
+[0;32mI (1102137) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1102147) NimBLE: 
+[0m
+[0;32mI (1102147) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 183, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1108157) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1108157) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1108157) NimBLE: disc_mode=2[0m
+[0;32mI (1108157) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1108167) NimBLE: 
+[0m
+[0;32mI (1108167) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 184, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1114177) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1114177) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1114177) NimBLE: disc_mode=2[0m
+[0;32mI (1114177) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1114187) NimBLE: 
+[0m
+[0;32mI (1114187) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 185, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1120197) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1120197) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1120197) NimBLE: disc_mode=2[0m
+[0;32mI (1120197) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1120207) NimBLE: 
+[0m
+[0;32mI (1120207) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 186, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1126217) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1126217) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1126217) NimBLE: disc_mode=2[0m
+[0;32mI (1126217) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1126227) NimBLE: 
+[0m
+[0;32mI (1126227) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 187, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1132237) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1132237) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1132237) NimBLE: disc_mode=2[0m
+[0;32mI (1132237) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1132247) NimBLE: 
+[0m
+[0;32mI (1132247) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 188, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1138257) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1138257) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1138257) NimBLE: disc_mode=2[0m
+[0;32mI (1138257) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1138267) NimBLE: 
+[0m
+[0;32mI (1138267) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 189, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1144277) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1144277) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1144277) NimBLE: disc_mode=2[0m
+[0;32mI (1144277) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1144287) NimBLE: 
+[0m
+[0;32mI (1144287) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 190, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1150297) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1150297) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1150297) NimBLE: disc_mode=2[0m
+[0;32mI (1150297) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1150307) NimBLE: 
+[0m
+[0;32mI (1150307) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 191, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1156317) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1156317) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1156317) NimBLE: disc_mode=2[0m
+[0;32mI (1156317) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1156327) NimBLE: 
+[0m
+[0;32mI (1156327) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 192, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1162337) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1162337) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1162337) NimBLE: disc_mode=2[0m
+[0;32mI (1162337) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1162347) NimBLE: 
+[0m
+[0;32mI (1162347) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 193, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1168357) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1168357) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1168357) NimBLE: disc_mode=2[0m
+[0;32mI (1168357) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1168367) NimBLE: 
+[0m
+[0;32mI (1168367) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 194, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1171727) BLE_TRACKER: STATE CHANGE DETECTED: 1 -> 0[0m
+[0;32mI (1171727) BLE_TRACKER: Debounced reed state: GPIO5 raw=0 -> bag_state=0 (NO contact)[0m
+[0;32mI (1171737) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1171737) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1171737) NimBLE: disc_mode=2[0m
+[0;32mI (1171737) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1171757) NimBLE: 
+[0m
+[0;32mI (1171757) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 195, State: 0, Raw: 0, Batt: 3][0m
+[0;32mI (1173767) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1173767) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1173767) NimBLE: disc_mode=2[0m
+[0;32mI (1173767) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1173777) NimBLE: 
+[0m
+[0;32mI (1173777) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 196, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1175787) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1175787) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1175787) NimBLE: disc_mode=2[0m
+[0;32mI (1175787) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1175797) NimBLE: 
+[0m
+[0;32mI (1175797) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 197, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1177807) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1177807) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1177807) NimBLE: disc_mode=2[0m
+[0;32mI (1177807) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1177817) NimBLE: 
+[0m
+[0;32mI (1177817) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 198, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1179827) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1179827) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1179827) NimBLE: disc_mode=2[0m
+[0;32mI (1179827) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1179837) NimBLE: 
+[0m
+[0;32mI (1179837) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 199, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1181897) BLE_TRACKER: STATE CHANGE DETECTED: 0 -> 1[0m
+[0;32mI (1181897) BLE_TRACKER: Debounced reed state: GPIO5 raw=1 -> bag_state=1 (NO contact)[0m
+[0;32mI (1181907) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1181907) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1181907) NimBLE: disc_mode=2[0m
+[0;32mI (1181907) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1181927) NimBLE: 
+[0m
+[0;32mI (1181927) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 200, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1183937) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1183937) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1183937) NimBLE: disc_mode=2[0m
+[0;32mI (1183937) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1183947) NimBLE: 
+[0m
+[0;32mI (1183947) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 201, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1185957) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1185957) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1185957) NimBLE: disc_mode=2[0m
+[0;32mI (1185957) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1185967) NimBLE: 
+[0m
+[0;32mI (1185967) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 202, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1187977) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1187977) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1187977) NimBLE: disc_mode=2[0m
+[0;32mI (1187977) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1187987) NimBLE: 
+[0m
+[0;32mI (1187987) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 203, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1189997) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1189997) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1189997) NimBLE: disc_mode=2[0m
+[0;32mI (1189997) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1190007) NimBLE: 
+[0m
+[0;32mI (1190007) BLE_TRACKER: Sent ADV [Type: 0x01, Seq: 204, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1198017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1198017) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1198017) NimBLE: disc_mode=2[0m
+[0;32mI (1198017) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1198027) NimBLE: 
+[0m
+[0;32mI (1198027) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 205, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1204037) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1204037) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1204037) NimBLE: disc_mode=2[0m
+[0;32mI (1204037) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1204047) NimBLE: 
+[0m
+[0;32mI (1204047) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 206, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1210057) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1210057) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1210057) NimBLE: disc_mode=2[0m
+[0;32mI (1210057) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1210067) NimBLE: 
+[0m
+[0;32mI (1210067) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 207, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1216077) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1216077) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1216077) NimBLE: disc_mode=2[0m
+[0;32mI (1216077) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1216087) NimBLE: 
+[0m
+[0;32mI (1216087) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 208, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1222097) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1222097) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1222097) NimBLE: disc_mode=2[0m
+[0;32mI (1222097) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1222107) NimBLE: 
+[0m
+[0;32mI (1222107) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 209, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1228117) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1228117) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1228117) NimBLE: disc_mode=2[0m
+[0;32mI (1228117) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1228127) NimBLE: 
+[0m
+[0;32mI (1228127) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 210, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1234137) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1234137) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1234137) NimBLE: disc_mode=2[0m
+[0;32mI (1234137) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1234147) NimBLE: 
+[0m
+[0;32mI (1234147) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 211, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1240157) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1240157) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1240157) NimBLE: disc_mode=2[0m
+[0;32mI (1240157) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1240167) NimBLE: 
+[0m
+[0;32mI (1240167) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 212, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1246177) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1246177) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1246177) NimBLE: disc_mode=2[0m
+[0;32mI (1246177) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1246187) NimBLE: 
+[0m
+[0;32mI (1246187) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 213, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1252197) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1252197) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1252197) NimBLE: disc_mode=2[0m
+[0;32mI (1252197) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1252207) NimBLE: 
+[0m
+[0;32mI (1252207) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 214, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1258217) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1258217) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1258217) NimBLE: disc_mode=2[0m
+[0;32mI (1258217) NimBLE:  adv_channel_map=0 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=160 adv_itvl_max=160[0m
+[0;32mI (1258227) NimBLE: 
+[0m
+[0;32mI (1258227) BLE_TRACKER: Sent ADV [Type: 0x00, Seq: 215, State: 1, Raw: 1, Batt: 3][0m
+[0;32mI (1264237) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1264237) NimBLE: 
