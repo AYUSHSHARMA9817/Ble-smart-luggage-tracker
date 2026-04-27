@@ -13,6 +13,7 @@ import {
 import {
   checkRateLimit,
   createSession,
+  generateManualCode,
   hashPassword,
   issueRegistration,
   logSecurityEvent,
@@ -251,9 +252,9 @@ async function handleApi(req, res) {
       }
 
       const deviceId = normalizeDeviceId(body.deviceId);
-      const manualCode = normalizeManualCode(body.manualCode);
-      if (!deviceId || !manualCode) {
-        const error = new Error("deviceId and manualCode are required");
+      const manualCode = normalizeManualCode(body.manualCode) || generateManualCode();
+      if (!deviceId) {
+        const error = new Error("deviceId is required");
         error.statusCode = 400;
         throw error;
       }
@@ -263,6 +264,7 @@ async function handleApi(req, res) {
       return {
         id: registration.id,
         deviceId: registration.deviceId,
+        manualCode,
         note: registration.note,
         createdAt: registration.createdAt,
       };

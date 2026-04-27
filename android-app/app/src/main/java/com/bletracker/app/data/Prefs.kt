@@ -52,6 +52,11 @@ class Prefs(context: Context) {
         get() = prefs.getString("authToken", "") ?: ""
         set(value) = prefs.edit().putString("authToken", value.trim()).apply()
 
+    /** Admin registration secret cached locally for the dedicated admin UI mode. */
+    var adminRegistrationSecret: String
+        get() = prefs.getString("adminRegistrationSecret", "") ?: ""
+        set(value) = prefs.edit().putString("adminRegistrationSecret", value.trim()).apply()
+
     /** Google OAuth web client ID used by [GoogleSignInManager], if configured. */
     var googleWebClientId: String
         get() = prefs.getString("googleWebClientId", "") ?: ""

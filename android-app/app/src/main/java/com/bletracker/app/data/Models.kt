@@ -60,6 +60,15 @@ data class AuthSessionDto(
     val user: UserDto,
 )
 
+/** Result returned when an admin pre-registers a tracker for owner claiming. */
+data class AdminRegistrationDto(
+    val id: String,
+    val deviceId: String,
+    val manualCode: String,
+    val note: String,
+    val createdAt: String,
+)
+
 /** Full bootstrap payload returned by `/api/bootstrap` on app start. */
 data class BootstrapDto(
     val user: UserDto,

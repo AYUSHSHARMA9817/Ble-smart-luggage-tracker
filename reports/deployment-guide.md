@@ -201,6 +201,7 @@ Sign the APK with your release keystore and install it on phones via `adb instal
 - [ ] TLS certificate is valid (no browser warnings)
 - [ ] At least one admin device registration has been created
 - [ ] At least one owner account has been created and can log in
+- [ ] `/admin.html` is reachable and can register a tracker
 - [ ] `android:usesCleartextTraffic` set to `false` in release build
 - [ ] APK signed with a release keystore
 
@@ -208,7 +209,28 @@ Sign the APK with your release keystore and install it on phones via `adb instal
 
 ## Pre-Registering Tracker Hardware
 
-Before an owner can claim a tracker, an admin must register it:
+Before an owner can claim a tracker, an admin must register it.
+
+### Admin Page
+
+Open:
+
+```text
+https://your-service.onrender.com/admin.html
+```
+
+Enter:
+
+- `ADMIN_REGISTRATION_SECRET`
+- tracker `deviceId`
+- optional manual code
+- optional note
+
+If the manual code is left blank, the backend generates one automatically and returns it once on screen.
+
+### API Alternative
+
+Before an owner can claim a tracker, an admin can also register it directly through the API:
 
 ```bash
 curl -X POST https://ble-tracker-backend.onrender.com/api/admin/device-registrations \

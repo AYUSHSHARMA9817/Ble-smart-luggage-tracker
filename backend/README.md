@@ -2,6 +2,21 @@
 
 This service accepts BLE tracker sightings from Android scanner phones, maps trackers to owners, stores device state in Turso, and generates notifications for bag state changes, geofence exit and re-entry, proximity loss, and proximity restoration.
 
+## Admin Registration Page
+
+The backend now includes a dedicated static admin page at:
+
+- `/admin.html`
+
+Use it to:
+
+- enter the `ADMIN_REGISTRATION_SECRET`
+- register a tracker `deviceId`
+- optionally type your own manual owner claim code
+- or leave the code blank and let the backend generate one
+
+The backend stores only the hashed claim code. The plain code is returned once in the response so it can be shared with the owner for claiming.
+
 ## What To Deploy
 
 Only the backend is deployed online. The Android app connects to this backend over HTTP/HTTPS and uploads sightings from nearby phones.
@@ -101,6 +116,7 @@ Recommended setup:
 3. Set `ADMIN_REGISTRATION_SECRET`.
 4. Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`.
 5. Import any existing `backend/data/app.json` data with `npm run db:import-json`.
+6. Open `/admin.html` on the deployed service to register trackers.
 
 ### Generic Docker Host
 

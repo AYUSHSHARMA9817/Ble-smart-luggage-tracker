@@ -50,6 +50,20 @@ class BackendApi(private val prefs: Prefs) {
         return parseDevice(postJson("/api/devices/register", body, authenticated = true))
     }
 
+    fun createAdminRegistration(
+        adminSecret: String,
+        deviceId: String,
+        manualCode: String,
+        note: String,
+    ): AdminRegistrationDto {
+        val body = JSONObject()
+            .put("adminSecret", adminSecret)
+            .put("deviceId", deviceId)
+            .put("manualCode", manualCode)
+            .put("note", note)
+        return parseAdminRegistration(postJson("/api/admin/device-registrations", body))
+    }
+
     fun createGeofence(name: String, lat: Double, lng: Double, radiusMeters: Int): GeofenceDto {
         val body = JSONObject()
             .put("name", name)
@@ -227,6 +241,14 @@ class BackendApi(private val prefs: Prefs) {
         authToken = json.getString("authToken"),
         expiresAt = json.getString("expiresAt"),
         user = parseUser(json.getJSONObject("user")),
+    )
+
+    private fun parseAdminRegistration(json: JSONObject) = AdminRegistrationDto(
+        id = json.getString("id"),
+        deviceId = json.getString("deviceId"),
+        manualCode = json.getString("manualCode"),
+        note = json.optString("note"),
+        createdAt = json.getString("createdAt"),
     )
 
     private fun parseDevice(json: JSONObject): DeviceDto {

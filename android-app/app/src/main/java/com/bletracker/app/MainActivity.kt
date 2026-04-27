@@ -66,6 +66,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bletracker.app.data.AlertDto
+import com.bletracker.app.data.AdminRegistrationDto
 import com.bletracker.app.data.DeviceDto
 import com.bletracker.app.data.GeofenceDto
 import com.bletracker.app.data.LocationPayload
@@ -85,6 +86,11 @@ private enum class OwnerSection(val title: String) {
 private enum class AuthSection(val title: String) {
     Login("Login"),
     SignUp("Sign Up"),
+}
+
+private enum class EntryMode(val title: String) {
+    Owner("Owner"),
+    Admin("Admin"),
 }
 
 class MainActivity : ComponentActivity() {
@@ -146,11 +152,19 @@ private fun TrackerApp(vm: MainViewModel = viewModel()) {
             },
             onStopMonitoring = vm::stopMonitoring,
         )
+    } else if (state.adminMode) {
+        AdminDashboard(
+            state = state,
+            onSaveSettings = vm::saveSettings,
+            onRegisterTracker = vm::registerTrackerAsAdmin,
+            onSignOutAdmin = vm::signOutAdmin,
+        )
     } else {
         AuthScreen(
             statusMessage = state.statusMessage,
             onSignIn = vm::signIn,
             onSignUp = vm::signUp,
+            onSignInAdmin = vm::signInAdmin,
         )
     }
 }
@@ -318,7 +332,9 @@ private fun AuthScreen(
     statusMessage: String,
     onSignIn: (String, String) -> Unit,
     onSignUp: (String, String, String) -> Unit,
+    onSignInAdmin: (String) -> Unit,
 ) {
+    var entryMode by remember { mutableStateOf(EntryMode.Owner) }
     var selectedSection by remember { mutableStateOf(AuthSection.Login) }
     var loginEmail by remember { mutableStateOf("") }
     var loginPassword by remember { mutableStateOf("") }
@@ -326,6 +342,7 @@ private fun AuthScreen(
     var signUpEmail by remember { mutableStateOf("") }
     var signUpPassword by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
+    var adminSecret by remember { mutableStateOf("") }
     var localError by remember { mutableStateOf("") }
 
     Scaffold(
@@ -366,6 +383,72 @@ private fun AuthScreen(
 
                 item {
                     ScrollableTabRow(
+                        selectedTabIndex = entryMode.ordinal,
+                        containerColor = Color.Transparent,
+                        contentColor = trackerColors.onSurface,
+                        edgePadding = 0.dp,
+                        indicator = { positions ->
+                            TabRowDefaults.SecondaryIndicator(
+                                modifier = Modifier.tabIndicatorOffset(positions[entryMode.ordinal]),
+                                color = trackerColors.secondary,
+                            )
+                        },
+                        divider = {}
+                    ) {
+                        EntryMode.entries.forEach { mode ->
+                            Tab(
+                                selected = entryMode == mode,
+                                onClick = {
+                                    localError = ""
+                                    entryMode = mode
+                                },
+                                selectedContentColor = trackerColors.secondary,
+                                unselectedContentColor = trackerColors.onSurfaceVariant,
+                                text = { Text(mode.title, fontWeight = FontWeight.SemiBold) },
+                            )
+                        }
+                    }
+                }
+
+                item {
+                    when (entryMode) {
+                        EntryMode.Owner -> SectionCard("Choose Account Access") {
+                            Text(
+                                "Sign in as an owner to manage claimed trackers, alerts, and geofences.",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = trackerColors.onSurfaceVariant,
+                            )
+                        }
+
+                        EntryMode.Admin -> SectionCard("Admin Access") {
+                            Text(
+                                "Use the backend admin registration secret to open the dedicated tracker provisioning area.",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = trackerColors.onSurfaceVariant,
+                            )
+                            Spacer(Modifier.height(12.dp))
+                            AppTextField(
+                                value = adminSecret,
+                                onValueChange = {
+                                    localError = ""
+                                    adminSecret = it
+                                },
+                                label = "Admin Secret",
+                                password = true,
+                            )
+                            Spacer(Modifier.height(12.dp))
+                            Button(
+                                onClick = { onSignInAdmin(adminSecret) },
+                                colors = primaryButtonColors(),
+                            ) {
+                                Text("Open Admin Area")
+                            }
+                        }
+                    }
+                }
+
+                if (entryMode == EntryMode.Owner) item {
+                    ScrollableTabRow(
                         selectedTabIndex = selectedSection.ordinal,
                         containerColor = Color.Transparent,
                         contentColor = trackerColors.onSurface,
@@ -393,7 +476,7 @@ private fun AuthScreen(
                     }
                 }
 
-                item {
+                if (entryMode == EntryMode.Owner) item {
                     when (selectedSection) {
                         AuthSection.Login -> SectionCard("Login") {
                             AppTextField(
@@ -477,6 +560,120 @@ private fun AuthScreen(
                             }, colors = primaryButtonColors()) {
                                 Text("Create Account")
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun AdminDashboard(
+    state: MainUiState,
+    onSaveSettings: (String, Boolean) -> Unit,
+    onRegisterTracker: (String, String) -> Unit,
+    onSignOutAdmin: () -> Unit,
+) {
+    var backendBaseUrl by remember(state.backendBaseUrl) { mutableStateOf(state.backendBaseUrl) }
+    var trackerId by remember { mutableStateOf("0x0000AB01") }
+    var trackerNote by remember { mutableStateOf("") }
+
+    Scaffold(
+        containerColor = Color.Transparent,
+        topBar = {
+            TopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = trackerColors.surface.copy(alpha = 0.92f),
+                    titleContentColor = trackerColors.onSurface,
+                ),
+                title = {
+                    Column {
+                        Text("BLE Tracker Admin", color = Color.White)
+                        Text(
+                            "Provision trackers and generate owner claim codes",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.White.copy(alpha = 0.78f),
+                        )
+                    }
+                }
+            )
+        }
+    ) { padding ->
+        AppBackdrop(modifier = Modifier.padding(padding)) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                item {
+                    HeroCard(
+                        title = "Admin Provisioning",
+                        subtitle = "Write a tracker device ID, create a one-time owner claim code, and store the registration in the backend.",
+                        status = state.statusMessage,
+                    )
+                }
+
+                item {
+                    SectionCard("Tracker Registration") {
+                        Text(
+                            "Device ID identifies the physical tracker. The generated claim code is what the owner enters later to claim it.",
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = trackerColors.onSurfaceVariant,
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        AppTextField(
+                            value = trackerId,
+                            onValueChange = { trackerId = it },
+                            label = "Tracker Device ID",
+                        )
+                        Spacer(Modifier.height(8.dp))
+                        AppTextField(
+                            value = trackerNote,
+                            onValueChange = { trackerNote = it },
+                            label = "Admin Note",
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                            Button(
+                                onClick = { onRegisterTracker(trackerId, trackerNote) },
+                                colors = primaryButtonColors(),
+                            ) {
+                                Text("Generate Claim Code")
+                            }
+                            TextButton(onClick = onSignOutAdmin) {
+                                Text("Exit Admin")
+                            }
+                        }
+                    }
+                }
+
+                item {
+                    SectionCard("Backend Connection") {
+                        AppTextField(
+                            value = backendBaseUrl,
+                            onValueChange = { backendBaseUrl = it },
+                            label = "Backend URL",
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Button(
+                            onClick = { onSaveSettings(backendBaseUrl, state.scannerAutostartEnabled) },
+                            colors = primaryButtonColors(),
+                        ) {
+                            Text("Save Backend URL")
+                        }
+                    }
+                }
+
+                item {
+                    SectionCard("Latest Generated Claim") {
+                        val registration = state.latestAdminRegistration
+                        if (registration == null) {
+                            EmptyState("No tracker has been provisioned in this admin session yet.")
+                        } else {
+                            AdminRegistrationSummary(registration)
                         }
                     }
                 }
@@ -904,6 +1101,40 @@ private fun AlertSummary(alert: AlertDto) {
     TimestampRow("Created", alert.createdAt)
     Spacer(Modifier.height(8.dp))
     Text(alert.message, style = MaterialTheme.typography.bodyMedium)
+}
+
+@Composable
+private fun AdminRegistrationSummary(registration: AdminRegistrationDto) {
+    KeyValueRow("Tracker Device ID", registration.deviceId)
+    KeyValueRow("Registration ID", registration.id)
+    TimestampRow("Created", registration.createdAt)
+    if (registration.note.isNotBlank()) {
+        Spacer(Modifier.height(8.dp))
+        KeyValueRow("Admin Note", registration.note)
+    }
+    Spacer(Modifier.height(12.dp))
+    Text("Owner Claim Code", style = MaterialTheme.typography.titleSmall)
+    Spacer(Modifier.height(6.dp))
+    Card(
+        shape = RoundedCornerShape(18.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = trackerColors.primaryContainer.copy(alpha = 0.86f),
+            contentColor = trackerColors.onPrimaryContainer,
+        ),
+    ) {
+        Text(
+            text = registration.manualCode,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+        )
+    }
+    Spacer(Modifier.height(8.dp))
+    Text(
+        "Share this one-time code with the owner. They will use it together with the tracker device ID to claim the tracker.",
+        style = MaterialTheme.typography.bodyMedium,
+        color = trackerColors.onSurfaceVariant,
+    )
 }
 
 @Composable

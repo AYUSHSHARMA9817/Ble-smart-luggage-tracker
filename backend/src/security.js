@@ -120,6 +120,26 @@ export function normalizeManualCode(code) {
 }
 
 /**
+ * Generate a human-friendly one-time manual claim code.
+ *
+ * Uses uppercase alphanumeric characters while avoiding ambiguous symbols so
+ * the code can be read over chat or phone with lower error rates.
+ *
+ * @param {number} [length=8] - Desired code length.
+ * @returns {string} Example: "7K9M4Q2P"
+ */
+export function generateManualCode(length = 8) {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const size = Math.max(6, Number(length) || 8);
+  const bytes = crypto.randomBytes(size);
+  let code = "";
+  for (let index = 0; index < size; index += 1) {
+    code += alphabet[bytes[index] % alphabet.length];
+  }
+  return code;
+}
+
+/**
  * Create (or replace) a device-registration record containing a hashed
  * manual code that a user must supply to claim the device.
  *

@@ -70,12 +70,46 @@
         padding-left: 10px;
         margin: 10px 0;
       }
+      .nav-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin: 16px 0 20px;
+        padding: 18px;
+        background: linear-gradient(135deg, #123c33 0%, #0c7c59 100%);
+        color: #f8f5ec;
+        border-radius: 18px;
+        box-shadow: 0 14px 40px rgba(12, 124, 89, 0.18);
+      }
+      .nav-card p {
+        color: rgba(248, 245, 236, 0.8);
+        margin: 6px 0 0;
+      }
+      .nav-link {
+        display: inline-block;
+        white-space: nowrap;
+        text-decoration: none;
+        background: #f8f5ec;
+        color: #123c33;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div class="wrap">
       <h1>BLE Tracker Backend Dashboard</h1>
       <p>Devices, sightings, alerts, and geofences as seen by the relay backend.</p>
+
+      <section class="nav-card">
+        <div>
+          <strong>Admin tools</strong>
+          <p>Register a tracker, generate its owner claim code, and store it directly in the backend database.</p>
+        </div>
+        <a class="nav-link" href="/admin.html">Go to Admin Page</a>
+      </section>
 
       <div class="grid">
         <section class="card">

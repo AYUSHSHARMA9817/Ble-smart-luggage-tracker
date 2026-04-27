@@ -126,7 +126,12 @@ A `setInterval` fires every 5 seconds. It loads the Turso-backed application sta
 
 ### Static Files
 
-The server also serves `backend/public/index.html` as a basic read-only dashboard. The dashboard fetches `/api/health`, `/api/alerts`, and `/api/devices` every 4 seconds.
+The server also serves static admin and dashboard pages:
+
+- `backend/public/index.html` for the lightweight dashboard
+- `backend/public/admin.html` for tracker registration by administrators
+
+The admin page posts to `/api/admin/device-registrations` and can either submit a caller-specified manual claim code or request that the backend generate one automatically.
 
 ### Rate Limiting
 
@@ -423,6 +428,8 @@ Pre-register a tracker device and issue a one-time claim code.
   "note": "demo unit"
 }
 ```
+
+`manualCode` is optional in the current implementation. When omitted or blank, the backend generates an 8-character uppercase alphanumeric claim code and returns it once in the response.
 
 ---
 

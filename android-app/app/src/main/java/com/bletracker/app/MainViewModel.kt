@@ -8,6 +8,7 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.bletracker.app.data.AdminRegistrationDto
 import com.bletracker.app.data.AlertDto
 import com.bletracker.app.data.BackendApi
 import com.bletracker.app.data.DeviceDto
@@ -33,10 +34,12 @@ data class MainUiState(
     val scannerUserId: String = "",
     val ownerUserId: String = "",
     val authTokenPresent: Boolean = false,
+    val adminMode: Boolean = false,
     val scannerAutostartEnabled: Boolean = false,
     val devices: List<DeviceDto> = emptyList(),
     val alerts: List<AlertDto> = emptyList(),
     val geofences: List<GeofenceDto> = emptyList(),
+    val latestAdminRegistration: AdminRegistrationDto? = null,
     val latestRelaySnapshot: RelaySnapshotDto? = null,
     val serverTime: String = "",
     val lastBackendSyncAt: String = "",
@@ -55,6 +58,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             scannerUserId = prefs.scannerUserId,
             ownerUserId = prefs.ownerUserId,
             authTokenPresent = prefs.authToken.isNotBlank(),
+            adminMode = false,
             scannerAutostartEnabled = prefs.scannerAutostartEnabled,
             latestRelaySnapshot = prefs.latestRelaySnapshot,
         )
@@ -124,6 +128,70 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 onAuthSuccess(auth.user.id, auth.authToken, auth.user, "Account ready")
             }.onFailure { error ->
                 _uiState.update { it.copy(statusMessage = error.message ?: "Sign up failed") }
+            }
+        }
+    }
+
+    fun signInAdmin(adminSecret: String) {
+        if (adminSecret.isBlank()) {
+            _uiState.update { it.copy(statusMessage = "Admin secret is required") }
+            return
+        }
+
+        prefs.adminRegistrationSecret = adminSecret
+        _uiState.update {
+            it.copy(
+                adminMode = true,
+                latestAdminRegistration = null,
+                statusMessage = "Admin access enabled",
+            )
+        }
+    }
+
+    fun signOutAdmin() {
+        prefs.adminRegistrationSecret = ""
+        _uiState.update {
+            it.copy(
+                adminMode = false,
+                latestAdminRegistration = null,
+                statusMessage = "Admin access closed",
+            )
+        }
+    }
+
+    fun registerTrackerAsAdmin(deviceId: String, note: String) {
+        val adminSecret = prefs.adminRegistrationSecret
+        if (adminSecret.isBlank()) {
+            _uiState.update { it.copy(statusMessage = "Log in as admin first") }
+            return
+        }
+        if (deviceId.isBlank()) {
+            _uiState.update { it.copy(statusMessage = "Tracker device ID is required") }
+            return
+        }
+
+        viewModelScope.launch(Dispatchers.IO) {
+            runCatching {
+                api.createAdminRegistration(
+                    adminSecret = adminSecret,
+                    deviceId = deviceId.trim(),
+                    manualCode = "",
+                    note = note.trim(),
+                )
+            }.onSuccess { registration ->
+                _uiState.update {
+                    it.copy(
+                        latestAdminRegistration = registration,
+                        statusMessage = "Tracker registration created",
+                    )
+                }
+            }.onFailure { error ->
+                _uiState.update {
+                    it.copy(
+                        latestAdminRegistration = null,
+                        statusMessage = error.message ?: "Admin tracker registration failed",
+                    )
+                }
             }
         }
     }
@@ -300,9 +368,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 ownerUserId = "",
                 user = null,
                 authTokenPresent = false,
+                adminMode = false,
                 devices = emptyList(),
                 alerts = emptyList(),
                 geofences = emptyList(),
+                latestAdminRegistration = null,
                 statusMessage = "Signed out",
             )
         }
@@ -337,6 +407,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                     devices = bootstrap.devices,
                     alerts = bootstrap.alerts,
                     geofences = bootstrap.geofences,
+                    latestAdminRegistration = it.latestAdminRegistration,
                     latestRelaySnapshot = prefs.latestRelaySnapshot,
                     serverTime = bootstrap.serverTime,
                     lastBackendSyncAt = bootstrap.serverTime,
@@ -355,9 +426,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                         ownerUserId = "",
                         user = null,
                         authTokenPresent = false,
+                        adminMode = false,
                         devices = emptyList(),
                         alerts = emptyList(),
                         geofences = emptyList(),
+                        latestAdminRegistration = null,
                         latestRelaySnapshot = prefs.latestRelaySnapshot,
                         statusMessage = "Session expired. Please log in again.",
                     )
@@ -388,6 +461,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 ownerUserId = ownerUserId,
                 user = user,
                 authTokenPresent = true,
+                adminMode = false,
+                latestAdminRegistration = null,
                 statusMessage = statusMessage,
             )
         }

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BLE Tracker Admin</title>
+    <style>
+      :root {
+        --bg: #f4efe6;
+        --panel: #fffdf8;
+        --ink: #1b2a2f;
+        --muted: #6c7a80;
+        --line: #d7d0c4;
+        --accent: #0b6e4f;
+        --accent-2: #d94841;
+        --soft: #e6f5ee;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Georgia, "Times New Roman", serif;
+        background:
+          radial-gradient(circle at top right, #fce7cf 0, transparent 24%),
+          linear-gradient(180deg, #ede4d4 0%, var(--bg) 100%);
+      }
+      .wrap {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 28px 20px 48px;
+      }
+      .hero, .card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: 0 18px 50px rgba(25, 33, 38, 0.07);
+      }
+      .hero {
+        padding: 22px;
+        margin-bottom: 18px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+      .hero p, .hint, .muted {
+        color: var(--muted);
+      }
+      .card {
+        padding: 22px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 14px;
+      }
+      label {
+        display: block;
+        font-size: 0.92rem;
+        margin-bottom: 6px;
+      }
+      input, textarea {
+        width: 100%;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font: inherit;
+      }
+      textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+      .row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      button {
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 18px;
+        font: inherit;
+        cursor: pointer;
+      }
+      .primary {
+        background: var(--accent);
+        color: #fff;
+      }
+      .secondary {
+        background: #e9ece8;
+        color: var(--ink);
+      }
+      .result {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: #faf8f1;
+      }
+      .result.good {
+        background: var(--soft);
+        border-color: #b6dccb;
+      }
+      .result.bad {
+        background: #fdeceb;
+        border-color: #f0b7b3;
+      }
+      .code {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: #112118;
+        color: #f8f6ef;
+        letter-spacing: 0.14em;
+        font-weight: bold;
+      }
+      .topnav {
+        margin-bottom: 12px;
+      }
+      a {
+        color: var(--accent);
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 18px 14px 36px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topnav"><a href="/">&larr; Back to dashboard</a></div>
+
+      <section class="hero">
+        <h1>Admin Tracker Registration</h1>
+        <p>Create a tracker claim record, generate a one-time owner code, and store it directly in the backend database.</p>
+      </section>
+
+      <section class="card">
+        <form id="registration-form">
+          <div class="grid">
+            <div>
+              <label for="adminSecret">Admin registration secret</label>
+              <input id="adminSecret" name="adminSecret" type="password" autocomplete="current-password" required />
+            </div>
+            <div>
+              <label for="deviceId">Tracker device ID</label>
+              <input id="deviceId" name="deviceId" type="text" placeholder="0x0000AB01" required />
+            </div>
+          </div>
+
+          <div class="grid" style="margin-top:14px;">
+            <div>
+              <label for="manualCode">Manual claim code</label>
+              <input id="manualCode" name="manualCode" type="text" placeholder="Leave blank to auto-generate" />
+              <div class="hint">If blank, the backend generates an owner claim code automatically.</div>
+            </div>
+            <div>
+              <label for="note">Admin note</label>
+              <textarea id="note" name="note" placeholder="Blue suitcase tracker, batch 02"></textarea>
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:18px;">
+            <button class="primary" type="submit">Register tracker</button>
+            <button class="secondary" type="button" id="generate-code">Generate local code</button>
+          </div>
+        </form>
+
+        <div id="result" class="result" hidden></div>
+      </section>
+    </div>
+
+    <script>
+      const form = document.getElementById("registration-form");
+      const result = document.getElementById("result");
+      const manualCodeInput = document.getElementById("manualCode");
+      const generateButton = document.getElementById("generate-code");
+
+      function normalizeCode(raw) {
+        return String(raw || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+      }
+
+      function localCode(length = 8) {
+        const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        const bytes = new Uint32Array(length);
+        crypto.getRandomValues(bytes);
+        return Array.from(bytes, (value) => alphabet[value % alphabet.length]).join("");
+      }
+
+      function showResult(kind, html) {
+        result.hidden = false;
+        result.className = `result ${kind}`;
+        result.innerHTML = html;
+      }
+
+      generateButton.addEventListener("click", () => {
+        manualCodeInput.value = localCode();
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        showResult("", "Submitting registration...");
+
+        const payload = {
+          adminSecret: form.adminSecret.value,
+          deviceId: form.deviceId.value,
+          manualCode: normalizeCode(form.manualCode.value),
+          note: form.note.value.trim(),
+        };
+
+        try {
+          const response = await fetch("/api/admin/device-registrations", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          const body = await response.json();
+          if (!response.ok) {
+            throw new Error(body.error || "Registration failed");
+          }
+
+          showResult(
+            "good",
+            `
+              <strong>Tracker registration created.</strong>
+              <div style="margin-top:10px;">Device ID: <code>${body.deviceId}</code></div>
+              <div style="margin-top:10px;">Owner claim code:</div>
+              <div class="code">${body.manualCode}</div>
+              <div style="margin-top:10px;">Registration ID: <code>${body.id}</code></div>
+              <div class="muted" style="margin-top:10px;">Give this code to the owner once. The backend stores only its hash.</div>
+            `
+          );
+
+          form.deviceId.value = "";
+          form.manualCode.value = "";
+          form.note.value = "";
+        } catch (error) {
+          showResult("bad", `<strong>Registration failed.</strong><div style="margin-top:8px;">${error.message}</div>`);
+        }
+      });
+    </script>
+  </body>
+</html>
