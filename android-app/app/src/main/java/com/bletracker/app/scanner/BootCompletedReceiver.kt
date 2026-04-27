@@ -7,6 +7,16 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import com.bletracker.app.data.Prefs
 
+/**
+ * [BroadcastReceiver] that auto-starts [BleScanService] after the device
+ * boots or after the app is updated.
+ *
+ * The service is only started if [Prefs.scannerAutostartEnabled] is `true`,
+ * so users who did not opt in to background monitoring are not affected.
+ *
+ * Registered for [Intent.ACTION_BOOT_COMPLETED] and
+ * [Intent.ACTION_MY_PACKAGE_REPLACED] in AndroidManifest.xml.
+ */
 class BootCompletedReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         val action = intent?.action ?: return

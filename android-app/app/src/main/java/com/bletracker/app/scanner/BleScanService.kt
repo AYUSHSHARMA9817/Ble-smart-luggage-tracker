@@ -22,17 +22,37 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 
+/**
+ * Foreground service that continuously scans for BLE advertisements from
+ * registered tracker devices and uploads sightings to the backend.
+ *
+ * Lifecycle:
+ * 1. [onCreate] initialises the [SightingUploader] and [OwnerAlertPoller],
+ *    posts a persistent foreground notification, and starts the BLE scan.
+ * 2. [onStartCommand] returns [START_STICKY] so the OS restarts the service
+ *    if it is killed due to memory pressure.
+ * 3. [onDestroy] stops the BLE scan and cancels the coroutine scope.
+ *
+ * Deduplication: a rolling [recentlyQueued] map (capped at 200 entries)
+ * suppresses identical device+sequence+type keys seen within a 2-second
+ * window to avoid flooding the upload queue with burst advertisements.
+ */
 class BleScanService : Service() {
     private companion object {
         const val TAG = "BleScanService"
     }
 
+    /**
+     * Scan filter matching any advertisement with [BlePacketParser.MANUFACTURER_ID].
+     * The all-zero data mask means only the manufacturer ID is checked;
+     * payload bytes are not constrained by the hardware filter.
+     */
     private val scanFilters = listOf(
         ScanFilter.Builder()
             .setManufacturerData(
                 BlePacketParser.MANUFACTURER_ID,
-                ByteArray(10),
-                ByteArray(10),
+                ByteArray(10), // data: not checked (mask is all zeros)
+                ByteArray(10), // mask: all zeros → accept any payload content
             )
             .build()
     )
@@ -43,6 +63,11 @@ class BleScanService : Service() {
     private lateinit var queueStore: SightingQueueStore
     private lateinit var uploader: SightingUploader
     private lateinit var alertPoller: OwnerAlertPoller
+
+    /**
+     * Rolling deduplication map: `"<deviceId>:<seqNum>:<packetType>"` →
+     * epoch-ms timestamp of the last time it was queued. Capped at 200 entries.
+     */
     private val recentlyQueued = LinkedHashMap<String, Long>()
 
     private val scanCallback = object : ScanCallback() {
@@ -84,8 +109,14 @@ class BleScanService : Service() {
         super.onDestroy()
     }
 
+    /** This service does not support binding. */
     override fun onBind(intent: Intent?): IBinder? = null
 
+    /**
+     * Start a low-latency BLE scan filtered to [BlePacketParser.MANUFACTURER_ID].
+     * Stops the service if required Bluetooth permissions are not granted or
+     * if the Bluetooth adapter / LE scanner is unavailable.
+     */
     private fun startBleScan() {
         if (!hasScanPermission()) {
             Log.w(TAG, "Stopping relay service because BLE permissions are missing")
@@ -122,12 +153,20 @@ class BleScanService : Service() {
         }
     }
 
+    /** Stop the BLE scan; ignores errors (e.g. adapter already off). */
     private fun stopBleScan() {
         val manager = getSystemService(Context.BLUETOOTH_SERVICE) as? BluetoothManager ?: return
         val scanner = manager.adapter?.bluetoothLeScanner ?: return
         runCatching { scanner.stopScan(scanCallback) }
     }
 
+    /**
+     * Process a single BLE scan result: parse the manufacturer payload,
+     * deduplicate within a 2-second window, update the latest relay snapshot
+     * in [Prefs], enqueue a [QueuedSighting], and kick the uploader.
+     *
+     * @param result Raw Android BLE scan result.
+     */
     private fun handleResult(result: ScanResult) {
         val parsed = BlePacketParser.parse(result) ?: return
         val dedupeKey = "${parsed.deviceIdHex}:${parsed.packet.seqNum}:${parsed.packet.packetType}"
@@ -171,6 +210,10 @@ class BleScanService : Service() {
         uploader.kick()
     }
 
+    /**
+     * Check that both [Manifest.permission.BLUETOOTH_SCAN] and
+     * [Manifest.permission.BLUETOOTH_CONNECT] are granted.
+     */
     private fun hasScanPermission(): Boolean {
         val bluetoothGranted = ContextCompat.checkSelfPermission(
             this,

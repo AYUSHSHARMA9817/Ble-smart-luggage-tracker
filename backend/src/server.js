@@ -28,6 +28,7 @@ const __dirname = path.dirname(__filename);
 const PUBLIC_DIR = path.resolve(__dirname, "../public");
 const PORT = Number(process.env.PORT ?? 8787);
 
+/** HTTP server – all API routes are handled by {@link handleApi}. */
 const server = http.createServer(async (req, res) => {
   try {
     if (req.url?.startsWith("/api/")) {
@@ -40,6 +41,11 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+/**
+ * Background job: re-evaluate proximity alerts for all owned devices every
+ * 5 seconds. This catches devices that have gone silent without sending a
+ * state-change packet (e.g. battery died or moved out of range).
+ */
 setInterval(() => {
   const db = loadDb();
   evaluateBackgroundAlerts(db);
@@ -50,6 +56,17 @@ server.listen(PORT, () => {
   console.log(`BLE tracker backend running on http://localhost:${PORT}`);
 });
 
+// ---------------------------------------------------------------------------
+// API router
+// ---------------------------------------------------------------------------
+
+/**
+ * Route all /api/* requests to the appropriate handler.
+ * Applies rate limiting (120 req/min per IP+path) before routing.
+ *
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse}  res
+ */
 async function handleApi(req, res) {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const db = loadDb();
@@ -67,6 +84,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/health ---
   if (req.method === "GET" && url.pathname === "/api/health") {
     respondJson(res, 200, {
       ok: true,
@@ -80,6 +98,9 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/auth/google ---
+  // Exchanges a Google ID token for a session token.
+  // serverClientId is optional; when provided the token audience is verified.
   if (req.method === "POST" && url.pathname === "/api/auth/google") {
     const body = await readJson(req);
     const googleProfile = await verifyGoogleIdentity(body.idToken, body.serverClientId);
@@ -109,6 +130,8 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/users ---
+  // Create a new account or set a password on an existing Google-linked account.
   if (req.method === "POST" && url.pathname === "/api/users") {
     const body = await readJson(req);
     const name = String(body.name ?? "").trim();
@@ -173,6 +196,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/auth/login ---
   if (req.method === "POST" && url.pathname === "/api/auth/login") {
     const body = await readJson(req);
     const email = String(body.email ?? "").trim().toLowerCase();
@@ -201,12 +225,15 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/me ---
   if (req.method === "GET" && url.pathname === "/api/me") {
     const auth = requireAuth(db, req);
     respondJson(res, 200, serializeUser(auth.user));
     return;
   }
 
+  // --- GET /api/bootstrap ---
+  // Returns the full initial payload for the authenticated user in a single request.
   if (req.method === "GET" && url.pathname === "/api/bootstrap") {
     const auth = requireAuth(db, req);
     respondJson(res, 200, {
@@ -220,6 +247,8 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/admin/device-registrations ---
+  // Admin-only endpoint to pre-register a device and issue a one-time manual code.
   if (req.method === "POST" && url.pathname === "/api/admin/device-registrations") {
     const body = await readJson(req);
     if (!process.env.ADMIN_REGISTRATION_SECRET || body.adminSecret !== process.env.ADMIN_REGISTRATION_SECRET) {
@@ -248,6 +277,8 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/devices/register ---
+  // Claim a pre-registered device by supplying the one-time manual code.
   if (req.method === "POST" && url.pathname === "/api/devices/register") {
     const body = await readJson(req);
     const auth = requireAuth(db, req);
@@ -316,12 +347,15 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/devices ---
   if (req.method === "GET" && url.pathname === "/api/devices") {
     const auth = requireAuth(db, req);
     respondJson(res, 200, db.devices.filter((entry) => entry.ownerUserId === auth.user.id));
     return;
   }
 
+  // --- DELETE /api/devices/:deviceId ---
+  // Unclaims a device, removing all related alerts and notifications.
   if (req.method === "DELETE" && url.pathname.startsWith("/api/devices/")) {
     const auth = requireAuth(db, req);
     const rawDeviceId = decodeURIComponent(url.pathname.split("/").pop() ?? "");
@@ -364,6 +398,8 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/devices/:deviceId/monitoring ---
+  // Enable or disable proximity monitoring for a device.
   if (req.method === "POST" && url.pathname.startsWith("/api/devices/") && url.pathname.endsWith("/monitoring")) {
     const auth = requireAuth(db, req);
     const parts = url.pathname.split("/");
@@ -395,6 +431,8 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/sightings ---
+  // Receive a BLE sighting from a scanner (Android app) and update device state.
   if (req.method === "POST" && url.pathname === "/api/sightings") {
     const body = await readJson(req);
     body.manufacturerId = normalizeManufacturerId(body.manufacturerId);
@@ -404,6 +442,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/events ---
   if (req.method === "GET" && url.pathname === "/api/events") {
     const auth = requireAuth(db, req);
     const deviceId = url.searchParams.get("deviceId");
@@ -418,6 +457,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/alerts ---
   if (req.method === "GET" && url.pathname === "/api/alerts") {
     const auth = requireAuth(db, req);
     const since = url.searchParams.get("since");
@@ -440,6 +480,9 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- POST /api/alerts/ack ---
+  // Acknowledge an open alert; also tracks the device's lastSeenAt so a new
+  // proximity alert is not immediately re-raised for the same sighting.
   if (req.method === "POST" && url.pathname === "/api/alerts/ack") {
     const auth = requireAuth(db, req);
     const body = await readJson(req);
@@ -465,6 +508,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/notifications ---
   if (req.method === "GET" && url.pathname === "/api/notifications") {
     const auth = requireAuth(db, req);
     respondJson(
@@ -475,24 +519,45 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- GET /api/geofences ---
   if (req.method === "GET" && url.pathname === "/api/geofences") {
     const auth = requireAuth(db, req);
     respondJson(res, 200, db.geofences.filter((entry) => entry.userId === auth.user.id));
     return;
   }
 
+  // --- POST /api/geofences ---
   if (req.method === "POST" && url.pathname === "/api/geofences") {
     const auth = requireAuth(db, req);
     const body = await readJson(req);
+
+    const lat = Number(body.center?.lat);
+    const lng = Number(body.center?.lng);
+    const radiusMeters = Number(body.radiusMeters);
+
+    if (!body.name || String(body.name).trim() === "") {
+      respondJson(res, 400, { error: "name is required" });
+      return;
+    }
+    if (Number.isNaN(lat) || lat < -90 || lat > 90) {
+      respondJson(res, 400, { error: "center.lat must be a number between -90 and 90" });
+      return;
+    }
+    if (Number.isNaN(lng) || lng < -180 || lng > 180) {
+      respondJson(res, 400, { error: "center.lng must be a number between -180 and 180" });
+      return;
+    }
+    if (Number.isNaN(radiusMeters) || radiusMeters <= 0) {
+      respondJson(res, 400, { error: "radiusMeters must be a positive number" });
+      return;
+    }
+
     const geofence = {
       id: nextId("geofence"),
       userId: auth.user.id,
-      name: body.name,
-      center: {
-        lat: Number(body.center?.lat),
-        lng: Number(body.center?.lng),
-      },
-      radiusMeters: Number(body.radiusMeters),
+      name: String(body.name).trim(),
+      center: { lat, lng },
+      radiusMeters,
       enabled: body.enabled ?? true,
       createdAt: new Date().toISOString(),
     };
@@ -502,6 +567,7 @@ async function handleApi(req, res) {
     return;
   }
 
+  // --- DELETE /api/geofences/:geofenceId ---
   if (req.method === "DELETE" && url.pathname.startsWith("/api/geofences/")) {
     const auth = requireAuth(db, req);
     const geofenceId = url.pathname.split("/").pop();
@@ -521,6 +587,22 @@ async function handleApi(req, res) {
   respondJson(res, 404, { error: "not found" });
 }
 
+// ---------------------------------------------------------------------------
+// Helpers
+// ---------------------------------------------------------------------------
+
+/**
+ * Verify a Google ID token by calling the Google token-info endpoint.
+ *
+ * When @p serverClientId is provided the token's `aud` claim is checked
+ * against it. If omitted the audience check is skipped (useful in
+ * development or when the client ID is managed elsewhere).
+ *
+ * @param {string}      idToken        - Raw Google ID token from the client.
+ * @param {string|null} serverClientId - Expected OAuth client ID, or falsy to skip.
+ * @returns {Promise<{ sub: string, email: string, name: string }>}
+ * @throws {Error} If the token is invalid, expired, or has the wrong audience.
+ */
 async function verifyGoogleIdentity(idToken, serverClientId) {
   if (!idToken) {
     throw new Error("idToken is required");
@@ -548,6 +630,12 @@ async function verifyGoogleIdentity(idToken, serverClientId) {
   };
 }
 
+/**
+ * Return a safe public representation of a user record (no password fields).
+ *
+ * @param {object} user - Full user record from the database.
+ * @returns {{ id: string, name: string, email: string }}
+ */
 function serializeUser(user) {
   return {
     id: user.id,
@@ -556,6 +644,13 @@ function serializeUser(user) {
   };
 }
 
+/**
+ * Read and parse the JSON body of an incoming request.
+ * Returns an empty object for requests with no body.
+ *
+ * @param {http.IncomingMessage} req
+ * @returns {Promise<object>}
+ */
 async function readJson(req) {
   const chunks = [];
   for await (const chunk of req) {
@@ -565,6 +660,13 @@ async function readJson(req) {
   return raw ? JSON.parse(raw) : {};
 }
 
+/**
+ * Send a JSON response with CORS headers.
+ *
+ * @param {http.ServerResponse} res
+ * @param {number}              statusCode - HTTP status code.
+ * @param {object}              body       - Value to serialise as JSON.
+ */
 function respondJson(res, statusCode, body) {
   res.writeHead(statusCode, {
     "Content-Type": "application/json",
@@ -575,6 +677,13 @@ function respondJson(res, statusCode, body) {
   res.end(JSON.stringify(body, null, 2));
 }
 
+/**
+ * Serve a static file from the PUBLIC_DIR directory.
+ * Responds 404 for missing files or paths that escape the public root.
+ *
+ * @param {http.IncomingMessage} req
+ * @param {http.ServerResponse}  res
+ */
 function serveStatic(req, res) {
   if (req.method === "OPTIONS") {
     respondJson(res, 204, {});
