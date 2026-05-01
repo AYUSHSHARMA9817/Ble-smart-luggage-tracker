@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BLE Tracker Admin Console</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --panel: rgba(13, 25, 43, 0.88);
+        --panel-2: rgba(18, 37, 60, 0.9);
+        --ink: #eef7ff;
+        --muted: #9db1c5;
+        --line: rgba(157, 177, 197, 0.22);
+        --accent: #6dd3c7;
+        --accent-2: #f5b86b;
+        --bad: #ff7a70;
+        --good: #83e6a5;
+        --code: #020814;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(109, 211, 199, 0.22), transparent 32%),
+          radial-gradient(circle at 85% 10%, rgba(245, 184, 107, 0.16), transparent 28%),
+          linear-gradient(180deg, #07111f 0%, #0d182a 52%, #111827 100%);
+        min-height: 100vh;
+      }
+      a { color: var(--accent); }
+      .wrap {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 24px 18px 52px;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .hero, .card, .result {
+        border: 1px solid var(--line);
+        background: var(--panel);
+        border-radius: 22px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+        backdrop-filter: blur(16px);
+      }
+      .hero {
+        padding: 24px;
+        margin-bottom: 18px;
+      }
+      h1, h2, h3, p { margin-top: 0; }
+      h1 {
+        margin-bottom: 8px;
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        letter-spacing: -0.04em;
+      }
+      h2 { margin-bottom: 14px; }
+      p, .muted, .hint { color: var(--muted); }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 14px;
+      }
+      .wide-grid {
+        display: grid;
+        grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1.2fr);
+        gap: 16px;
+      }
+      .card {
+        padding: 18px;
+        min-width: 0;
+      }
+      .metric {
+        padding: 16px;
+        border-radius: 18px;
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+      }
+      .metric strong {
+        display: block;
+        font-size: 2rem;
+        line-height: 1;
+        color: var(--accent);
+      }
+      .metric span {
+        display: block;
+        margin-top: 7px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 7px;
+        color: #dbe9f5;
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+      input, textarea, select {
+        width: 100%;
+        border: 1px solid var(--line);
+        background: rgba(2, 8, 20, 0.58);
+        color: var(--ink);
+        border-radius: 14px;
+        padding: 12px 13px;
+        font: inherit;
+        outline: none;
+      }
+      textarea { min-height: 88px; resize: vertical; }
+      input:focus, textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(109, 211, 199, 0.12);
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+      button, .button-link {
+        border: 0;
+        border-radius: 999px;
+        padding: 11px 16px;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .primary { background: var(--accent); color: #052526; }
+      .secondary { background: rgba(238, 247, 255, 0.1); color: var(--ink); border: 1px solid var(--line); }
+      .warning { background: var(--accent-2); color: #311b02; }
+      .result {
+        margin-top: 14px;
+        padding: 16px;
+      }
+      .result.good { border-color: rgba(131, 230, 165, 0.42); background: rgba(27, 79, 54, 0.52); }
+      .result.bad { border-color: rgba(255, 122, 112, 0.42); background: rgba(96, 31, 32, 0.52); }
+      .code {
+        display: inline-block;
+        margin-top: 7px;
+        padding: 9px 12px;
+        border-radius: 12px;
+        background: var(--code);
+        color: #eafdf9;
+        letter-spacing: 0.14em;
+        font-weight: 900;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 10px 8px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+        font-size: 0.92rem;
+      }
+      th { color: #dbe9f5; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+      code {
+        background: rgba(2, 8, 20, 0.72);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 2px 6px;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 4px 9px;
+        font-size: 0.78rem;
+        font-weight: 800;
+        background: rgba(109, 211, 199, 0.14);
+        color: var(--accent);
+      }
+      .pill.bad { background: rgba(255, 122, 112, 0.14); color: var(--bad); }
+      .pill.warn { background: rgba(245, 184, 107, 0.16); color: var(--accent-2); }
+      .stack { display: grid; gap: 14px; }
+      .sensor-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
+      }
+      .sensor-cell {
+        padding: 10px;
+        border-radius: 13px;
+        border: 1px solid var(--line);
+        background: rgba(2, 8, 20, 0.34);
+      }
+      .sensor-cell b { display: block; color: var(--accent); }
+      .copyable { cursor: pointer; }
+      .split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      @media (max-width: 860px) {
+        .wide-grid, .split { grid-template-columns: 1fr; }
+        .topbar { align-items: flex-start; flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <a href="/">&larr; Backend dashboard</a>
+        <div class="row">
+          <button class="secondary" type="button" id="refresh">Refresh Admin Data</button>
+          <button class="secondary" type="button" id="clear-secret">Forget Secret</button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <h1>Admin Console</h1>
+        <p>Provision trackers, inspect device telemetry, verify registrations, and inject fake sensor packets without touching the Android app.</p>
+      </section>
+
+      <section class="card" style="margin-bottom:16px;">
+        <div class="grid">
+          <div>
+            <label for="adminSecret">Admin registration secret</label>
+            <input id="adminSecret" type="password" autocomplete="current-password" placeholder="ADMIN_REGISTRATION_SECRET" />
+            <div class="hint">Stored only in this browser's local storage for convenience.</div>
+          </div>
+          <div>
+            <label for="backendStatus">Console status</label>
+            <input id="backendStatus" type="text" value="Not loaded" readonly />
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" id="metrics" style="margin-bottom:16px;"></section>
+
+      <section class="wide-grid">
+        <div class="stack">
+          <section class="card">
+            <h2>Provision Tracker</h2>
+            <form id="registration-form">
+              <label for="deviceId">Tracker device ID</label>
+              <input id="deviceId" name="deviceId" type="text" placeholder="0x0000AB01" required />
+              <div class="split" style="margin-top:12px;">
+                <div>
+                  <label for="manualCode">Owner claim code</label>
+                  <input id="manualCode" name="manualCode" type="text" placeholder="Auto-generate if blank" />
+                </div>
+                <div>
+                  <label for="note">Admin note</label>
+                  <input id="note" name="note" type="text" placeholder="Blue suitcase batch 02" />
+                </div>
+              </div>
+              <div class="row" style="margin-top:14px;">
+                <button class="primary" type="submit">Create Claim Record</button>
+                <button class="secondary" type="button" id="generate-code">Generate Code</button>
+              </div>
+            </form>
+            <div id="registration-result" class="result" hidden></div>
+          </section>
+
+          <section class="card">
+            <h2>Fake Sensor Packet</h2>
+            <p class="muted">Sends a development `SENSOR_TLV` sighting to the backend. Use this to test the app before hardware is connected.</p>
+            <form id="fake-form">
+              <div class="split">
+                <div>
+                  <label for="fakeDeviceId">Device ID</label>
+                  <input id="fakeDeviceId" value="0x0000AB01" />
+                </div>
+                <div>
+                  <label for="fakeBagState">Bag state</label>
+                  <select id="fakeBagState">
+                    <option value="0">Closed</option>
+                    <option value="1">Open</option>
+                  </select>
+                </div>
+              </div>
+              <div class="split" style="margin-top:12px;">
+                <div>
+                  <label for="fakeTemperature">Temperature °C</label>
+                  <input id="fakeTemperature" type="number" step="0.01" value="27.40" />
+                </div>
+                <div>
+                  <label for="fakeHumidity">Humidity %RH</label>
+                  <input id="fakeHumidity" type="number" step="0.01" value="58.00" />
+                </div>
+              </div>
+              <div class="split" style="margin-top:12px;">
+                <div>
+                  <label for="fakeLux">Light lux</label>
+                  <input id="fakeLux" type="number" value="340" />
+                </div>
+                <div>
+                  <label for="fakeVibration">Vibration score</label>
+                  <input id="fakeVibration" type="number" value="42" />
+                </div>
+              </div>
+              <div class="row" style="margin-top:14px;">
+                <button class="warning" type="submit">Send Fake Packet</button>
+                <button class="secondary" type="button" id="randomize-fake">Randomize</button>
+              </div>
+            </form>
+            <div id="fake-result" class="result" hidden></div>
+          </section>
+        </div>
+
+        <div class="stack">
+          <section class="card">
+            <h2>Device Fleet</h2>
+            <div style="overflow:auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Device</th>
+                    <th>Status</th>
+                    <th>Last Packet</th>
+                    <th>Last Sensors</th>
+                  </tr>
+                </thead>
+                <tbody id="devices"></tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Registrations</h2>
+            <div style="overflow:auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Device ID</th>
+                    <th>Claim</th>
+                    <th>Created</th>
+                    <th>Note</th>
+                  </tr>
+                </thead>
+                <tbody id="registrations"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="grid" style="margin-top:16px;">
+        <section class="card">
+          <h2>Recent Sensor Readings</h2>
+          <div id="sensor-readings" class="stack"></div>
+        </section>
+        <section class="card">
+          <h2>Security Audit</h2>
+          <div id="security-events" class="stack"></div>
+        </section>
+      </section>
+    </div>
+
+    <script>
+      const secretInput = document.getElementById("adminSecret");
+      const statusInput = document.getElementById("backendStatus");
+      const metrics = document.getElementById("metrics");
+      const devicesTable = document.getElementById("devices");
+      const registrationsTable = document.getElementById("registrations");
+      const sensorReadings = document.getElementById("sensor-readings");
+      const securityEvents = document.getElementById("security-events");
+      const registrationForm = document.getElementById("registration-form");
+      const fakeForm = document.getElementById("fake-form");
+      const registrationResult = document.getElementById("registration-result");
+      const fakeResult = document.getElementById("fake-result");
+      const manualCodeInput = document.getElementById("manualCode");
+
+      secretInput.value = localStorage.getItem("adminSecret") || "";
+
+      function escapeHtml(value) {
+        return String(value ?? "").replace(/[&<>"']/g, (char) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#039;",
+        })[char]);
+      }
+
+      function normalizeCode(raw) {
+        return String(raw || "").trim().toUpperCase().replace(/[^A-Z0-9]/g, "");
+      }
+
+      function localCode(length = 8) {
+        const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        const bytes = new Uint32Array(length);
+        crypto.getRandomValues(bytes);
+        return Array.from(bytes, (value) => alphabet[value % alphabet.length]).join("");
+      }
+
+      function showResult(element, kind, html) {
+        element.hidden = false;
+        element.className = `result ${kind}`;
+        element.innerHTML = html;
+      }
+
+      function saveSecret() {
+        localStorage.setItem("adminSecret", secretInput.value);
+      }
+
+      async function postJson(path, body) {
+        const response = await fetch(path, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const responseBody = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(responseBody.error || `HTTP ${response.status}`);
+        }
+        return responseBody;
+      }
+
+      async function loadSummary() {
+        saveSecret();
+        if (!secretInput.value) {
+          statusInput.value = "Enter admin secret";
+          return;
+        }
+        statusInput.value = "Loading...";
+        try {
+          const summary = await postJson("/api/admin/summary", { adminSecret: secretInput.value });
+          statusInput.value = `Loaded ${new Date(summary.generatedAt).toLocaleTimeString()}`;
+          renderSummary(summary);
+        } catch (error) {
+          statusInput.value = error.message;
+        }
+      }
+
+      function renderSummary(summary) {
+        const health = summary.health;
+        metrics.innerHTML = [
+          ["Devices", health.devices],
+          ["Registrations", `${health.claimedRegistrations}/${health.registrations} claimed`],
+          ["Sensor Readings", health.sensorReadings],
+          ["Open Alerts", health.openAlerts],
+        ].map(([label, value]) => `<div class="metric"><strong>${escapeHtml(value)}</strong><span>${label}</span></div>`).join("");
+
+        devicesTable.innerHTML = summary.devices.map((device) => `
+          <tr>
+            <td><code class="copyable" title="Click to copy">${escapeHtml(device.deviceId)}</code><div class="muted">${escapeHtml(device.displayName)}</div></td>
+            <td>${device.ownerUserId ? "<span class='pill'>Claimed</span>" : "<span class='pill warn'>Unclaimed</span>"}<div class="muted">${escapeHtml(device.lastSeenAt || "never seen")}</div></td>
+            <td>${device.lastPacket ? `${escapeHtml(device.lastPacket.packetTypeName)}<div class="muted">${escapeHtml(device.lastPacket.bagStateName)} · seq ${escapeHtml(device.lastPacket.seqNum)}</div>` : "-"}</td>
+            <td>${device.lastSensors ? renderSensors(device.lastSensors) : "<span class='muted'>No sensors</span>"}</td>
+          </tr>
+        `).join("") || `<tr><td colspan="4" class="muted">No devices yet.</td></tr>`;
+
+        registrationsTable.innerHTML = summary.registrations.map((registration) => `
+          <tr>
+            <td><code class="copyable" title="Click to copy">${escapeHtml(registration.deviceId)}</code></td>
+            <td>${registration.claimedByUserId ? "<span class='pill'>Claimed</span>" : "<span class='pill warn'>Unclaimed</span>"}${registration.claimedAt ? `<div class="muted">${formatDate(registration.claimedAt)}</div>` : ""}</td>
+            <td>${formatDate(registration.createdAt)}</td>
+            <td>${escapeHtml(registration.note || "-")}</td>
+          </tr>
+        `).join("") || `<tr><td colspan="4" class="muted">No registrations yet.</td></tr>`;
+
+        sensorReadings.innerHTML = summary.recentSensorReadings.map((reading) => `
+          <div class="metric">
+            <strong style="font-size:1rem;">${escapeHtml(reading.deviceId)}</strong>
+            <span>${formatDate(reading.seenAt)} · RSSI ${escapeHtml(reading.rssi ?? "-")} dBm</span>
+            <div style="margin-top:10px;">${renderSensors(reading.sensors)}</div>
+          </div>
+        `).join("") || `<p class="muted">No sensor readings yet.</p>`;
+
+        securityEvents.innerHTML = summary.recentSecurityEvents.map((event) => `
+          <div class="metric">
+            <strong style="font-size:1rem;">${escapeHtml(event.type)}</strong>
+            <span>${formatDate(event.createdAt)}</span>
+            <pre style="white-space:pre-wrap;color:var(--muted);font-size:0.82rem;">${escapeHtml(JSON.stringify(event.details || {}, null, 2))}</pre>
+          </div>
+        `).join("") || `<p class="muted">No security events yet.</p>`;
+      }
+
+      function renderSensors(sensors) {
+        const items = [
+          ["Temp", sensors.temperatureC == null ? null : `${Number(sensors.temperatureC).toFixed(2)} °C`],
+          ["Humidity", sensors.humidityRh == null ? null : `${Number(sensors.humidityRh).toFixed(2)} %`],
+          ["Light", sensors.lux == null ? null : `${sensors.lux} lux`],
+          ["Vibration", sensors.vibrationScore],
+          ["Accel", sensors.accelXMg == null ? null : `x=${sensors.accelXMg}, y=${sensors.accelYMg}, z=${sensors.accelZMg} mg`],
+          ["Gyro", sensors.gyroXDps == null ? null : `x=${sensors.gyroXDps}, y=${sensors.gyroYDps}, z=${sensors.gyroZDps} °/s`],
+        ].filter(([, value]) => value !== null && value !== undefined);
+        return `<div class="sensor-list">${items.map(([label, value]) => `<div class="sensor-cell"><span class="muted">${label}</span><b>${escapeHtml(value)}</b></div>`).join("")}</div>`;
+      }
+
+      function formatDate(value) {
+        if (!value) return "-";
+        const date = new Date(value);
+        return Number.isNaN(date.getTime()) ? escapeHtml(value) : date.toLocaleString();
+      }
+
+      function randomizeFake() {
+        document.getElementById("fakeTemperature").value = (25 + Math.random() * 7).toFixed(2);
+        document.getElementById("fakeHumidity").value = (45 + Math.random() * 28).toFixed(2);
+        document.getElementById("fakeLux").value = Math.round(120 + Math.random() * 600);
+        document.getElementById("fakeVibration").value = Math.round(8 + Math.random() * 120);
+      }
+
+      document.getElementById("refresh").addEventListener("click", loadSummary);
+      document.getElementById("clear-secret").addEventListener("click", () => {
+        localStorage.removeItem("adminSecret");
+        secretInput.value = "";
+        statusInput.value = "Secret cleared";
+      });
+      document.getElementById("generate-code").addEventListener("click", () => {
+        manualCodeInput.value = localCode();
+      });
+      document.getElementById("randomize-fake").addEventListener("click", randomizeFake);
+      document.addEventListener("click", async (event) => {
+        const target = event.target.closest(".copyable");
+        if (!target) return;
+        await navigator.clipboard.writeText(target.textContent.trim());
+        statusInput.value = `Copied ${target.textContent.trim()}`;
+      });
+
+      registrationForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        saveSecret();
+        showResult(registrationResult, "", "Creating registration...");
+        try {
+          const body = await postJson("/api/admin/device-registrations", {
+            adminSecret: secretInput.value,
+            deviceId: registrationForm.deviceId.value,
+            manualCode: normalizeCode(registrationForm.manualCode.value),
+            note: registrationForm.note.value.trim(),
+          });
+          showResult(
+            registrationResult,
+            "good",
+            `<strong>Tracker registration created.</strong><div style="margin-top:10px;">Device ID: <code>${escapeHtml(body.deviceId)}</code></div><div style="margin-top:10px;">Owner claim code:</div><div class="code copyable">${escapeHtml(body.manualCode)}</div><div class="muted" style="margin-top:10px;">Click the code to copy it. The backend stores only its hash.</div>`
+          );
+          registrationForm.manualCode.value = "";
+          registrationForm.note.value = "";
+          document.getElementById("fakeDeviceId").value = body.deviceId;
+          await loadSummary();
+        } catch (error) {
+          showResult(registrationResult, "bad", `<strong>Registration failed.</strong><div>${escapeHtml(error.message)}</div>`);
+        }
+      });
+
+      fakeForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        showResult(fakeResult, "", "Sending fake packet...");
+        const seqNum = Math.floor(Math.random() * 256);
+        const payload = {
+          scannerUserId: "admin_fake_packet",
+          manufacturerId: "0xFF01",
+          deviceId: document.getElementById("fakeDeviceId").value,
+          rssi: -62,
+          location: { lat: 26.1445, lng: 91.7362, accuracyMeters: 18 },
+          packet: {
+            bagState: Number(document.getElementById("fakeBagState").value),
+            batteryLevel: 3,
+            seqNum,
+            packetType: 3,
+            healthStatus: 0,
+            daysSinceChange: 0,
+          },
+          sensors: {
+            temperatureC: Number(document.getElementById("fakeTemperature").value),
+            humidityRh: Number(document.getElementById("fakeHumidity").value),
+            lux: Number(document.getElementById("fakeLux").value),
+            accelXMg: Math.round(Math.random() * 50 - 25),
+            accelYMg: Math.round(Math.random() * 50 - 25),
+            accelZMg: Math.round(980 + Math.random() * 45),
+            gyroXDps: Number((Math.random() * 2 - 1).toFixed(2)),
+            gyroYDps: Number((Math.random() * 2 - 1).toFixed(2)),
+            gyroZDps: Number((Math.random() * 2 - 1).toFixed(2)),
+            vibrationScore: Number(document.getElementById("fakeVibration").value),
+          },
+        };
+        try {
+          await postJson("/api/sightings", payload);
+          showResult(fakeResult, "good", `<strong>Fake SENSOR_TLV packet sent.</strong><div>Device <code>${escapeHtml(payload.deviceId)}</code>, seq ${seqNum}</div>`);
+          await loadSummary();
+        } catch (error) {
+          showResult(fakeResult, "bad", `<strong>Fake packet failed.</strong><div>${escapeHtml(error.message)}</div>`);
+        }
+      });
+
+      randomizeFake();
+      loadSummary();
+      setInterval(loadSummary, 8000);
+    </script>
+  </body>
+</html>

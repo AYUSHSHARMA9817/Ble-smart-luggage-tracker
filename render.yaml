@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ble-tracker-backend
+    runtime: docker
+    rootDir: backend
+    plan: starter
+    envVars:
+      - key: PORT
+        value: 8787
+      - key: ADMIN_REGISTRATION_SECRET
+        sync: false
+      - key: TURSO_DATABASE_URL
+        sync: false
+      - key: TURSO_AUTH_TOKEN
+        sync: false
+      - key: ALERT_PROXIMITY_STALE_MS
+        value: 60000

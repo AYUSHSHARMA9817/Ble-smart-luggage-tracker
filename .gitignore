@@ -1,0 +1,49 @@
+# ── ESP-IDF / CMake build ──
+build/
+sdkconfig.old
+
+# ── Gradle (root + android-app) ──
+.gradle/
+android-app/.gradle/
+
+# ── Android build outputs ──
+android-app/build/
+android-app/app/build/
+android-app/local.properties
+
+# ── Kotlin compiler logs ──
+android-app/.kotlin/
+
+# ── Node / Backend ──
+backend/node_modules/
+backend/data/
+
+# ── IDE / Editor ──
+.idea/
+android-app/.idea/
+*.iml
+.vscode/
+
+# ── Clangd / LSP cache ──
+.cache/
+
+# ── Codex config (machine-local) ──
+.codex
+android-app/.codex
+backend/.codex
+main/.codex
+
+# ── OS junk ──
+.DS_Store
+Thumbs.db
+
+# ── Misc ──
+*.log
+*.swp
+*.swo
+*~
+.gradle/
+**/.gradle/
+build/
+**/build/
+out/
